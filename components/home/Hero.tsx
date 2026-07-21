@@ -189,8 +189,8 @@ export function Hero() {
             }}
           />
 
-          <div className="relative flex items-end justify-end pb-24 sm:pb-28 md:pb-32 lg:pb-36 translate-x-4 sm:translate-x-6 md:translate-x-8 lg:translate-x-10">
-            <div className="relative aspect-[4/5] w-[180px] sm:w-[240px] md:w-[300px] lg:w-[360px]">
+          <div className="relative flex items-end justify-end pb-10 sm:pb-12 md:pb-14 lg:pb-16 translate-x-4 sm:translate-x-6 md:translate-x-8 lg:translate-x-10">
+            <div className="relative aspect-[4/5] w-[200px] sm:w-[270px] md:w-[340px] lg:w-[400px]">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={active.productSlug}
