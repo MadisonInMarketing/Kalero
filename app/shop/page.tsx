@@ -7,9 +7,6 @@ import { categories } from "@/lib/categories";
 import { ProductCard } from "@/components/product/ProductCard";
 import { CategoryIcon } from "@/components/ui/CategoryIcon";
 import { Reveal } from "@/components/ui/Reveal";
-import { SizeFinder } from "@/components/shop/SizeFinder";
-import { HowToFindSize } from "@/components/shared/HowToFindSize";
-import { HvacCompatibility } from "@/components/shared/HvacCompatibility";
 import { productBySlug } from "@/lib/products";
 
 const concernImage: Record<string, string> = {
@@ -49,22 +46,6 @@ export default function ShopPage() {
         aria-hidden="true"
         className="pointer-events-none absolute -right-24 top-24 -z-10 h-96 w-96 rounded-full bg-lavender-400/30 blur-3xl"
       />
-
-      <section aria-labelledby="shop-size-finder" className="pt-10 pb-8 sm:pt-14">
-        <div className="container-x">
-          <div className="grid gap-4 lg:grid-cols-[1.35fr_1fr] lg:gap-6">
-            <div>
-              <span id="shop-size-finder" className="sr-only">
-                Find your filter size
-              </span>
-              <SizeFinder />
-            </div>
-            <HowToFindSize />
-          </div>
-        </div>
-      </section>
-
-      <HvacCompatibility />
 
       <section aria-labelledby="shop-cats" className="pt-10 pb-12 sm:pt-14 sm:pb-16">
         <div className="container-x">
