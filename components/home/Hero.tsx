@@ -190,7 +190,7 @@ export function Hero() {
           />
 
           <div className="relative flex items-end justify-end pb-10 translate-x-4 sm:translate-x-6 md:translate-x-8 lg:translate-x-10">
-            <div className="relative aspect-[4/5] w-[250px] sm:w-[330px] md:w-[410px] lg:w-[500px]">
+            <div className="relative aspect-[4/5] w-[210px] sm:w-[280px] md:w-[350px] lg:w-[420px]">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={active.productSlug}

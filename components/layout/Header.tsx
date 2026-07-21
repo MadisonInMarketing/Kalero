@@ -1,10 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, Search, ShoppingBag, X } from "lucide-react";
 import { Logo } from "@/components/ui/Logo";
+import { products } from "@/lib/products";
+import { categories } from "@/lib/categories";
 
 const links = [
   { href: "/", label: "Home" },
@@ -15,6 +17,9 @@ const links = [
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [query, setQuery] = useState("");
+  const searchInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -29,6 +34,44 @@ export function Header() {
       document.body.style.overflow = "";
     };
   }, [menuOpen]);
+
+  useEffect(() => {
+    if (!searchOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setSearchOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    const t = window.setTimeout(() => searchInputRef.current?.focus(), 50);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      window.clearTimeout(t);
+    };
+  }, [searchOpen]);
+
+  const results = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    if (!q) return { products: [], categories: [] };
+    const matchedProducts = products
+      .filter(
+        (p) =>
+          p.name.toLowerCase().includes(q) ||
+          p.tagline.toLowerCase().includes(q),
+      )
+      .slice(0, 5);
+    const matchedCategories = categories
+      .filter(
+        (c) =>
+          c.title.toLowerCase().includes(q) ||
+          c.description.toLowerCase().includes(q),
+      )
+      .slice(0, 4);
+    return { products: matchedProducts, categories: matchedCategories };
+  }, [query]);
+
+  const closeSearch = () => {
+    setSearchOpen(false);
+    setQuery("");
+  };
 
   return (
     <header
@@ -58,6 +101,8 @@ export function Header() {
           <button
             type="button"
             aria-label="Search"
+            aria-expanded={searchOpen}
+            onClick={() => setSearchOpen((s) => !s)}
             className="flex h-10 w-10 items-center justify-center rounded-full text-charcoal-soft transition-colors hover:bg-white hover:text-lavender-700"
           >
             <Search size={18} strokeWidth={1.75} />
@@ -86,6 +131,119 @@ export function Header() {
       </div>
 
       <AnimatePresence>
+        {searchOpen && (
+          <motion.div
+            key="search-overlay"
+            className="fixed inset-0 z-50"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+          >
+            <div
+              className="absolute inset-0 bg-charcoal/40 backdrop-blur-sm"
+              onClick={closeSearch}
+              aria-hidden="true"
+            />
+            <motion.div
+              className="absolute inset-x-0 top-0 bg-white shadow-card"
+              initial={{ y: -32, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -32, opacity: 0 }}
+              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              role="dialog"
+              aria-label="Search"
+            >
+              <div className="container-x flex items-center gap-3 py-5">
+                <Search size={20} strokeWidth={1.75} className="text-charcoal-mid" />
+                <input
+                  ref={searchInputRef}
+                  type="text"
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  placeholder="Search filters, sizes, or concerns…"
+                  aria-label="Search filters, sizes, or concerns"
+                  className="flex-1 bg-transparent text-base text-charcoal placeholder:text-charcoal-mid/60 focus:outline-none sm:text-lg"
+                />
+                <button
+                  type="button"
+                  onClick={closeSearch}
+                  aria-label="Close search"
+                  className="flex h-9 w-9 items-center justify-center rounded-full text-charcoal-soft hover:bg-canvas"
+                >
+                  <X size={18} strokeWidth={1.75} />
+                </button>
+              </div>
+
+              {query.trim() && (
+                <div className="border-t border-lavender-100 bg-canvas/40">
+                  <div className="container-x max-h-[60vh] overflow-y-auto py-4">
+                    {results.products.length === 0 &&
+                    results.categories.length === 0 ? (
+                      <p className="py-6 text-center text-sm text-charcoal-mid">
+                        No matches for &ldquo;{query}&rdquo;. Try a concern like
+                        &ldquo;pet&rdquo;, &ldquo;allergy&rdquo;, or a MERV rating.
+                      </p>
+                    ) : (
+                      <div className="grid gap-6 sm:grid-cols-2">
+                        {results.products.length > 0 && (
+                          <div>
+                            <p className="text-eyebrow px-1 text-lavender-700">
+                              Filters
+                            </p>
+                            <ul className="mt-2 flex flex-col gap-1">
+                              {results.products.map((p) => (
+                                <li key={p.slug}>
+                                  <Link
+                                    href={`/products/${p.slug}`}
+                                    onClick={closeSearch}
+                                    className="block rounded-2xl px-3 py-2.5 text-sm text-charcoal transition-colors hover:bg-white"
+                                  >
+                                    <span className="block font-medium">
+                                      {p.name}
+                                    </span>
+                                    <span className="mt-0.5 block text-xs text-charcoal-mid">
+                                      {p.tagline}
+                                    </span>
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+                        {results.categories.length > 0 && (
+                          <div>
+                            <p className="text-eyebrow px-1 text-lavender-700">
+                              Concerns
+                            </p>
+                            <ul className="mt-2 flex flex-col gap-1">
+                              {results.categories.map((c) => (
+                                <li key={c.slug}>
+                                  <Link
+                                    href={`/shop/${c.slug}`}
+                                    onClick={closeSearch}
+                                    className="block rounded-2xl px-3 py-2.5 text-sm text-charcoal transition-colors hover:bg-white"
+                                  >
+                                    <span className="block font-medium">
+                                      {c.title}
+                                    </span>
+                                    <span className="mt-0.5 block text-xs text-charcoal-mid">
+                                      {c.description}
+                                    </span>
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+            </motion.div>
+          </motion.div>
+        )}
         {menuOpen && (
           <motion.div
             className="fixed inset-0 z-50 lg:hidden"
