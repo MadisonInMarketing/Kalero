@@ -13,9 +13,19 @@ import {
 import { PlanBuilder } from "@/components/subscriptions/PlanBuilder";
 
 export const metadata: Metadata = {
-  title: "Filter subscriptions",
+  title: "Air Filter Subscription — Delivered on Your Schedule | KALERO",
   description:
-    "Build a KALERO filter plan around your home. Choose your filter, size, quantity, and cadence. Pause or cancel anytime.",
+    "Build an air filter subscription around your HVAC. Pick your MERV 8, 11, or 13 filter, size (20x25x1, 16x25x1, and more), quantity, and delivery cadence — every 30, 60, or 90 days. Free shipping. Skip, pause, or cancel anytime.",
+  alternates: { canonical: "/subscriptions" },
+  keywords: [
+    "air filter subscription",
+    "furnace filter subscription",
+    "HVAC filter delivery",
+    "monthly air filter delivery",
+    "recurring air filter",
+    "air filter auto delivery",
+    "air filter replacement plan",
+  ],
 };
 
 const benefits = [

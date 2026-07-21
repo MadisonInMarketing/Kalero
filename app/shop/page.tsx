@@ -19,9 +19,26 @@ const concernImage: Record<string, string> = {
 };
 
 export const metadata: Metadata = {
-  title: "Shop all filters",
+  title: "Shop Home Air Filters | MERV 8, 11, 13 by Concern",
   description:
-    "Every KALERO filter, sorted by the way homes actually breathe. Pet, allergy, smoke, carbon, hotel, everyday.",
+    "Shop every KALERO home air filter, sorted by concern — pet dander, allergies, smoke, dust, odors, and hotel supply. Available in 14x20x1, 16x20x1, 16x25x1, 20x20x1, 20x25x1, 20x30x1 and custom sizes. Free shipping on subscriptions.",
+  alternates: { canonical: "/shop" },
+  keywords: [
+    "home air filters",
+    "shop air filters",
+    "HVAC air filter",
+    "furnace filter",
+    "MERV 8 filter",
+    "MERV 11 filter",
+    "MERV 13 filter",
+    "20x25x1 air filter",
+    "16x25x1 air filter",
+    "20x20x1 air filter",
+    "pet air filter",
+    "allergy air filter",
+    "smoke air filter",
+    "KALERO air filters",
+  ],
 };
 
 const visibleCategories = (() => {

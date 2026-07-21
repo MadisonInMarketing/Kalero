@@ -13,9 +13,20 @@ import { ProductRender } from "@/components/product/ProductRender";
 import { HotelRequestForm } from "@/components/hotel/HotelRequestForm";
 
 export const metadata: Metadata = {
-  title: "Hotel & Property Supply",
+  title: "Hotel & Commercial Air Filter Supply | Bulk HVAC Filter Programs",
   description:
-    "KALERO builds recurring filter programs for hospitality groups, property managers, and residential communities.",
+    "KALERO builds recurring bulk air filter supply programs for hotels, property managers, multi-family communities, and hospitality groups. MERV-rated HVAC filters delivered on custom schedules to every property.",
+  alternates: { canonical: "/hotel-property" },
+  keywords: [
+    "commercial air filter supply",
+    "hotel HVAC filter",
+    "bulk air filter",
+    "property management air filter",
+    "multi-property filter program",
+    "commercial MERV 11 filter",
+    "commercial MERV 13 filter",
+    "hospitality air filter",
+  ],
 };
 
 const services = [
