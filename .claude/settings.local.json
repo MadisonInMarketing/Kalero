@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(npx tsc *)",
+      "Bash(npx next *)",
+      "Bash(awk '{print $6, $7, $8, $9, $10, $11}')",
+      "Bash(sort -k9)",
+      "Bash(mv \"Merv 8:Everyday Filter.png\" \"Everyday Merv 8.png\")",
+      "Bash(mv \"Merv 8:Everyday Filter 2.png\" \"Everyday Merv 8 2.png\")",
+      "Bash(mv \"Merv 8:Everydayfilter 3.png\" \"Everyday Merv 8 3.png\")",
+      "Bash(mv \"Allergy Prodct 1.png\" \"Allergy Product 1.png\")",
+      "Bash(mv \"Allergy - Homepage.png\" \"Allergy Homepage.png\")",
+      "Bash(mv \"Carbon - Homepage.png\" \"Carbon Homepage.png\")",
+      "Bash(mv \"Every day -homepage.png\" \"Everyday Homepage.png\")",
+      "Bash(mv \"Smoke - Homepage.png\" \"Smoke Homepage.png\")",
+      "WebFetch(domain:filterbuy.com)",
+      "Bash(PORT=3001 npm run dev)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3001/)",
+      "Bash(vercel --version)",
+      "Bash(gh auth *)",
+      "Bash(git init *)",
+      "Bash(git add *)"
+    ]
+  }
+}

@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --lavender: #9164d2;
+    --lavender-100: #f1eafe;
+    --lavender-200: #e4d4fc;
+    --charcoal: #17171b;
+    --canvas: #fafafc;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background: var(--canvas);
+    color: var(--charcoal);
+    font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+  }
+
+  ::selection {
+    background: var(--lavender-100);
+    color: var(--charcoal);
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-[1360px] px-5 sm:px-8 lg:px-12;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-eyebrow font-medium uppercase text-lavender-600;
+  }
+
+  .display-serif {
+    font-family: "Satoshi", "Manrope", "Inter", ui-sans-serif, system-ui, sans-serif;
+    font-weight: 600;
+  }
+
+  .surface-card {
+    @apply rounded-card bg-white shadow-soft ring-1 ring-lavender-100/70;
+  }
+
+  .link-underline {
+    @apply relative inline-flex items-center gap-1 after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-full after:origin-right after:scale-x-0 after:bg-current after:transition-transform hover:after:origin-left hover:after:scale-x-100;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  .mask-fade-b {
+    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  }
+
+  .bg-grid-soft {
+    background-image:
+      linear-gradient(rgba(145, 100, 210, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(145, 100, 210, 0.06) 1px, transparent 1px);
+    background-size: 44px 44px;
+  }
+}
+
+/* Focus styles, accessibility */
+:where(a, button, [role="button"], input, select, textarea):focus-visible {
+  outline: 2px solid var(--lavender);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
