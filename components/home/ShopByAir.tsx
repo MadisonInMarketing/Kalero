@@ -55,7 +55,7 @@ const features: Feature[] = [
     categorySlug: "allergies-and-pollen",
     title: "Allergy Defense",
     tagline: "For pollen + allergens",
-    image: "/images/hero/animated/allergy-pedestal.png",
+    image: "/images/hero/animated/allergy-hero.png",
     zoom: true,
     objectPosition: "50% 50%",
     hex: "#E95774",
