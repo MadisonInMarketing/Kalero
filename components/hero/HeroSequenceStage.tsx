@@ -22,7 +22,7 @@ export const HeroSequenceStage = forwardRef<
     <div
       ref={ref}
       data-hero-stage
-      className="relative aspect-[16/10] w-full overflow-hidden rounded-3xl bg-canvas ring-1 ring-white/60 shadow-[0_40px_80px_-30px_rgba(23,23,27,0.35)]"
+      className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl bg-canvas ring-1 ring-white/60 shadow-[0_40px_80px_-30px_rgba(23,23,27,0.35)] lg:aspect-auto lg:h-[calc(100dvh-9rem)] lg:max-h-[720px]"
     >
       {/* Ambient lavender-blue glow */}
       <div

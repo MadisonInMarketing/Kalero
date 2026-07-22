@@ -306,17 +306,19 @@ export function KaleroEverydayHero() {
             "linear-gradient(180deg, #FAFAFC 0%, #F4EFFA 100%)",
         }}
       >
-        <div className="container-x relative grid h-full items-center gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.4fr)]">
-          <div className="relative z-10 py-10">
+        <div className="container-x relative grid h-full items-stretch gap-10 pt-24 pb-8 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.4fr)] lg:gap-12">
+          <div className="relative z-10 flex flex-col justify-center">
             <CopyColumn />
             <HeroProgress
               totalFrames={everydayHeroFrames.length}
               chapters={everydayHeroChapters}
             />
           </div>
-          <div className="relative">
-            <HeroSequenceStage frames={everydayHeroFrames} />
-            <HeroChapterCopy chapters={everydayHeroChapters} />
+          <div className="relative flex h-full items-center justify-center">
+            <div className="relative w-full">
+              <HeroSequenceStage frames={everydayHeroFrames} />
+              <HeroChapterCopy chapters={everydayHeroChapters} />
+            </div>
           </div>
         </div>
       </div>
