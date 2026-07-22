@@ -185,7 +185,7 @@ export function KaleroEverydayHero() {
             aria-hidden="true"
             className="h-px w-8 bg-lavender-300/70"
           />
-          Introducing Kalero Everyday
+          Introducing Kalero
         </p>
 
         <h1
@@ -199,7 +199,7 @@ export function KaleroEverydayHero() {
         </h1>
 
         <p className="max-w-xl text-base leading-relaxed text-white/85 text-pretty [text-shadow:0_1px_10px_rgba(0,0,0,0.6)] sm:text-lg">
-          Premium all-season filtration designed to capture everyday dust, lint, and airborne particles — without restricting the way your home breathes.
+          Premium filtration built for how your home actually breathes — from everyday dust and allergens to pet dander, smoke, and hospitality-grade air.
         </p>
 
         <div className="mt-2 flex flex-wrap items-center gap-3">
