@@ -10,7 +10,7 @@ type Frame = {
   focal?: string;
 };
 
-// Chosen for maximum drama on a full-bleed dark hero.
+// Diverse product moments for the full-bleed dark hero sequence.
 const heroFrames: Frame[] = [
   {
     src: "/images/hero/animated/9.png",
@@ -23,13 +23,38 @@ const heroFrames: Frame[] = [
     focal: "center",
   },
   {
+    src: "/images/hero/animated/8.png",
+    alt: "Kalero filter capturing airborne dust and particles",
+    focal: "center",
+  },
+  {
+    src: "/images/hero/animated/5.png",
+    alt: "Angled detail of the Kalero filter's pleated media",
+    focal: "center",
+  },
+  {
     src: "/images/hero/animated/3.png",
     alt: "Kalero filter revealed beside its packaging",
     focal: "center",
   },
+  {
+    src: "/images/hero/animated/10.png",
+    alt: "Cleaner air moving through a comfortable interior",
+    focal: "center",
+  },
+  {
+    src: "/images/hero/animated/1.png",
+    alt: "Kalero filter packaging in a bright residential setting",
+    focal: "center",
+  },
+  {
+    src: "/images/hero/animated/7.png",
+    alt: "Detail of Kalero filter internal construction",
+    focal: "center",
+  },
 ];
 
-const AUTO_ADVANCE_MS = 6500;
+const AUTO_ADVANCE_MS = 5500;
 
 export function KaleroEverydayHero() {
   const [activeIdx, setActiveIdx] = useState(0);
@@ -116,7 +141,8 @@ export function KaleroEverydayHero() {
       />
 
       {/* Content */}
-      <div className="container-x relative z-10 flex flex-col gap-8 pb-16 pt-32 sm:pb-24 sm:pt-40 lg:max-w-3xl">
+      <div className="container-x relative z-10 pb-16 pt-32 sm:pb-24 sm:pt-40">
+        <div className="flex flex-col gap-8 lg:max-w-3xl">
         <p className="flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-lavender-200/90">
           <span
             aria-hidden="true"
@@ -165,6 +191,7 @@ export function KaleroEverydayHero() {
           <span>MERV 11</span>
           <span aria-hidden="true" className="h-3 w-px bg-white/25" />
           <span>All-season filtration</span>
+        </div>
         </div>
       </div>
 
