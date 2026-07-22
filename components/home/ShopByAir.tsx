@@ -15,6 +15,9 @@ type Feature = {
   title: string;
   tagline: string;
   image: string;
+  /** When true, the image fills the card with object-cover (zooms in on the packaging). */
+  zoom?: boolean;
+  objectPosition?: string;
   hex: string;
   softHex: string;
   deepHex: string;
@@ -53,6 +56,8 @@ const features: Feature[] = [
     title: "Allergy Defense",
     tagline: "For pollen + allergens",
     image: "/images/hero/animated/allergy-pedestal.png",
+    zoom: true,
+    objectPosition: "50% 45%",
     hex: "#E95774",
     softHex: "#FBD8DF",
     deepHex: "#B93755",
@@ -64,7 +69,9 @@ const features: Feature[] = [
     categorySlug: "hotel-property",
     title: "Hotel Collection",
     tagline: "For hospitality spaces",
-    image: "/images/hero/animated/2.png",
+    image: "/images/hero/animated/1.png",
+    zoom: true,
+    objectPosition: "70% 50%",
     hex: "#E9B95C",
     softHex: "#FBEBC7",
     deepHex: "#B78A2E",
@@ -119,7 +126,16 @@ export function ShopByAir() {
                       alt={`${f.title} filter`}
                       fill
                       sizes="(min-width: 1024px) 320px, (min-width: 640px) 45vw, 90vw"
-                      className="relative object-contain px-4 pt-8 drop-shadow-[0_20px_35px_rgba(23,23,27,0.18)] transition-transform duration-500 group-hover:scale-[1.03]"
+                      className={
+                        f.zoom
+                          ? "relative object-cover transition-transform duration-500 group-hover:scale-[1.05]"
+                          : "relative object-contain px-4 pt-8 drop-shadow-[0_20px_35px_rgba(23,23,27,0.18)] transition-transform duration-500 group-hover:scale-[1.03]"
+                      }
+                      style={
+                        f.objectPosition
+                          ? { objectPosition: f.objectPosition }
+                          : undefined
+                      }
                     />
                   </div>
 
