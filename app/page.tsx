@@ -1,4 +1,4 @@
-import { Hero } from "@/components/home/Hero";
+import { KaleroEverydayHero } from "@/components/hero/KaleroEverydayHero";
 import { ShopByAir } from "@/components/home/ShopByAir";
 import { QuizPreview } from "@/components/home/QuizPreview";
 import { FilterPerformance } from "@/components/home/FilterPerformance";
@@ -9,7 +9,7 @@ import { FAQ } from "@/components/home/FAQ";
 export default function Home() {
   return (
     <>
-      <Hero />
+      <KaleroEverydayHero />
       <ShopByAir />
       <QuizPreview />
       <FilterPerformance />
