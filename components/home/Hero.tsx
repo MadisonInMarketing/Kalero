@@ -187,7 +187,7 @@ export function Hero() {
                     alt={active.alt}
                     fill
                     sizes="(min-width: 1024px) 780px, (min-width: 640px) 100vw, 100vw"
-                    className="object-cover"
+                    className="object-contain p-3 sm:p-4"
                     priority={activeIndex === 0}
                   />
                 </motion.div>
