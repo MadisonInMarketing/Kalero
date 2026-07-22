@@ -83,15 +83,6 @@ const config: Config = {
           "system-ui",
           "sans-serif",
         ],
-        serif: [
-          "var(--font-serif)",
-          "Fraunces",
-          "ui-serif",
-          "Georgia",
-          "Cambria",
-          "Times New Roman",
-          "serif",
-        ],
       },
       fontSize: {
         "display-2xl": ["clamp(3rem, 6vw, 5.5rem)", { lineHeight: "1.02", letterSpacing: "-0.03em" }],
