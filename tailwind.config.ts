@@ -46,9 +46,9 @@ const config: Config = {
           deep: "#6E8B27",
         },
         blush: {
-          DEFAULT: "#E95774",
-          soft: "#FBE1E7",
-          deep: "#B93755",
+          DEFAULT: "#1E3A6B",
+          soft: "#DCE3F0",
+          deep: "#0F1F42",
         },
         smoke: {
           DEFAULT: "#7566A5",

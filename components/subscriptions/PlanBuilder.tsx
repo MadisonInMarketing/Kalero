@@ -43,8 +43,8 @@ const catalog: PlanFilter[] = [
     merv: "MERV 13",
     price: 32,
     image: "/images/hero/animated/allergy-hero.png",
-    hex: "#E95774",
-    soft: "#FBE1E7",
+    hex: "#1E3A6B",
+    soft: "#DCE3F0",
   },
   {
     slug: "smoke-defense",

@@ -20,7 +20,7 @@ const palette: Record<
 > = {
   everyday: { base: "#67B7F2", deep: "#3A8FC9", soft: "#E5F2FD", accent: "#9164D2", label: "Everyday" },
   pet: { base: "#96B83B", deep: "#6E8B27", soft: "#EDF3D9", accent: "#9164D2", label: "Pet" },
-  allergy: { base: "#E95774", deep: "#B93755", soft: "#FBE1E7", accent: "#9164D2", label: "Allergy" },
+  allergy: { base: "#1E3A6B", deep: "#0F1F42", soft: "#DCE3F0", accent: "#9164D2", label: "Allergy" },
   smoke: { base: "#7566A5", deep: "#4E4278", soft: "#E6E2EF", accent: "#F1EAFE", label: "Smoke" },
   carbon: { base: "#4A4A55", deep: "#2B2B33", soft: "#E7E5EB", accent: "#9164D2", label: "Carbon" },
   hotel: { base: "#E9B95C", deep: "#B78A2E", soft: "#FBEFD3", accent: "#9164D2", label: "Hotel" },

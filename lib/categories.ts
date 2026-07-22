@@ -64,9 +64,9 @@ export const categories: Category[] = [
     gradient: "from-blush-soft via-white to-white",
     chipClass: "bg-lavender-100 text-lavender-700",
     ringClass: "ring-blush/30",
-    hex: "#E95774",
-    softHex: "#FBE1E7",
-    deepHex: "#B93755",
+    hex: "#1E3A6B",
+    softHex: "#DCE3F0",
+    deepHex: "#0F1F42",
     icon: "flower",
   },
   {

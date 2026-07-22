@@ -58,9 +58,9 @@ const features: Feature[] = [
     image: "/images/hero/animated/allergy-hero.png",
     zoom: true,
     objectPosition: "50% 50%",
-    hex: "#E95774",
-    softHex: "#FBD8DF",
-    deepHex: "#B93755",
+    hex: "#1E3A6B",
+    softHex: "#DCE3F0",
+    deepHex: "#0F1F42",
     icon: "flower",
   },
   {
