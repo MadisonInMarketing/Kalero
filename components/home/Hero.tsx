@@ -6,7 +6,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { Home, ShieldCheck, Truck } from "lucide-react";
 import { LinkButton } from "@/components/ui/Button";
-import type { Category } from "@/lib/categories";
 
 const trustPoints = [
   { Icon: ShieldCheck, label: "MERV 8-13 Filtration" },
@@ -14,81 +13,61 @@ const trustPoints = [
   { Icon: Home, label: "Made for Real Home Concerns" },
 ];
 
-type HeroProduct = {
-  name: string;
-  image: string;
-  productSlug: string;
-  tagline: string;
-  merv: string;
-  pillLabel: string;
-  pillIcon: Category["icon"];
-  hex: string;
-  softHex: string;
-  categorySlug: string;
+// Featured product for the hero story cycle. The right-side panel
+// walks through this product's packaging → filter → anatomy.
+const featured = {
+  name: "Everyday Defense",
+  productSlug: "everyday-defense",
+  merv: "MERV 8",
+  hex: "#67B7F2",
+  softHex: "#E5F2FD",
 };
 
-const heroProducts: HeroProduct[] = [
+// The 4-frame story cycle. Replace each `src` with the corresponding
+// Everyday Defense-branded photograph once available.
+const heroStory: {
+  key: string;
+  src: string;
+  caption: string;
+  alt: string;
+}[] = [
   {
-    name: "Pet Defense",
-    image: "/images/Pet Filter.png",
-    productSlug: "pet-defense",
-    tagline: "For homes with paws.",
-    merv: "MERV 11",
-    pillLabel: "Pets",
-    pillIcon: "paw",
-    hex: "#96B83B",
-    softHex: "#EDF3D9",
-    categorySlug: "pets-and-dander",
+    key: "box",
+    src: "/images/hero/animated/everyday-1-box.png",
+    caption: "The packaging",
+    alt: "Everyday Defense filter packaging",
   },
   {
-    name: "Everyday All Seasons",
-    image: "/images/Everyday Filter.png",
-    productSlug: "everyday-defense",
-    tagline: "Everyday air, quietly cared for.",
-    merv: "MERV 8",
-    pillLabel: "Everyday Dust",
-    pillIcon: "dust",
-    hex: "#67B7F2",
-    softHex: "#E5F2FD",
-    categorySlug: "everyday-dust",
+    key: "open",
+    src: "/images/hero/animated/everyday-2-open.png",
+    caption: "Inside the box",
+    alt: "Everyday Defense box open, filter visible",
   },
   {
-    name: "Allergy Defense",
-    image: "/images/Allergy FIlter.png",
-    productSlug: "allergy-defense",
-    tagline: "For pollen weeks and stuffy mornings.",
-    merv: "MERV 13",
-    pillLabel: "Allergies",
-    pillIcon: "flower",
-    hex: "#E95774",
-    softHex: "#FBE1E7",
-    categorySlug: "allergies-and-pollen",
+    key: "filter",
+    src: "/images/hero/animated/everyday-3-filter.png",
+    caption: "Precision engineering",
+    alt: "Everyday Defense pleated filter",
   },
   {
-    name: "Hotel Collection",
-    image: "/images/Hotel Collection.png",
-    productSlug: "hotel-collection",
-    tagline: "For hospitality and property supply.",
-    merv: "MERV 11",
-    pillLabel: "Hotels",
-    pillIcon: "sparkles",
-    hex: "#E9B95C",
-    softHex: "#FBEFD3",
-    categorySlug: "hotel-property",
+    key: "breakdown",
+    src: "/images/hero/animated/everyday-4-breakdown.png",
+    caption: "Layered filtration",
+    alt: "Everyday Defense filter anatomy exploded view",
   },
 ];
 
-const AUTO_ADVANCE_MS = 5500;
+const AUTO_ADVANCE_MS = 4200;
 
 export function Hero() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [paused, setPaused] = useState(false);
-  const active = heroProducts[activeIndex];
+  const active = heroStory[activeIndex];
 
   useEffect(() => {
     if (paused) return;
     const id = window.setTimeout(() => {
-      setActiveIndex((i) => (i + 1) % heroProducts.length);
+      setActiveIndex((i) => (i + 1) % heroStory.length);
     }, AUTO_ADVANCE_MS);
     return () => window.clearTimeout(id);
   }, [paused, activeIndex]);
@@ -110,8 +89,8 @@ export function Hero() {
     >
       <div className="pointer-events-none absolute -left-60 top-1/4 h-[500px] w-[500px] -translate-y-1/4 rounded-full bg-lavender-300/10 blur-[120px]" />
 
-      <div className="container-x relative flex-1 grid gap-10 pb-6 pt-8 sm:pt-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.4fr)] lg:items-end lg:gap-8 lg:pb-4 lg:pt-8">
-        <div className="relative z-10 max-w-2xl lg:self-center lg:pb-6">
+      <div className="container-x relative flex-1 grid gap-10 pb-6 pt-8 sm:pt-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.4fr)] lg:items-center lg:gap-8 lg:pb-4 lg:pt-8">
+        <div className="relative z-10 max-w-2xl">
           <motion.h1
             id="hero-title"
             initial={{ opacity: 0, y: 24 }}
@@ -175,59 +154,89 @@ export function Hero() {
         </div>
 
         <div
-          className="relative flex flex-col items-center justify-end"
+          className="relative flex flex-col items-stretch justify-center"
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
           onFocus={() => setPaused(true)}
           onBlur={() => setPaused(false)}
         >
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-y-0 left-1/2 w-[70%] -translate-x-1/2 rounded-2xl transition-colors duration-700"
-            style={{
-              background: `radial-gradient(55% 55% at 50% 55%, ${active.hex}22 0%, rgba(255,255,255,0) 70%)`,
-            }}
-          />
-
-          <div className="relative flex items-end justify-end pb-10 sm:pb-12 md:pb-14 lg:pb-16 translate-x-4 sm:translate-x-6 md:translate-x-8 lg:translate-x-10">
-            <div className="relative aspect-[4/5] w-[200px] sm:w-[270px] md:w-[340px] lg:w-[400px]">
+          <Link
+            href={`/products/${featured.productSlug}`}
+            aria-label={`${featured.name} — see product`}
+            className="group relative block outline-none"
+          >
+            <div className="relative aspect-[16/10] w-full overflow-hidden rounded-3xl ring-1 ring-white/60 shadow-[0_40px_80px_-30px_rgba(23,23,27,0.35)] transition-transform duration-500 group-hover:scale-[1.005] sm:aspect-[16/11] lg:aspect-[16/10]">
+              <div
+                aria-hidden="true"
+                className="absolute inset-0"
+                style={{
+                  background: `linear-gradient(135deg, ${featured.softHex} 0%, #FAF7F2 100%)`,
+                }}
+              />
               <AnimatePresence mode="wait">
                 <motion.div
-                  key={active.productSlug}
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -8 }}
-                  transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                  key={active.key}
+                  initial={{ opacity: 0, scale: 1.02 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.99 }}
+                  transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
                   className="absolute inset-0"
                 >
-                  <Link
-                    href={`/products/${active.productSlug}`}
-                    aria-label={active.name}
-                    className="group relative block outline-none"
-                  >
-                    <div className="relative aspect-[4/5] w-full transition-transform duration-500 group-hover:scale-[1.02]">
-                      <Image
-                        src={active.image}
-                        alt={active.name}
-                        fill
-                        sizes="(min-width: 1024px) 500px, (min-width: 768px) 410px, (min-width: 640px) 330px, 250px"
-                        className="relative object-contain drop-shadow-[0_28px_50px_rgba(23,23,27,0.35)]"
-                        priority
-                      />
-                    </div>
-                    <div
-                      aria-hidden="true"
-                      className="mx-auto -mt-2 h-3 w-[55%] rounded-[50%] blur-[6px]"
-                      style={{
-                        background:
-                          "radial-gradient(closest-side, rgba(0,0,0,0.55), rgba(0,0,0,0))",
-                      }}
-                    />
-                  </Link>
+                  <Image
+                    src={active.src}
+                    alt={active.alt}
+                    fill
+                    sizes="(min-width: 1024px) 780px, (min-width: 640px) 100vw, 100vw"
+                    className="object-cover"
+                    priority={activeIndex === 0}
+                  />
                 </motion.div>
               </AnimatePresence>
+
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/45 via-black/10 to-transparent"
+              />
+
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={`${active.key}-caption`}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -6 }}
+                  transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                  className="absolute bottom-5 left-5 flex items-center gap-2.5 sm:bottom-6 sm:left-6"
+                >
+                  <span className="rounded-full bg-white/95 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-lavender-700 shadow-soft ring-1 ring-white/70">
+                    {featured.merv}
+                  </span>
+                  <span className="text-sm font-medium text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)] sm:text-base">
+                    {active.caption}
+                  </span>
+                </motion.div>
+              </AnimatePresence>
+
+              <div className="absolute bottom-5 right-5 flex items-center gap-1.5 sm:bottom-6 sm:right-6">
+                {heroStory.map((frame, i) => (
+                  <button
+                    key={frame.key}
+                    type="button"
+                    aria-label={`Show ${frame.caption}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      setActiveIndex(i);
+                    }}
+                    className={`h-1.5 rounded-full transition-all duration-500 ${
+                      i === activeIndex
+                        ? "w-8 bg-white shadow-[0_0_0_1px_rgba(0,0,0,0.05)]"
+                        : "w-1.5 bg-white/60 hover:bg-white/85"
+                    }`}
+                  />
+                ))}
+              </div>
             </div>
-          </div>
+          </Link>
         </div>
       </div>
     </section>
