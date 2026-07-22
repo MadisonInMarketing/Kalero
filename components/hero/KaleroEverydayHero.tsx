@@ -1,10 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
 import { Pause, Play } from "lucide-react";
 import { LinkButton } from "@/components/ui/Button";
 import {
@@ -16,13 +13,10 @@ import { HeroChapterCopy } from "./HeroChapterCopy";
 import { HeroProgress } from "./HeroProgress";
 import { HeroSequenceStage } from "./HeroSequenceStage";
 
-gsap.registerPlugin(ScrollTrigger, useGSAP);
+type Mode = "auto" | "mobile" | "static" | null;
 
-type Mode = "pinned" | "mobile" | "static" | null;
-
-const MOBILE_ADVANCE_MS = 5500;
-const PER_FRAME = 10;
-const TOTAL_TIMELINE = PER_FRAME * everydayHeroFrames.length;
+const DESKTOP_ADVANCE_MS = 3600;
+const MOBILE_ADVANCE_MS = 5000;
 
 export function KaleroEverydayHero() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -33,7 +27,7 @@ export function KaleroEverydayHero() {
     const mqLarge = window.matchMedia("(min-width: 1024px)");
     const evaluate = () => {
       if (mqReduce.matches) setMode("static");
-      else if (mqLarge.matches) setMode("pinned");
+      else if (mqLarge.matches) setMode("auto");
       else setMode("mobile");
     };
     evaluate();
@@ -45,234 +39,7 @@ export function KaleroEverydayHero() {
     };
   }, []);
 
-  useGSAP(
-    () => {
-      if (mode !== "pinned") return;
-      const root = sectionRef.current;
-      if (!root) return;
-
-      const pinContainer = root.querySelector<HTMLElement>("[data-hero-pin]");
-      if (!pinContainer) return;
-
-      const trackHeight = Math.round(window.innerHeight * 1.4);
-
-      const frames = gsap.utils.toArray<HTMLElement>("[data-hero-frame]", root);
-      const chapters = gsap.utils.toArray<HTMLElement>(
-        "[data-chapter-key]",
-        root,
-      );
-      const progressCount = root.querySelector<HTMLElement>(
-        "[data-hero-progress-count]",
-      );
-      const progressFill = root.querySelector<HTMLElement>(
-        "[data-hero-progress-fill]",
-      );
-      const progressChapters = gsap.utils.toArray<HTMLElement>(
-        "[data-hero-progress-chapter]",
-        root,
-      );
-      const callouts = gsap.utils.toArray<HTMLElement>(
-        "[data-hero-callout]",
-        root,
-      );
-      const transitionLabels = gsap.utils.toArray<HTMLElement>(
-        "[data-hero-transition-label]",
-        root,
-      );
-      const closing = root.querySelector<HTMLElement>("[data-hero-closing]");
-
-      // Frame entry state
-      frames.forEach((frame, i) => {
-        if (i === 0) {
-          gsap.set(frame, {
-            opacity: 1,
-            scale: 1,
-            xPercent: 0,
-            filter: "blur(0px)",
-          });
-        } else {
-          gsap.set(frame, {
-            opacity: 0,
-            scale: 1.025,
-            xPercent: i % 2 === 0 ? 1.5 : -1.5,
-            filter: "blur(2px)",
-          });
-        }
-      });
-
-      chapters.forEach((chapter, i) => {
-        gsap.set(chapter, { opacity: i === 0 ? 1 : 0, y: i === 0 ? 0 : 6 });
-      });
-      callouts.forEach((el) => gsap.set(el, { opacity: 0, y: 4 }));
-      transitionLabels.forEach((el) => gsap.set(el, { opacity: 0, y: 4 }));
-      if (closing) gsap.set(closing, { opacity: 0, y: 6 });
-
-      const chapterElementByKey = (key: string) =>
-        chapters.find((c) => c.dataset.chapterKey === key);
-
-      const tl = gsap.timeline({
-        defaults: { ease: "power2.inOut" },
-        scrollTrigger: {
-          trigger: pinContainer,
-          start: "top top",
-          end: `+=${trackHeight}`,
-          pin: true,
-          pinSpacing: true,
-          scrub: 1,
-          invalidateOnRefresh: true,
-          onUpdate: (self) => {
-            const p = self.progress;
-            const idx = Math.min(
-              everydayHeroFrames.length - 1,
-              Math.floor(p * everydayHeroFrames.length),
-            );
-            if (progressCount) {
-              progressCount.textContent = (idx + 1)
-                .toString()
-                .padStart(2, "0");
-            }
-            if (progressFill) {
-              progressFill.style.transform = `scaleX(${p})`;
-            }
-            const activeChapterKey =
-              everydayHeroFrames[idx]?.chapterKey ?? "intro";
-            progressChapters.forEach((el) => {
-              el.style.opacity =
-                el.dataset.heroProgressChapter === activeChapterKey ? "1" : "0";
-            });
-          },
-        },
-      });
-
-      // Frame cross-fades
-      frames.forEach((frame, i) => {
-        if (i > 0) {
-          const enterAt = Math.max(0, i * PER_FRAME - 3);
-          tl.to(
-            frame,
-            {
-              opacity: 1,
-              scale: 1,
-              xPercent: 0,
-              filter: "blur(0px)",
-              duration: 3.5,
-              ease: "power2.out",
-            },
-            enterAt,
-          );
-        }
-        if (i < frames.length - 1) {
-          const exitAt = (i + 1) * PER_FRAME - 3;
-          tl.to(
-            frame,
-            {
-              opacity: 0,
-              duration: 3.5,
-              ease: "power2.out",
-            },
-            exitAt,
-          );
-        }
-      });
-
-      // Chapter copy fades
-      everydayHeroChapters.forEach((chapter, ci) => {
-        const el = chapterElementByKey(chapter.key);
-        if (!el) return;
-        const startAt = (chapter.startFrameId - 1) * PER_FRAME;
-        const endAt = chapter.endFrameId * PER_FRAME;
-        if (ci > 0) {
-          tl.to(
-            el,
-            {
-              opacity: 1,
-              y: 0,
-              duration: 2,
-              ease: "power2.out",
-            },
-            startAt,
-          );
-        }
-        if (ci < everydayHeroChapters.length - 1) {
-          tl.to(
-            el,
-            {
-              opacity: 0,
-              y: -6,
-              duration: 2,
-              ease: "power2.inOut",
-            },
-            endAt - 2,
-          );
-        }
-      });
-
-      // Callouts (frames 6 & 7)
-      const cf6 = callouts.filter((c) => c.dataset.heroCalloutFrame === "6");
-      const cf7 = callouts.filter((c) => c.dataset.heroCalloutFrame === "7");
-      const startFrame6 = (6 - 1) * PER_FRAME + 1.5;
-      const startFrame7 = (7 - 1) * PER_FRAME + 1.5;
-      cf6.forEach((el, i) => {
-        tl.to(
-          el,
-          { opacity: 1, y: 0, duration: 1.6, ease: "power2.out" },
-          startFrame6 + i * 0.4,
-        );
-        tl.to(
-          el,
-          { opacity: 0, duration: 1.2, ease: "power2.inOut" },
-          startFrame7 - 1.2,
-        );
-      });
-      cf7.forEach((el, i) => {
-        tl.to(
-          el,
-          { opacity: 1, y: 0, duration: 1.6, ease: "power2.out" },
-          startFrame7 + i * 0.4,
-        );
-        tl.to(
-          el,
-          { opacity: 0, duration: 1.2, ease: "power2.inOut" },
-          (8 - 1) * PER_FRAME - 1.5,
-        );
-      });
-
-      // Transition label on frame 9
-      transitionLabels.forEach((el) => {
-        tl.to(
-          el,
-          { opacity: 1, y: 0, duration: 1.6, ease: "power2.out" },
-          (9 - 1) * PER_FRAME + 1.5,
-        );
-        tl.to(
-          el,
-          { opacity: 0, duration: 1.2, ease: "power2.inOut" },
-          (10 - 1) * PER_FRAME - 1.5,
-        );
-      });
-
-      // Closing overlay on frame 10
-      if (closing) {
-        tl.to(
-          closing,
-          {
-            opacity: 1,
-            y: 0,
-            duration: 2.4,
-            ease: "power2.out",
-          },
-          (10 - 1) * PER_FRAME + 1.5,
-        );
-      }
-
-      // Ensure end pad matches our arithmetic
-      tl.to({}, { duration: 0.01 }, TOTAL_TIMELINE);
-    },
-    { scope: sectionRef, dependencies: [mode] },
-  );
-
   if (mode === null) {
-    // Server + first paint. Render skeleton with real copy so layout is stable.
     return (
       <section
         ref={sectionRef}
@@ -295,30 +62,78 @@ export function KaleroEverydayHero() {
     return <MobileHero sectionRef={sectionRef} />;
   }
 
-  // pinned
+  return <AutoDesktopHero sectionRef={sectionRef} />;
+}
+
+/* ---------- Desktop autoplay ---------- */
+
+function AutoDesktopHero({
+  sectionRef,
+}: {
+  sectionRef: React.RefObject<HTMLElement | null>;
+}) {
+  const [activeIdx, setActiveIdx] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  useEffect(() => {
+    if (paused) return;
+    const id = window.setTimeout(() => {
+      setActiveIdx((i) => (i + 1) % everydayHeroFrames.length);
+    }, DESKTOP_ADVANCE_MS);
+    return () => window.clearTimeout(id);
+  }, [paused, activeIdx]);
+
+  const activeFrame = everydayHeroFrames[activeIdx];
+  const activeChapterKey = activeFrame.chapterKey;
+
+  const progress = useMemo(
+    () => (activeIdx + 1) / everydayHeroFrames.length,
+    [activeIdx],
+  );
+
   return (
-    <section ref={sectionRef} aria-labelledby="hero-title" className="relative">
-      <div
-        data-hero-pin
-        className="relative h-[100dvh] w-full overflow-hidden"
-        style={{
-          background:
-            "linear-gradient(180deg, #FAFAFC 0%, #F4EFFA 100%)",
-        }}
-      >
-        <div className="container-x relative grid h-full items-stretch gap-10 pt-24 pb-8 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.4fr)] lg:gap-12">
-          <div className="relative z-10 flex flex-col justify-center">
-            <CopyColumn />
-            <HeroProgress
-              totalFrames={everydayHeroFrames.length}
-              chapters={everydayHeroChapters}
+    <section
+      ref={sectionRef}
+      aria-labelledby="hero-title"
+      className="relative w-full overflow-hidden"
+      style={{
+        background:
+          "linear-gradient(180deg, #FAFAFC 0%, #F4EFFA 100%)",
+      }}
+    >
+      <div className="container-x relative grid min-h-[calc(100dvh-6.5rem)] items-center gap-10 pt-16 pb-10 sm:min-h-[calc(100dvh-8rem)] sm:pt-20 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.4fr)] lg:gap-12">
+        <div className="relative z-10 flex flex-col justify-center">
+          <CopyColumn />
+          <HeroProgress
+            totalFrames={everydayHeroFrames.length}
+            chapters={everydayHeroChapters}
+            activeCount={activeIdx + 1}
+            activeChapterKey={activeChapterKey}
+            progress={progress}
+          />
+        </div>
+        <div className="relative flex h-full items-center justify-center">
+          <div className="relative w-full">
+            <HeroSequenceStage
+              frames={everydayHeroFrames}
+              activeIdx={activeIdx}
             />
-          </div>
-          <div className="relative flex h-full items-center justify-center">
-            <div className="relative w-full">
-              <HeroSequenceStage frames={everydayHeroFrames} />
-              <HeroChapterCopy chapters={everydayHeroChapters} />
-            </div>
+            <HeroChapterCopy
+              chapters={everydayHeroChapters}
+              activeChapterKey={activeChapterKey}
+            />
+            <button
+              type="button"
+              onClick={() => setPaused((p) => !p)}
+              aria-label={paused ? "Play sequence" : "Pause sequence"}
+              className="absolute right-4 top-4 z-30 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-charcoal shadow-soft ring-1 ring-charcoal/10 transition-transform hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-lavender-500"
+            >
+              {paused ? (
+                <Play size={14} strokeWidth={2.25} />
+              ) : (
+                <Pause size={14} strokeWidth={2.25} />
+              )}
+            </button>
           </div>
         </div>
       </div>
@@ -470,7 +285,6 @@ function MobileHero({
             />
           </div>
         ))}
-        {/* Fallback for when JS hasn't hydrated: still show a valid image */}
         <noscript>
           <Image
             src={staticFrame.src}
