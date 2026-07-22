@@ -254,7 +254,7 @@ export const products: Product[] = [
     replacementCadence: "Every 45 to 60 days",
     longDescription:
       "Allergy Defense is our go-to for households that feel every pollen count. Available in MERV 11 for balanced airflow or MERV 13 for higher capture, always designed to work with standard residential HVAC systems.",
-    image: "/images/Allergy FIlter.png",
+    image: "/images/hero/animated/allergy-pair.png",
     cardImage: "/images/Allergy 4 pack - 2.png",
     hero: {
       label: "The allergy one",
@@ -294,7 +294,7 @@ export const products: Product[] = [
     replacementCadence: "Every 90 to 120 days",
     longDescription:
       "The Hotel Collection is our program for hospitality groups and property managers. Filters ship on a cadence aligned to your building specs and service standards, with room to scale across portfolios and consistent supply so engineering teams never guess what belongs in a return vent.",
-    image: "/images/Hotel Collection.png",
+    image: "/images/hero/animated/2.png",
     cardImage: "/images/Hotel 4 pack - 2.png",
     hero: {
       label: "The hospitality one",

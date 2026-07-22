@@ -42,7 +42,7 @@ const catalog: PlanFilter[] = [
     name: "Allergy Defense",
     merv: "MERV 13",
     price: 32,
-    image: "/images/Allergy FIlter.png",
+    image: "/images/hero/animated/allergy-pair.png",
     hex: "#E95774",
     soft: "#FBE1E7",
   },

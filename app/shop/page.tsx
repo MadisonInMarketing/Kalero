@@ -12,7 +12,7 @@ import { productBySlug } from "@/lib/products";
 const concernImage: Record<string, string> = {
   "everyday-dust": "/images/New - fresh everyday home.png",
   "pets-and-dander": "/images/Pet - new.png",
-  "allergies-and-pollen": "/images/Allergy Homepage.png",
+  "allergies-and-pollen": "/images/hero/animated/allergy-pedestal.png",
   "smoke-and-pollution": "/images/Smoke Homepage.png",
   "odors-and-vocs": "/images/Carbon Homepage.png",
   "hotel-collection": "/images/New Hotel Image .png",
