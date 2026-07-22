@@ -94,20 +94,24 @@ export function Hero() {
 
   return (
     <section
-      className="relative isolate flex min-h-[calc(100dvh-6.5rem)] flex-col overflow-hidden sm:min-h-[calc(100dvh-8rem)]"
+      className="relative isolate flex min-h-[calc(100dvh-6.5rem)] flex-col overflow-hidden bg-canvas sm:min-h-[calc(100dvh-8rem)]"
       aria-labelledby="hero-title"
       style={{
         backgroundImage: [
-          "radial-gradient(60% 80% at 0% 50%, rgba(145,100,210,0.14) 0%, rgba(228,212,252,0.04) 55%, rgba(241,234,254,0) 90%)",
-          "linear-gradient(90deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.78) 25%, rgba(255,255,255,0.4) 48%, rgba(255,255,255,0.1) 65%, rgba(255,255,255,0) 80%)",
-          "url('/images/hero/New Hero Background.png')",
+          "radial-gradient(80% 60% at 78% 42%, rgba(228,212,252,0.55) 0%, rgba(228,212,252,0) 70%)",
+          "linear-gradient(180deg, #FAF7F2 0%, #F3EEF6 55%, #E9E1EF 100%)",
         ].join(", "),
-        backgroundSize: "cover, cover, cover",
-        backgroundPosition: "center, center, center",
-        backgroundRepeat: "no-repeat, no-repeat, no-repeat",
       }}
     >
-      <div className="pointer-events-none absolute -left-60 top-1/4 h-[500px] w-[500px] -translate-y-1/4 rounded-full bg-lavender-300/10 blur-[120px]" />
+      <div className="pointer-events-none absolute -left-60 top-1/4 h-[500px] w-[500px] -translate-y-1/4 rounded-full bg-lavender-300/20 blur-[120px]" />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-[38%]"
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(74,46,122,0) 0%, rgba(74,46,122,0.08) 55%, rgba(74,46,122,0.16) 100%)",
+        }}
+      />
 
       <div className="container-x relative flex-1 grid gap-10 pb-6 pt-8 sm:pt-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.4fr)] lg:items-end lg:gap-8 lg:pb-4 lg:pt-8">
         <div className="relative z-10 max-w-2xl lg:self-center lg:pb-6">
@@ -191,7 +195,7 @@ export function Hero() {
         </div>
 
         <div
-          className="relative flex flex-col items-center justify-end"
+          className="relative flex flex-col items-center justify-center py-8 lg:py-12"
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
           onFocus={() => setPaused(true)}
@@ -199,50 +203,49 @@ export function Hero() {
         >
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-y-0 left-1/2 w-[70%] -translate-x-1/2 rounded-2xl transition-colors duration-700"
+            className="pointer-events-none absolute left-1/2 top-1/2 h-[90%] w-[95%] -translate-x-1/2 -translate-y-1/2 rounded-full transition-colors duration-700"
             style={{
-              background: `radial-gradient(55% 55% at 50% 55%, ${active.hex}22 0%, rgba(255,255,255,0) 70%)`,
+              background: `radial-gradient(closest-side, ${active.hex}26 0%, ${active.hex}12 40%, rgba(255,255,255,0) 72%)`,
+              filter: "blur(20px)",
             }}
           />
 
-          <div className="relative flex items-end justify-end pb-10 sm:pb-12 md:pb-14 lg:pb-16 translate-x-4 sm:translate-x-6 md:translate-x-8 lg:translate-x-10">
-            <div className="relative aspect-[4/5] w-[200px] sm:w-[270px] md:w-[340px] lg:w-[400px]">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={active.productSlug}
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -8 }}
-                  transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                  className="absolute inset-0"
+          <div className="relative aspect-[4/5] w-[220px] sm:w-[300px] md:w-[380px] lg:w-[460px]">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={active.productSlug}
+                initial={{ opacity: 0, y: 16, scale: 0.985 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -10, scale: 0.99 }}
+                transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
+                className="absolute inset-0"
+              >
+                <Link
+                  href={`/products/${active.productSlug}`}
+                  aria-label={active.name}
+                  className="group relative block outline-none"
                 >
-                  <Link
-                    href={`/products/${active.productSlug}`}
-                    aria-label={active.name}
-                    className="group relative block outline-none"
-                  >
-                    <div className="relative aspect-[4/5] w-full transition-transform duration-500 group-hover:scale-[1.02]">
-                      <Image
-                        src={active.image}
-                        alt={active.name}
-                        fill
-                        sizes="(min-width: 1024px) 500px, (min-width: 768px) 410px, (min-width: 640px) 330px, 250px"
-                        className="relative object-contain drop-shadow-[0_28px_50px_rgba(23,23,27,0.35)]"
-                        priority
-                      />
-                    </div>
-                    <div
-                      aria-hidden="true"
-                      className="mx-auto -mt-2 h-3 w-[55%] rounded-[50%] blur-[6px]"
-                      style={{
-                        background:
-                          "radial-gradient(closest-side, rgba(0,0,0,0.55), rgba(0,0,0,0))",
-                      }}
+                  <div className="relative aspect-[4/5] w-full transition-transform duration-500 group-hover:scale-[1.02]">
+                    <Image
+                      src={active.image}
+                      alt={active.name}
+                      fill
+                      sizes="(min-width: 1024px) 460px, (min-width: 768px) 380px, (min-width: 640px) 300px, 220px"
+                      className="relative object-contain [filter:drop-shadow(0_18px_28px_rgba(23,23,27,0.16))_drop-shadow(0_44px_60px_rgba(74,46,122,0.28))]"
+                      priority
                     />
-                  </Link>
-                </motion.div>
-              </AnimatePresence>
-            </div>
+                  </div>
+                  <div
+                    aria-hidden="true"
+                    className="mx-auto mt-2 h-6 w-[70%] rounded-[50%] blur-[14px]"
+                    style={{
+                      background:
+                        "radial-gradient(closest-side, rgba(23,23,27,0.55), rgba(23,23,27,0))",
+                    }}
+                  />
+                </Link>
+              </motion.div>
+            </AnimatePresence>
           </div>
         </div>
       </div>
