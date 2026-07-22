@@ -170,10 +170,10 @@ export function KaleroEverydayHero() {
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-y-0 left-0 w-3/5"
+        className="pointer-events-none absolute inset-y-0 left-0 w-full lg:w-3/4"
         style={{
           background:
-            "linear-gradient(90deg, rgba(15,15,20,0.75) 0%, rgba(15,15,20,0.35) 45%, rgba(15,15,20,0) 100%)",
+            "linear-gradient(90deg, rgba(10,10,15,0.92) 0%, rgba(10,10,15,0.78) 30%, rgba(10,10,15,0.5) 55%, rgba(10,10,15,0.15) 80%, rgba(10,10,15,0) 100%)",
         }}
       />
       <div
@@ -200,7 +200,7 @@ export function KaleroEverydayHero() {
 
         <h1
           id="hero-title"
-          className="font-display text-[clamp(3rem,7vw,6rem)] font-semibold leading-[0.98] tracking-[-0.03em] text-white text-balance"
+          className="font-display text-[clamp(3rem,7vw,6rem)] font-semibold leading-[0.98] tracking-[-0.03em] text-white text-balance [text-shadow:0_2px_24px_rgba(0,0,0,0.35)]"
         >
           <span className="block">Air, engineered</span>
           <span className="block">
@@ -208,7 +208,7 @@ export function KaleroEverydayHero() {
           </span>
         </h1>
 
-        <p className="max-w-xl text-base leading-relaxed text-white/75 text-pretty sm:text-lg">
+        <p className="max-w-xl text-base leading-relaxed text-white/85 text-pretty [text-shadow:0_1px_10px_rgba(0,0,0,0.6)] sm:text-lg">
           Premium all-season filtration designed to capture everyday dust, lint, and airborne particles — without restricting the way your home breathes.
         </p>
 
