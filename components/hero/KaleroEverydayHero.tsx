@@ -134,12 +134,24 @@ export function KaleroEverydayHero() {
                 willChange: "opacity, transform",
               }}
             >
+              {/* Blurred backdrop: fills the frame edges with the image's own colour palette */}
+              <Image
+                src={frame.src}
+                alt=""
+                aria-hidden="true"
+                fill
+                sizes="100vw"
+                className="object-cover scale-110 blur-2xl opacity-80"
+                priority={i === 0}
+                loading={i === 0 ? undefined : i === 1 ? "eager" : "lazy"}
+              />
+              {/* Sharp foreground image, letterboxed cleanly inside */}
               <Image
                 src={frame.src}
                 alt={frame.alt}
                 fill
                 sizes="100vw"
-                className="object-contain"
+                className="relative object-contain"
                 style={frame.focal ? { objectPosition: frame.focal } : undefined}
                 priority={i === 0}
                 loading={i === 0 ? undefined : i === 1 ? "eager" : "lazy"}
