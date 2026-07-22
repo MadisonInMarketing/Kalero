@@ -20,7 +20,18 @@
       "Bash(vercel --version)",
       "Bash(gh auth *)",
       "Bash(git init *)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git remote *)",
+      "Bash(git push *)",
+      "Bash(git rm *)",
+      "Bash(git commit *)",
+      "Bash(git reset *)",
+      "Bash(mv \"ChatGPT Image Jul 21, 2026, 03_09_05 PM.png\" hero/animated/everyday-1-box.png)",
+      "Bash(mv \"ChatGPT Image Jul 21, 2026, 03_08_40 PM.png\" hero/animated/everyday-2-open.png)",
+      "Bash(mv \"ChatGPT Image Jul 15, 2026, 11_15_04 AM.png\" hero/animated/everyday-3-filter.png)",
+      "Bash(mv \"ChatGPT Image Jul 21, 2026, 03_19_40 PM.png\" hero/animated/everyday-4-breakdown.png)",
+      "Bash(file public/images/hero/animated/*.png)"
     ]
   }
 }

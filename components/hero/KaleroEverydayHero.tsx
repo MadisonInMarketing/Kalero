@@ -199,7 +199,7 @@ export function KaleroEverydayHero() {
         </h1>
 
         <p className="max-w-xl text-base leading-relaxed text-white/85 text-pretty [text-shadow:0_1px_10px_rgba(0,0,0,0.6)] sm:text-lg">
-          Premium filtration built for how your home actually breathes — from everyday dust and allergens to pet dander, smoke, and hospitality-grade air.
+          Premium filtration built for how your home actually breathes, from everyday dust and allergens to pet dander, smoke, and hospitality-grade air.
         </p>
 
         <div className="mt-2 flex flex-wrap items-center gap-3">
@@ -225,7 +225,7 @@ export function KaleroEverydayHero() {
         </div>
       </div>
 
-      {/* Subtle frame progress rail — no NN/10, no chapters */}
+      {/* Subtle frame progress rail, no NN/10, no chapters */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-x-0 bottom-0 z-10 flex justify-center gap-1.5 pb-6 sm:pb-8"

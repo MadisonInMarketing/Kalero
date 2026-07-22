@@ -3,9 +3,9 @@ export type ChapterKey = "intro" | "construction" | "performance" | "result";
 export type Callout = {
   key: string;
   label: string;
-  /** Percentage across the stage's inner bounding box, 0–100 */
+  /** Percentage across the stage's inner bounding box, 0-100 */
   x: number;
-  /** Percentage down the stage's inner bounding box, 0–100 */
+  /** Percentage down the stage's inner bounding box, 0-100 */
   y: number;
   anchorSide: "left" | "right";
 };
@@ -178,7 +178,7 @@ export const everydayHeroCopy = {
   headlineLead: "Everyday air.",
   headlineAccent: "Elevated.",
   supporting:
-    "Premium all-season filtration designed to capture everyday dust, lint, and airborne particles — without restricting the way your home breathes.",
+    "Premium all-season filtration designed to capture everyday dust, lint, and airborne particles, without restricting the way your home breathes.",
   primaryCtaLabel: "Find Your Filter",
   primaryCtaHref: "/find-your-filter",
   secondaryCtaLabel: "See How It Works",

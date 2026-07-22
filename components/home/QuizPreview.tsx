@@ -15,7 +15,7 @@ const highlights = [
   {
     Icon: Timer,
     title: "Two minutes, tops",
-    body: "Five short prompts. Skip the sizing step if you don't know it yet — we help at checkout.",
+    body: "Five short prompts. Skip the sizing step if you don't know it yet, we help at checkout.",
   },
   {
     Icon: Sparkles,
@@ -78,7 +78,7 @@ export function QuizPreview() {
             className="mt-5 text-lg leading-relaxed text-charcoal-mid text-pretty sm:text-xl"
           >
             Tell us about your pets, allergies, location, and everyday air concerns.
-            We&apos;ll recommend the best KALERO match — usually in under two minutes.
+            We&apos;ll recommend the best KALERO match, usually in under two minutes.
           </motion.p>
 
           <motion.div

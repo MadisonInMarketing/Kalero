@@ -126,7 +126,7 @@ const steps: Step[] = [
       { label: "Apartment / condo", value: "apartment", category: "everyday" },
       { label: "Small home (< 1,500 sq ft)", value: "small", category: "everyday" },
       {
-        label: "Mid-size home (1,500–3,000 sq ft)",
+        label: "Mid-size home (1,500-3,000 sq ft)",
         value: "mid",
         category: "everyday",
       },
@@ -136,7 +136,7 @@ const steps: Step[] = [
   {
     key: "size",
     title: "Do you know your filter size?",
-    subtitle: "Pull out your current filter — the size is printed on the frame.",
+    subtitle: "Pull out your current filter, the size is printed on the frame.",
     options: [
       ...STANDARD_SIZES.slice(0, 6).map((s) => ({ label: s, value: s })),
       { label: "I'll check later", value: "later" },

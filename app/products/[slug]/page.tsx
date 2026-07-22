@@ -18,7 +18,7 @@ export async function generateMetadata({
   const p = productBySlug(slug);
   if (!p) return {};
   const sizesList = p.sizes.slice(0, 6).join(", ");
-  const title = `${p.name} — ${p.merv} Home Air Filter | KALERO`;
+  const title = `${p.name}, ${p.merv} Home Air Filter | KALERO`;
   const description = `${p.longDescription} Available in ${sizesList} and more. Free shipping on subscriptions. Skip or cancel anytime.`;
   return {
     title,
@@ -47,7 +47,7 @@ export async function generateMetadata({
       images: [
         {
           url: `${BASE_URL}${p.image}`,
-          alt: `${p.name} — ${p.merv} home air filter`,
+          alt: `${p.name}, ${p.merv} home air filter`,
         },
       ],
     },

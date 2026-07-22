@@ -54,7 +54,7 @@ export function SizeFinder() {
             Start with the size on your filter frame.
           </h1>
           <p className="mt-3 max-w-md text-sm leading-relaxed text-charcoal-mid text-pretty">
-            Slide out your current filter — the size is printed on the edge. Every KALERO
+            Slide out your current filter, the size is printed on the edge. Every KALERO
             filter comes in the standard residential sizes below, and we&apos;ll source
             anything custom.
           </p>
@@ -152,7 +152,7 @@ export function SizeFinder() {
               <p className="mt-0.5 text-xs text-charcoal-mid">
                 {isStandard
                   ? "Pick the concern that sounds most like your home to see it."
-                  : "Choose a concern below — we'll confirm the exact cut at checkout."}
+                  : "Choose a concern below, we'll confirm the exact cut at checkout."}
               </p>
             </div>
           </div>

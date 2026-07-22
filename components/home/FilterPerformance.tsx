@@ -107,7 +107,7 @@ export function FilterPerformance() {
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-charcoal-mid text-pretty">
             An honest, side-by-side view of the household particles each KALERO filter is
-            designed around. Not medical claims — just clear product comparisons.
+            designed around. Not medical claims, just clear product comparisons.
           </p>
         </div>
 

@@ -21,7 +21,7 @@ const concernImage: Record<string, string> = {
 export const metadata: Metadata = {
   title: "Shop Home Air Filters | MERV 8, 11, 13 by Concern",
   description:
-    "Shop every KALERO home air filter, sorted by concern — pet dander, allergies, smoke, dust, odors, and hotel supply. Available in 14x20x1, 16x20x1, 16x25x1, 20x20x1, 20x25x1, 20x30x1 and custom sizes. Free shipping on subscriptions.",
+    "Shop every KALERO home air filter, sorted by concern, pet dander, allergies, smoke, dust, odors, and hotel supply. Available in 14x20x1, 16x20x1, 16x25x1, 20x20x1, 20x25x1, 20x30x1 and custom sizes. Free shipping on subscriptions.",
   alternates: { canonical: "/shop" },
   keywords: [
     "home air filters",

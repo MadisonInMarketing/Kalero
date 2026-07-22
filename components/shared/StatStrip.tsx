@@ -8,7 +8,7 @@ const stats = [
   },
   {
     Icon: PackageCheck,
-    title: "Ships in 3–5 days",
+    title: "Ships in 3-5 days",
     body: "Free on any subscription, always tracked.",
   },
   {

@@ -21,11 +21,11 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: {
     default:
-      "KALERO — Premium Home Air Filters | MERV 8, 11, 13 HVAC Filters Delivered",
+      "KALERO, Premium Home Air Filters | MERV 8, 11, 13 HVAC Filters Delivered",
     template: "%s | KALERO Air Filters",
   },
   description:
-    "Shop premium residential air filters in every standard HVAC size (16x25x1, 20x20x1, 20x25x1, and more). MERV 8, MERV 11, and MERV 13 filters for pet dander, allergies, smoke, dust, and odors — delivered on your schedule with free shipping.",
+    "Shop premium residential air filters in every standard HVAC size (16x25x1, 20x20x1, 20x25x1, and more). MERV 8, MERV 11, and MERV 13 filters for pet dander, allergies, smoke, dust, and odors, delivered on your schedule with free shipping.",
   keywords: [
     "air filters",
     "home air filters",
@@ -59,16 +59,16 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "KALERO — Premium Home Air Filters, Delivered",
+    title: "KALERO, Premium Home Air Filters, Delivered",
     description:
-      "MERV 8, 11, and 13 air filters in every standard size. Made for real home concerns — pets, allergies, smoke, dust. Free shipping. Skip or cancel anytime.",
+      "MERV 8, 11, and 13 air filters in every standard size. Made for real home concerns, pets, allergies, smoke, dust. Free shipping. Skip or cancel anytime.",
     type: "website",
     siteName: "KALERO",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "KALERO — Premium Home Air Filters, Delivered",
+    title: "KALERO, Premium Home Air Filters, Delivered",
     description:
       "MERV 8, 11, and 13 air filters for pets, allergies, smoke, and dust. Every standard size. Delivered on your schedule.",
   },
