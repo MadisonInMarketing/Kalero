@@ -149,8 +149,8 @@ export function KaleroEverydayHero() {
               style={{
                 opacity: isActive ? 1 : 0,
                 transform: isActive
-                  ? "translate3d(0,0,0) scale(1.02)"
-                  : "translate3d(0,0,0) scale(1.06)",
+                  ? "translate3d(0,0,0) scale(1)"
+                  : "translate3d(0,0,0) scale(1.02)",
                 willChange: "opacity, transform",
               }}
             >
@@ -242,13 +242,6 @@ export function KaleroEverydayHero() {
           </LinkButton>
         </div>
 
-        <div className="mt-6 flex flex-wrap items-center gap-x-8 gap-y-3 text-xs uppercase tracking-[0.18em] text-white/55">
-          <span>20 × 25 × 1</span>
-          <span aria-hidden="true" className="h-3 w-px bg-white/25" />
-          <span>MERV 11</span>
-          <span aria-hidden="true" className="h-3 w-px bg-white/25" />
-          <span>All-season filtration</span>
-        </div>
         </div>
       </div>
 
