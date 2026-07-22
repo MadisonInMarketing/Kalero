@@ -35,19 +35,19 @@ const heroStory: {
     key: "box",
     src: "/images/hero/animated/everyday-1-box.png",
     caption: "The packaging",
-    alt: "Everyday Defense filter packaging",
-  },
-  {
-    key: "open",
-    src: "/images/hero/animated/everyday-2-open.png",
-    caption: "Inside the box",
-    alt: "Everyday Defense box open, filter visible",
+    alt: "Everyday Defense filter packaging in a home setting",
   },
   {
     key: "filter",
+    src: "/images/hero/animated/everyday-2-open.png",
+    caption: "The filter",
+    alt: "Everyday Defense pleated air filter",
+  },
+  {
+    key: "airflow",
     src: "/images/hero/animated/everyday-3-filter.png",
-    caption: "Precision engineering",
-    alt: "Everyday Defense pleated filter",
+    caption: "Airflow, engineered",
+    alt: "Airflow moving through the KALERO filter layers",
   },
   {
     key: "breakdown",
