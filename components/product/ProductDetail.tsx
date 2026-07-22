@@ -42,7 +42,7 @@ const galleryBySlug: Record<string, { src: string; label: string }[]> = {
     { src: "/images/Pet Product 5.png", label: "Close-up" },
   ],
   "allergy-defense": [
-    { src: "/images/hero/animated/allergy-pair.png", label: "Front" },
+    { src: "/images/hero/animated/allergy-hero.png", label: "Front" },
     { src: "/images/hero/animated/allergy-open.png", label: "Inside" },
     { src: "/images/hero/animated/allergy-pedestal.png", label: "Studio" },
     { src: "/images/hero/animated/everyday-4-breakdown.png", label: "Anatomy" },

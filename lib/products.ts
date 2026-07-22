@@ -254,7 +254,7 @@ export const products: Product[] = [
     replacementCadence: "Every 45 to 60 days",
     longDescription:
       "Allergy Defense is our go-to for households that feel every pollen count. Available in MERV 11 for balanced airflow or MERV 13 for higher capture, always designed to work with standard residential HVAC systems.",
-    image: "/images/hero/animated/allergy-pair.png",
+    image: "/images/hero/animated/allergy-hero.png",
     cardImage: "/images/Allergy 4 pack - 2.png",
     hero: {
       label: "The allergy one",
