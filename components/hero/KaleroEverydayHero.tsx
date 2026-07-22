@@ -30,11 +30,6 @@ const heroFrames: Frame[] = [
     focal: "center",
   },
   {
-    src: "/images/hero/animated/6.png",
-    alt: "Exploded view of the Kalero filter showing frame, support mesh, and pleated media",
-    focal: "center",
-  },
-  {
     src: "/images/hero/animated/allergy-hero.png",
     alt: "Kalero Allergy Defense packaging beside filter with cityscape background",
     focal: "center",
