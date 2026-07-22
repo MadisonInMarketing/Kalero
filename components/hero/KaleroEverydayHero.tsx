@@ -139,7 +139,7 @@ export function KaleroEverydayHero() {
                 alt={frame.alt}
                 fill
                 sizes="100vw"
-                className="object-cover"
+                className="object-contain"
                 style={frame.focal ? { objectPosition: frame.focal } : undefined}
                 priority={i === 0}
                 loading={i === 0 ? undefined : i === 1 ? "eager" : "lazy"}
