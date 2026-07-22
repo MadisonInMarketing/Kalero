@@ -4,14 +4,13 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { Home, ShieldCheck, Truck } from "lucide-react";
 import { LinkButton } from "@/components/ui/Button";
 import type { Category } from "@/lib/categories";
 
-const trustPoints = [
-  { Icon: ShieldCheck, label: "MERV 8-13 Filtration" },
-  { Icon: Truck, label: "Delivered on Schedule" },
-  { Icon: Home, label: "Made for Real Home Concerns" },
+const credentials = [
+  "MERV 8 · 11 · 13",
+  "Every standard HVAC size",
+  "Free shipping on subscriptions",
 ];
 
 type HeroProduct = {
@@ -112,37 +111,51 @@ export function Hero() {
 
       <div className="container-x relative flex-1 grid gap-10 pb-6 pt-8 sm:pt-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.4fr)] lg:items-end lg:gap-8 lg:pb-4 lg:pt-8">
         <div className="relative z-10 max-w-2xl lg:self-center lg:pb-6">
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.24em] text-lavender-700"
+          >
+            <span className="h-px w-8 bg-lavender-400/70" aria-hidden="true" />
+            Premium residential air filtration
+          </motion.p>
+
           <motion.h1
             id="hero-title"
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="font-display text-[clamp(2.75rem,6vw,5.25rem)] font-extrabold uppercase leading-[0.95] tracking-[-0.01em] text-charcoal text-balance"
+            transition={{ duration: 0.8, delay: 0.08 }}
+            className="mt-5 font-display text-[clamp(2.5rem,4.4vw,4rem)] font-semibold leading-[1.05] tracking-[-0.025em] text-charcoal text-balance"
           >
-            <span className="block">The right filter for</span>
-            <span className="mt-2 block text-lavender-500">
-              the way you live.
+            <span className="block">The right filter</span>
+            <span className="mt-1 block">
+              for{" "}
+              <em className="font-serif font-normal italic text-lavender-600">
+                real life.
+              </em>
             </span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.75, delay: 0.15 }}
-            className="mt-6 max-w-lg text-lg leading-relaxed text-charcoal-mid text-pretty sm:text-xl"
+            transition={{ duration: 0.75, delay: 0.18 }}
+            className="mt-6 max-w-md text-base leading-relaxed text-charcoal-mid text-pretty sm:text-lg"
           >
-            Air filters designed around your home&apos;s real concerns, from
-            everyday dust and pet dander to allergies, smoke, and odors.
+            Air filters built around the way your home actually breathes —
+            pets, allergies, smoke, dust. Delivered on the schedule your HVAC
+            needs.
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.75, delay: 0.28 }}
-            className="mt-8 flex flex-wrap items-center gap-3"
+            transition={{ duration: 0.75, delay: 0.32 }}
+            className="mt-9 flex flex-wrap items-center gap-3"
           >
             <LinkButton href="/find-your-filter" size="lg" arrow>
-              Find My Filter
+              Find my filter
             </LinkButton>
             <LinkButton
               href="/shop"
@@ -151,24 +164,27 @@ export function Hero() {
               arrow
               className="bg-white/70 backdrop-blur"
             >
-              Shop All Filters
+              Shop the collection
             </LinkButton>
           </motion.div>
 
           <motion.ul
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.75, delay: 0.42 }}
-            className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-charcoal-mid"
+            transition={{ duration: 0.75, delay: 0.48 }}
+            className="mt-10 flex flex-wrap items-center gap-x-5 gap-y-2 text-[13px] leading-tight text-charcoal-mid"
           >
-            {trustPoints.map(({ Icon, label }) => (
-              <li key={label} className="flex items-center gap-2.5">
-                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-lavender-100 text-lavender-700 ring-1 ring-lavender-200/70">
-                  <Icon size={16} strokeWidth={1.75} />
-                </span>
-                <span className="text-xs font-semibold uppercase leading-tight tracking-[0.06em] text-charcoal sm:text-sm">
+            {credentials.map((label, i) => (
+              <li key={label} className="flex items-center gap-5">
+                <span className="font-medium tracking-[0.02em] text-charcoal">
                   {label}
                 </span>
+                {i < credentials.length - 1 && (
+                  <span
+                    aria-hidden="true"
+                    className="hidden h-3 w-px bg-charcoal/20 sm:inline-block"
+                  />
+                )}
               </li>
             ))}
           </motion.ul>
