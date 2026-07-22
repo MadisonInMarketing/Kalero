@@ -45,11 +45,6 @@ const heroFrames: Frame[] = [
     focal: "center",
   },
   {
-    src: "/images/hero/animated/5.png",
-    alt: "Angled detail of the Kalero filter's pleated media",
-    focal: "center",
-  },
-  {
     src: "/images/hero/animated/scented-strip.png",
     alt: "Kalero Scented Strip being unwrapped over an air filter",
     focal: "center",
@@ -72,6 +67,11 @@ const heroFrames: Frame[] = [
   {
     src: "/images/hero/animated/4.png",
     alt: "Front view of the Kalero pleated air filter",
+    focal: "center",
+  },
+  {
+    src: "/images/hero/animated/5.png",
+    alt: "Exploded view of the Kalero filter on a cream studio floor",
     focal: "center",
   },
   {
