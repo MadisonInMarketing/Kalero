@@ -30,11 +30,6 @@ const heroFrames: Frame[] = [
     focal: "center",
   },
   {
-    src: "/images/hero/animated/allergy-pair.png",
-    alt: "Kalero Allergy Defense packaging beside its filter on a stone floor",
-    focal: "center",
-  },
-  {
     src: "/images/hero/animated/8.png",
     alt: "Kalero filter capturing airborne dust and particles",
     focal: "center",
@@ -52,11 +47,6 @@ const heroFrames: Frame[] = [
   {
     src: "/images/hero/animated/3.png",
     alt: "Kalero filter revealed beside its packaging",
-    focal: "center",
-  },
-  {
-    src: "/images/hero/animated/everyday-1-box.png",
-    alt: "Kalero Everyday All Seasons box on a lavender pedestal",
     focal: "center",
   },
   {
@@ -80,11 +70,6 @@ const heroFrames: Frame[] = [
     focal: "center",
   },
   {
-    src: "/images/hero/animated/2.png",
-    alt: "Kalero Everyday All Seasons packaging on display",
-    focal: "center",
-  },
-  {
     src: "/images/hero/animated/allergy-pedestal.png",
     alt: "Kalero Allergy Defense packaging on a lavender pedestal",
     focal: "center",
@@ -102,11 +87,6 @@ const heroFrames: Frame[] = [
   {
     src: "/images/hero/animated/10.png",
     alt: "Cleaner air moving through a comfortable interior",
-    focal: "center",
-  },
-  {
-    src: "/images/hero/animated/1.png",
-    alt: "Kalero packaging in a bright residential setting",
     focal: "center",
   },
 ];
