@@ -10,7 +10,9 @@ type Frame = {
   focal?: string;
 };
 
-// Diverse product moments for the full-bleed dark hero sequence.
+// Every product moment in /public/images/hero/animated/, sequenced to
+// flow through product intro → detail → construction → performance →
+// lifestyle.
 const heroFrames: Frame[] = [
   {
     src: "/images/hero/animated/9.png",
@@ -18,8 +20,23 @@ const heroFrames: Frame[] = [
     focal: "center",
   },
   {
+    src: "/images/hero/animated/hvac-install.png",
+    alt: "Kalero filter being inserted into an HVAC vent with airflow into a living room",
+    focal: "center",
+  },
+  {
+    src: "/images/hero/animated/everyday-hero.png",
+    alt: "Kalero Everyday All Seasons packaging with filter and Scented Strip",
+    focal: "center",
+  },
+  {
     src: "/images/hero/animated/6.png",
-    alt: "Exploded view of the Kalero filter showing frame, support mesh, and pleated media layers",
+    alt: "Exploded view of the Kalero filter showing frame, support mesh, and pleated media",
+    focal: "center",
+  },
+  {
+    src: "/images/hero/animated/allergy-hero.png",
+    alt: "Kalero Allergy Defense packaging beside filter with cityscape background",
     focal: "center",
   },
   {
@@ -28,13 +45,53 @@ const heroFrames: Frame[] = [
     focal: "center",
   },
   {
+    src: "/images/hero/animated/everyday-4-breakdown.png",
+    alt: "Exploded view of the Kalero filter in the brand's purple-blue gradient",
+    focal: "center",
+  },
+  {
     src: "/images/hero/animated/5.png",
     alt: "Angled detail of the Kalero filter's pleated media",
     focal: "center",
   },
   {
+    src: "/images/hero/animated/scented-strip.png",
+    alt: "Kalero Scented Strip being unwrapped over an air filter",
+    focal: "center",
+  },
+  {
     src: "/images/hero/animated/3.png",
     alt: "Kalero filter revealed beside its packaging",
+    focal: "center",
+  },
+  {
+    src: "/images/hero/animated/everyday-1-box.png",
+    alt: "Kalero Everyday All Seasons box on a lavender pedestal",
+    focal: "center",
+  },
+  {
+    src: "/images/hero/animated/7.png",
+    alt: "Detail of Kalero filter internal construction",
+    focal: "center",
+  },
+  {
+    src: "/images/hero/animated/4.png",
+    alt: "Front view of the Kalero pleated air filter",
+    focal: "center",
+  },
+  {
+    src: "/images/hero/animated/2.png",
+    alt: "Kalero Everyday All Seasons packaging on display",
+    focal: "center",
+  },
+  {
+    src: "/images/hero/animated/everyday-2-open.png",
+    alt: "Kalero Everyday All Seasons box opening to reveal the filter",
+    focal: "center",
+  },
+  {
+    src: "/images/hero/animated/everyday-3-filter.png",
+    alt: "Kalero pleated filter media detail",
     focal: "center",
   },
   {
@@ -44,17 +101,12 @@ const heroFrames: Frame[] = [
   },
   {
     src: "/images/hero/animated/1.png",
-    alt: "Kalero filter packaging in a bright residential setting",
-    focal: "center",
-  },
-  {
-    src: "/images/hero/animated/7.png",
-    alt: "Detail of Kalero filter internal construction",
+    alt: "Kalero packaging in a bright residential setting",
     focal: "center",
   },
 ];
 
-const AUTO_ADVANCE_MS = 5500;
+const AUTO_ADVANCE_MS = 4500;
 
 export function KaleroEverydayHero() {
   const [activeIdx, setActiveIdx] = useState(0);
