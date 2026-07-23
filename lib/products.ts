@@ -184,7 +184,7 @@ export const products: Product[] = [
     replacementCadence: "Every 60 to 90 days",
     longDescription:
       "The quiet workhorse of the KALERO lineup. Everyday Defense keeps regular household dust and lint moving through your HVAC cleanly, without over-restricting airflow. A great fit for homes that don't have specific concerns like pets, allergies, or smoke, just steady, easy air.",
-    image: "/images/Everyday Filter.png",
+    image: "/images/hero/animated/Everyday/everyday_filter_1.png",
     cardImage: "/images/everyday 4 pack - 2.png",
     hero: {
       label: "The everyday one",
@@ -219,7 +219,7 @@ export const products: Product[] = [
     replacementCadence: "Every 45 to 60 days",
     longDescription:
       "Built around the reality of pet-friendly homes, the shedding season, the play sessions, the sunlight catching all the dander in the air. Pet Defense captures the fine dander and hair fragments that everyday filters let pass, while staying compatible with standard HVAC systems.",
-    image: "/images/Pet Filter.png",
+    image: "/images/hero/animated/Pet/pet_filter_1.png",
     cardImage: "/images/Pet 4 Pack - 2.png",
     hero: {
       label: "The pet-home one",
@@ -254,7 +254,7 @@ export const products: Product[] = [
     replacementCadence: "Every 45 to 60 days",
     longDescription:
       "Allergy Defense is our go-to for households that feel every pollen count. Available in MERV 11 for balanced airflow or MERV 13 for higher capture, always designed to work with standard residential HVAC systems.",
-    image: "/images/hero/animated/allergy-hero.png",
+    image: "/images/hero/animated/Allergy/allergy_filter_7.png",
     cardImage: "/images/Allergy 4 pack - 2.png",
     hero: {
       label: "The allergy one",
@@ -294,7 +294,7 @@ export const products: Product[] = [
     replacementCadence: "Every 90 to 120 days",
     longDescription:
       "The Hotel Collection is our program for hospitality groups and property managers. Filters ship on a cadence aligned to your building specs and service standards, with room to scale across portfolios and consistent supply so engineering teams never guess what belongs in a return vent.",
-    image: "/images/hero/animated/2.png",
+    image: "/images/hero/animated/Hotel/hotel_filter_1.png",
     cardImage: "/images/Hotel 4 pack - 2.png",
     hero: {
       label: "The hospitality one",
@@ -329,6 +329,7 @@ export const products: Product[] = [
     replacementCadence: "Every 30 to 60 days during smoke season",
     longDescription:
       "When the sky turns amber, Smoke Defense is what you want in your return vent. Designed around fine smoke particles and urban particulates, this filter is a strong fit for homes in wildfire-prone regions and dense urban areas.",
+    image: "/images/hero/animated/Smoke/smoke_filter_1.png",
     hero: {
       label: "The wildfire one",
       accentEmoji: "🌫️",
@@ -362,6 +363,7 @@ export const products: Product[] = [
     replacementCadence: "Every 45 to 60 days",
     longDescription:
       "Carbon Defense pairs standard particulate filtration with an activated carbon layer, which helps address the everyday odors that leave a house feeling less than fresh. Great for open-plan homes where the kitchen, living room, and family space breathe together.",
+    image: "/images/hero/animated/Carbon/carbon_filter_1.png",
     hero: {
       label: "The odor one",
       accentEmoji: "🍋",

@@ -10,12 +10,12 @@ import { Reveal } from "@/components/ui/Reveal";
 import { productBySlug } from "@/lib/products";
 
 const concernImage: Record<string, string> = {
-  "everyday-dust": "/images/New - fresh everyday home.png",
-  "pets-and-dander": "/images/Pet - new.png",
-  "allergies-and-pollen": "/images/hero/animated/allergy-pedestal.png",
-  "smoke-and-pollution": "/images/Smoke Homepage.png",
-  "odors-and-vocs": "/images/Carbon Homepage.png",
-  "hotel-collection": "/images/New Hotel Image .png",
+  "everyday-dust": "/images/hero/animated/Everyday/everyday_filter_1.png",
+  "pets-and-dander": "/images/hero/animated/Pet/pet_filter_1.png",
+  "allergies-and-pollen": "/images/hero/animated/Allergy/allergy_filter_7.png",
+  "smoke-and-pollution": "/images/hero/animated/Smoke/smoke_filter_1.png",
+  "odors-and-vocs": "/images/hero/animated/Carbon/carbon_filter_1.png",
+  "hotel-collection": "/images/hero/animated/Hotel/hotel_filter_1.png",
 };
 
 export const metadata: Metadata = {
