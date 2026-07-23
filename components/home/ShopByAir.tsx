@@ -93,7 +93,7 @@ const features: Feature[] = [
 export function ShopByAir() {
   return (
     <section
-      className="relative isolate py-20 sm:py-24"
+      className="relative isolate pt-20 pb-6 sm:pt-24 sm:pb-8"
       aria-labelledby="find-your-filter-title"
     >
       <div className="container-x">

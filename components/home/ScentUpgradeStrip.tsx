@@ -13,7 +13,7 @@ export function ScentUpgradeStrip() {
   return (
     <section
       aria-labelledby="scent-upgrade-title"
-      className="relative py-8 sm:py-12"
+      className="relative pb-6 pt-2 sm:pb-10 sm:pt-4"
     >
       <div className="container-x">
         <div className="relative overflow-hidden rounded-3xl border border-lavender-100 bg-gradient-to-br from-white via-lavender-50/60 to-white p-6 shadow-soft sm:p-8">
