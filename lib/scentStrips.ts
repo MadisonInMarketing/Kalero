@@ -48,7 +48,7 @@ export function isScentCompatible(product: Product): boolean {
 
 /** Copy shared across the site so voice stays consistent. */
 export const scentCopy = {
-  eyebrow: "Optional fresh-home upgrade",
+  eyebrow: "A fresh-home upgrade",
   headline: "Filter first. Fresh scent, optional.",
   supporting:
     "Add a Kalero scent strip for a subtle, elevated fragrance experience through your home's airflow.",
