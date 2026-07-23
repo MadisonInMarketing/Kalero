@@ -42,7 +42,7 @@ export function ScentUpgradeStrip() {
                 id="scent-upgrade-title"
                 className="mt-3 font-display text-3xl font-semibold leading-[1.05] tracking-[-0.02em] text-charcoal text-balance sm:text-4xl"
               >
-                An optional fresh-home upgrade.
+                A fresh-home upgrade.
               </h2>
               <p className="mt-4 max-w-md text-base leading-relaxed text-charcoal-mid text-pretty">
                 {scentCopy.supporting}
