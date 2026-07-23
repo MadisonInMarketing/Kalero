@@ -15,6 +15,8 @@ type Feature = {
   title: string;
   tagline: string;
   image: string;
+  /** Second image shown on hover — usually the bare filter. */
+  hoverImage?: string;
   /** When true, the image fills the card with object-cover (zooms in on the packaging). */
   zoom?: boolean;
   objectPosition?: string;
@@ -32,6 +34,7 @@ const features: Feature[] = [
     title: "Everyday Defense",
     tagline: "For daily dust + lint",
     image: "/images/hero/animated/everyday-pedestal.png",
+    hoverImage: "/images/hero/animated/everyday-filter.png",
     zoom: true,
     objectPosition: "50% 50%",
     hex: "#67B7F2",
@@ -46,6 +49,7 @@ const features: Feature[] = [
     title: "Pet Defense",
     tagline: "For pet dander + odors",
     image: "/images/hero/animated/pet-pedestal.png",
+    hoverImage: "/images/hero/animated/pet-filter.png",
     zoom: true,
     objectPosition: "50% 50%",
     hex: "#96B83B",
@@ -60,6 +64,7 @@ const features: Feature[] = [
     title: "Allergy Defense",
     tagline: "For pollen + allergens",
     image: "/images/hero/animated/allergy-hero.png",
+    hoverImage: "/images/hero/animated/allergy-filter.png",
     zoom: true,
     objectPosition: "50% 50%",
     hex: "#1E3A6B",
@@ -74,6 +79,7 @@ const features: Feature[] = [
     title: "Hotel Collection",
     tagline: "For hospitality spaces",
     image: "/images/hero/animated/hotel-pedestal.png",
+    hoverImage: "/images/hero/animated/hotel-filter.png",
     zoom: true,
     objectPosition: "50% 50%",
     hex: "#E9B95C",
@@ -127,13 +133,13 @@ export function ShopByAir() {
                     />
                     <Image
                       src={f.image}
-                      alt={`${f.title} filter`}
+                      alt={`${f.title} packaging`}
                       fill
                       sizes="(min-width: 1024px) 320px, (min-width: 640px) 45vw, 90vw"
                       className={
                         f.zoom
-                          ? "relative object-cover transition-transform duration-500 group-hover:scale-[1.05]"
-                          : "relative object-contain px-4 pt-8 drop-shadow-[0_20px_35px_rgba(23,23,27,0.18)] transition-transform duration-500 group-hover:scale-[1.03]"
+                          ? "relative object-cover transition-opacity duration-500 group-hover:opacity-0"
+                          : "relative object-contain px-4 pt-8 drop-shadow-[0_20px_35px_rgba(23,23,27,0.18)] transition-opacity duration-500 group-hover:opacity-0"
                       }
                       style={
                         f.objectPosition
@@ -141,6 +147,20 @@ export function ShopByAir() {
                           : undefined
                       }
                     />
+                    {f.hoverImage && (
+                      <Image
+                        src={f.hoverImage}
+                        alt={`${f.title} filter`}
+                        fill
+                        sizes="(min-width: 1024px) 320px, (min-width: 640px) 45vw, 90vw"
+                        className="relative object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                        style={
+                          f.objectPosition
+                            ? { objectPosition: f.objectPosition }
+                            : undefined
+                        }
+                      />
+                    )}
                   </div>
 
                   <div className="relative mt-auto border-t border-charcoal/8 bg-white p-5">
