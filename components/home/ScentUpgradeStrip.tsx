@@ -19,19 +19,19 @@ export function ScentUpgradeStrip() {
         <div className="relative overflow-hidden rounded-3xl border border-lavender-100 bg-gradient-to-br from-white via-lavender-50/60 to-white p-6 shadow-soft sm:p-8">
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-y-0 right-0 w-1/2 opacity-[0.08]"
+            className="pointer-events-none absolute inset-y-0 right-0 w-3/5 opacity-30 sm:opacity-40"
           >
             <Image
-              src="/images/hero/animated/everyday-filter.png"
+              src="/images/hero/animated/scent-strip-hero.png"
               alt=""
               fill
-              sizes="50vw"
+              sizes="60vw"
               className="object-cover object-right"
             />
           </div>
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 bg-gradient-to-r from-white via-white/85 to-white/40"
+            className="pointer-events-none absolute inset-0 bg-gradient-to-r from-white via-white/90 to-white/20"
           />
           <div className="relative z-10 grid gap-8 lg:grid-cols-[1.05fr_1.4fr] lg:items-center lg:gap-14">
             <div>
