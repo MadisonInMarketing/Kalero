@@ -47,10 +47,8 @@ const galleryBySlug: Record<string, { src: string; label: string }[]> = {
     { src: "/images/hero/animated/Allergy/allergy_filter_15.png", label: "Detail" },
   ],
   "smoke-defense": [
-    { src: "/images/hero/animated/Smoke/smoke_filter_1.png", label: "Front" },
-    { src: "/images/hero/animated/Smoke/smoke_filter_2.png", label: "Angle" },
-    { src: "/images/hero/animated/Smoke/smoke_filter_3.png", label: "Studio" },
-    { src: "/images/hero/animated/Smoke/smoke_filter_4.png", label: "Detail" },
+    { src: "/images/hero/animated/Smoke/smoke_filter_3.png", label: "Front" },
+    { src: "/images/hero/animated/Smoke/smoke_filter_4.png", label: "Angle" },
   ],
   "carbon-defense": [
     { src: "/images/hero/animated/Carbon/carbon_filter_1.png", label: "Front" },

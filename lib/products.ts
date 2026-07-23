@@ -329,7 +329,7 @@ export const products: Product[] = [
     replacementCadence: "Every 30 to 60 days during smoke season",
     longDescription:
       "When the sky turns amber, Smoke Defense is what you want in your return vent. Designed around fine smoke particles and urban particulates, this filter is a strong fit for homes in wildfire-prone regions and dense urban areas.",
-    image: "/images/hero/animated/Smoke/smoke_filter_1.png",
+    image: "/images/hero/animated/Smoke/smoke_filter_3.png",
     hero: {
       label: "The wildfire one",
       accentEmoji: "🌫️",

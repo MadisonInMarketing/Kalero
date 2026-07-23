@@ -160,7 +160,7 @@ export function KaleroEverydayHero() {
           href="/scent-strips"
           className="mt-1 inline-flex items-center gap-1.5 text-xs font-medium text-lavender-200/90 underline-offset-4 hover:text-white hover:underline"
         >
-          Explore the optional scent upgrade →
+          Explore the scent upgrade →
         </Link>
 
         </div>

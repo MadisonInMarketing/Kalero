@@ -13,7 +13,7 @@ const concernImage: Record<string, string> = {
   "everyday-dust": "/images/hero/animated/Everyday/everyday_filter_1.png",
   "pets-and-dander": "/images/hero/animated/Pet/pet_filter_1.png",
   "allergies-and-pollen": "/images/hero/animated/Allergy/allergy_filter_7.png",
-  "smoke-and-pollution": "/images/hero/animated/Smoke/smoke_filter_1.png",
+  "smoke-and-pollution": "/images/hero/animated/Smoke/smoke_filter_3.png",
   "odors-and-vocs": "/images/hero/animated/Carbon/carbon_filter_1.png",
   "hotel-collection": "/images/hero/animated/Hotel/hotel_filter_1.png",
 };
