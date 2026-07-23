@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { CategoryIcon } from "@/components/ui/CategoryIcon";
+import { ScentBadge } from "@/components/ui/ScentBadge";
 import type { Category } from "@/lib/categories";
 
 type Feature = {
@@ -185,6 +186,9 @@ export function ShopByAir() {
                       >
                         <ArrowRight size={16} strokeWidth={2.25} />
                       </span>
+                    </div>
+                    <div className="mt-3">
+                      <ScentBadge size="xs" label="Scent Strip Compatible" />
                     </div>
                   </div>
                 </Link>

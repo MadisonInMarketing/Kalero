@@ -13,8 +13,11 @@ import { AirflowLines } from "@/components/ui/AirflowLines";
 import { Placeholder } from "@/components/ui/Placeholder";
 import { CategoryIcon } from "@/components/ui/CategoryIcon";
 import { HvacCompatibility } from "@/components/shared/HvacCompatibility";
+import { ScentBadge } from "@/components/ui/ScentBadge";
+import { ScentAddOn } from "@/components/scent/ScentAddOn";
 import { categoryByKey } from "@/lib/categories";
 import { STANDARD_SIZES, products, type Product } from "@/lib/products";
+import { isScentCompatible, scentStripPrice, type ScentKey } from "@/lib/scentStrips";
 
 type Mode = "onetime" | "subscribe";
 
@@ -62,6 +65,10 @@ export function ProductDetail({ product }: Props) {
   const [quantity, setQuantity] = useState(1);
   const [mode, setMode] = useState<Mode>("subscribe");
   const [cadence, setCadence] = useState<30 | 60 | 90>(60);
+  const [scentSelection, setScentSelection] = useState<{
+    scentKey: ScentKey | null;
+    quantity: number;
+  }>({ scentKey: null, quantity: 1 });
   const gallery = useMemo(() => {
     const base = galleryBySlug[product.slug] ?? [];
     if (base.length > 0) return base;
@@ -78,7 +85,18 @@ export function ProductDetail({ product }: Props) {
       : base;
   }, [mode, product]);
 
-  const total = useMemo(() => Math.round(unitPrice * quantity * 100) / 100, [unitPrice, quantity]);
+  const scentTotal = useMemo(
+    () =>
+      scentSelection.scentKey === null
+        ? 0
+        : scentStripPrice * scentSelection.quantity,
+    [scentSelection],
+  );
+
+  const total = useMemo(
+    () => Math.round((unitPrice * quantity + scentTotal) * 100) / 100,
+    [unitPrice, quantity, scentTotal],
+  );
 
   const others = products.filter((p) => p.slug !== product.slug).slice(0, 3);
 
@@ -239,6 +257,7 @@ export function ProductDetail({ product }: Props) {
                     Save {product.subscriptionSavings}% subscribing
                   </Chip>
                 )}
+                {isScentCompatible(product) && <ScentBadge size="xs" />}
               </div>
 
               <h1 className="mt-4 font-display text-display-xl font-semibold text-charcoal text-balance">
@@ -390,6 +409,15 @@ export function ProductDetail({ product }: Props) {
                     </div>
                   )}
                 </div>
+
+                {isScentCompatible(product) && (
+                  <div className="mt-5">
+                    <ScentAddOn
+                      value={scentSelection}
+                      onChange={setScentSelection}
+                    />
+                  </div>
+                )}
 
                 <div className="mt-5 flex items-center gap-4">
                   <div className="flex items-center rounded-pill bg-canvas ring-1 ring-lavender-100">

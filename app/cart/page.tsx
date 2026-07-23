@@ -4,6 +4,7 @@ import { ArrowRight, RefreshCw, ShieldCheck, ShoppingBag, Truck } from "lucide-r
 import { LinkButton } from "@/components/ui/Button";
 import { categories } from "@/lib/categories";
 import { CategoryIcon } from "@/components/ui/CategoryIcon";
+import { CartScentUpsell } from "@/components/scent/CartScentUpsell";
 
 export const metadata: Metadata = {
   title: "Your cart",
@@ -121,6 +122,10 @@ export default function CartPage() {
                     </Link>
                   ))}
                 </div>
+              </div>
+
+              <div className="relative mt-8">
+                <CartScentUpsell />
               </div>
             </div>
 

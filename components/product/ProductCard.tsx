@@ -8,6 +8,7 @@ import type { Product } from "@/lib/products";
 import { ProductRender } from "@/components/product/ProductRender";
 import { Stars } from "@/components/ui/Stars";
 import { Chip } from "@/components/ui/Chip";
+import { isScentCompatible } from "@/lib/scentStrips";
 
 type Props = {
   product: Product;
@@ -77,6 +78,11 @@ export function ProductCard({ product, showSubscribeLabel = true, className = ""
         <p className="mt-1 text-sm text-charcoal-mid text-pretty">
           {product.concern}
         </p>
+        {isScentCompatible(product) && (
+          <p className="mt-2 text-[11px] font-medium text-lavender-700">
+            Optional scent upgrade available
+          </p>
+        )}
       </div>
 
       <div className="relative mt-5 flex items-end justify-between gap-3">

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { LinkButton } from "@/components/ui/Button";
 
 type Frame = {
@@ -131,6 +132,10 @@ export function KaleroEverydayHero() {
           Premium filtration built for how your home actually breathes, from everyday dust and allergens to pet dander, smoke, and hospitality-grade air.
         </p>
 
+        <p className="mt-1 text-xs font-medium uppercase tracking-[0.22em] text-lavender-200/90 [text-shadow:0_1px_8px_rgba(0,0,0,0.6)]">
+          Cleaner air. A fresher home.
+        </p>
+
         <div className="mt-2 flex flex-wrap items-center gap-3">
           <LinkButton
             href="/find-your-filter"
@@ -150,6 +155,13 @@ export function KaleroEverydayHero() {
             Shop the collection
           </LinkButton>
         </div>
+
+        <Link
+          href="/scent-strips"
+          className="mt-1 inline-flex items-center gap-1.5 text-xs font-medium text-lavender-200/90 underline-offset-4 hover:text-white hover:underline"
+        >
+          Explore the optional scent upgrade →
+        </Link>
 
         </div>
       </div>
