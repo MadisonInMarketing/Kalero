@@ -10,86 +10,15 @@ type Frame = {
   focal?: string;
 };
 
-// Every product moment in /public/images/hero/animated/, sequenced to
-// flow through product intro → detail → construction → performance →
-// lifestyle.
-const heroFrames: Frame[] = [
-  {
-    src: "/images/hero/animated/9.png",
-    alt: "Kalero filter with unfiltered particles entering and cleaner airflow exiting",
+// Hero-sized product renders in /public/images/hero/animated/.
+const heroFrames: Frame[] = Array.from({ length: 16 }, (_, i) => {
+  const n = String(i + 1).padStart(2, "0");
+  return {
+    src: `/images/hero/animated/hero-${n}.png`,
+    alt: `Kalero premium air filter — scene ${i + 1}`,
     focal: "center",
-  },
-  {
-    src: "/images/hero/animated/hvac-install.png",
-    alt: "Kalero filter being inserted into an HVAC vent with airflow into a living room",
-    focal: "center",
-  },
-  {
-    src: "/images/hero/animated/filter-scented-pair.png",
-    alt: "Kalero pleated filter with Scented Strip on a light studio floor",
-    focal: "center",
-  },
-  {
-    src: "/images/hero/animated/8.png",
-    alt: "Kalero filter capturing airborne dust and particles",
-    focal: "center",
-  },
-  {
-    src: "/images/hero/animated/everyday-4-breakdown.png",
-    alt: "Exploded view of the Kalero filter in the brand's purple-blue gradient",
-    focal: "center",
-  },
-  {
-    src: "/images/hero/animated/scented-strip.png",
-    alt: "Kalero Scented Strip being unwrapped over an air filter",
-    focal: "center",
-  },
-  {
-    src: "/images/hero/animated/3.png",
-    alt: "Kalero filter revealed beside its packaging",
-    focal: "center",
-  },
-  {
-    src: "/images/hero/animated/7.png",
-    alt: "Detail of Kalero filter internal construction",
-    focal: "center",
-  },
-  {
-    src: "/images/hero/animated/4.png",
-    alt: "Front view of the Kalero pleated air filter",
-    focal: "center",
-  },
-  {
-    src: "/images/hero/animated/allergy-open.png",
-    alt: "Kalero Allergy Defense box lifted to reveal the filter inside",
-    focal: "center",
-  },
-  {
-    src: "/images/hero/animated/5.png",
-    alt: "Exploded view of the Kalero filter on a cream studio floor",
-    focal: "center",
-  },
-  {
-    src: "/images/hero/animated/allergy-pedestal.png",
-    alt: "Kalero Allergy Defense packaging on a lavender pedestal",
-    focal: "center",
-  },
-  {
-    src: "/images/hero/animated/everyday-2-open.png",
-    alt: "Kalero Everyday All Seasons box opening to reveal the filter",
-    focal: "center",
-  },
-  {
-    src: "/images/hero/animated/everyday-3-filter.png",
-    alt: "Kalero pleated filter media detail",
-    focal: "center",
-  },
-  {
-    src: "/images/hero/animated/10.png",
-    alt: "Cleaner air moving through a comfortable interior",
-    focal: "center",
-  },
-];
+  };
+});
 
 const AUTO_ADVANCE_MS = 4500;
 
