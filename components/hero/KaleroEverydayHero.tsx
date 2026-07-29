@@ -12,11 +12,12 @@ type Frame = {
 };
 
 // Hero-sized product renders in /public/images/hero/animated/.
-const heroFrames: Frame[] = Array.from({ length: 16 }, (_, i) => {
-  const n = String(i + 1).padStart(2, "0");
+const heroFrameIds = [1, 2, 3, 5, 6, 7, 9, 10, 11, 12, 14, 15];
+const heroFrames: Frame[] = heroFrameIds.map((id) => {
+  const n = String(id).padStart(2, "0");
   return {
     src: `/images/hero/animated/hero-${n}.png`,
-    alt: `Kalero premium air filter — scene ${i + 1}`,
+    alt: `Kalero premium air filter — scene ${id}`,
     focal: "center",
   };
 });
