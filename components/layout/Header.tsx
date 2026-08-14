@@ -9,8 +9,8 @@ import { products } from "@/lib/products";
 import { categories } from "@/lib/categories";
 
 const links = [
-  { href: "/", label: "Home" },
-  { href: "/shop", label: "Shop" },
+  { href: "/shop", label: "Shop by Concern" },
+  { href: "/subscriptions", label: "Subscribe" },
   { href: "/find-your-filter", label: "Find Your Filter" },
 ];
 
@@ -81,29 +81,25 @@ export function Header() {
           : "bg-transparent"
       }`}
     >
-      <div className="container-x grid h-16 grid-cols-[auto_1fr_auto] items-center gap-4 sm:h-24">
+      <div className="container-x flex h-16 items-center gap-3 sm:h-20 sm:gap-6">
         <Logo variant="brand" size="md" stacked />
-        <nav
-          className="hidden items-center justify-center gap-8 lg:flex"
-          aria-label="Primary"
+        {/* Inline search bar — filterbuy-style prominent */}
+        <button
+          type="button"
+          onClick={() => setSearchOpen(true)}
+          aria-label="Search filters, sizes, or concerns"
+          className="hidden h-11 flex-1 items-center gap-3 rounded-full border border-sky-200 bg-white/80 px-5 text-left text-sm text-charcoal-mid shadow-inner transition-colors hover:border-sky-400 hover:text-charcoal focus-visible:outline-2 focus-visible:outline-sky-500 sm:flex"
         >
-          {links.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              className="text-sm font-medium text-charcoal transition-colors hover:text-sky-700"
-            >
-              {l.label}
-            </Link>
-          ))}
-        </nav>
+          <Search size={16} strokeWidth={1.75} className="text-sky-600" />
+          <span>Search filters, sizes, or concerns…</span>
+        </button>
         <div className="flex items-center justify-end gap-1.5 sm:gap-2">
           <button
             type="button"
             aria-label="Search"
             aria-expanded={searchOpen}
             onClick={() => setSearchOpen((s) => !s)}
-            className="flex h-10 w-10 items-center justify-center rounded-full text-charcoal-soft transition-colors hover:bg-white hover:text-sky-700"
+            className="flex h-10 w-10 items-center justify-center rounded-full text-charcoal-soft transition-colors hover:bg-white hover:text-sky-700 sm:hidden"
           >
             <Search size={18} strokeWidth={1.75} />
           </button>
@@ -127,6 +123,26 @@ export function Header() {
           >
             <Menu size={20} strokeWidth={1.75} />
           </button>
+        </div>
+      </div>
+      {/* Secondary nav row — filterbuy-style */}
+      <div className="hidden border-t border-sky-100/60 lg:block">
+        <div className="container-x flex h-11 items-center justify-center gap-8">
+          <Link
+            href="/"
+            className="text-sm font-medium text-charcoal transition-colors hover:text-sky-700"
+          >
+            Home
+          </Link>
+          {links.map((l) => (
+            <Link
+              key={l.href}
+              href={l.href}
+              className="text-sm font-medium text-charcoal transition-colors hover:text-sky-700"
+            >
+              {l.label}
+            </Link>
+          ))}
         </div>
       </div>
 
