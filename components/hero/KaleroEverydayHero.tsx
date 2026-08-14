@@ -1,17 +1,29 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { ArrowRight, Star, Truck } from "lucide-react";
+import { ArrowRight, Leaf, ShieldCheck, Sparkles, Star, Truck, Wind } from "lucide-react";
 import { STANDARD_SIZES } from "@/lib/products";
 
 const RATING_VALUE = 4.9;
 const RATING_COUNT = "12,000+";
 
+const featureChips = [
+  { Icon: Wind, label: "Captures Dust" },
+  { Icon: Leaf, label: "Reduces Pollen" },
+  { Icon: Sparkles, label: "Traps Lint & Fibers" },
+  { Icon: ShieldCheck, label: "Better Airflow" },
+];
+
 export function KaleroEverydayHero() {
   const router = useRouter();
   const [size, setSize] = useState<string>(STANDARD_SIZES[4]); // 20 × 25 × 1 default
+
+  const [dimA, dimB, dimC] = useMemo(() => {
+    const parts = size.split("×").map((s) => s.trim());
+    return [parts[0] ?? "20", parts[1] ?? "25", parts[2] ?? "1"];
+  }, [size]);
 
   const handleShop = () => {
     const slug = size.replace(/\s×\s/g, "x");
@@ -21,35 +33,43 @@ export function KaleroEverydayHero() {
   return (
     <section
       aria-labelledby="hero-title"
-      className="relative overflow-hidden bg-gradient-to-b from-sky-50 via-white to-white"
+      className="relative overflow-hidden bg-white"
     >
-      {/* Iridescent packaging-inspired wash */}
+      {/* Iridescent packaging wave band at top */}
+      <IridescentWave className="absolute inset-x-0 top-0 h-40 w-full sm:h-56" />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-iris-wash"
+        className="pointer-events-none absolute -left-32 top-24 h-[420px] w-[420px] rounded-full bg-sky-100/60 blur-3xl"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -left-40 top-0 h-[420px] w-[420px] rounded-full bg-sky-200/40 blur-3xl"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -right-32 top-40 h-[480px] w-[480px] rounded-full bg-mint-soft/50 blur-3xl"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -right-24 bottom-0 h-[380px] w-[380px] rounded-full bg-iris-soft/50 blur-3xl"
+        className="pointer-events-none absolute -right-32 top-96 h-[420px] w-[420px] rounded-full bg-iris-soft/40 blur-3xl"
       />
 
-      <div className="container-x relative pb-14 pt-10 sm:pb-20 sm:pt-14 lg:pb-24 lg:pt-16">
-        <div className="relative z-10 mx-auto max-w-2xl text-center">
-          {/* Free shipping + rating band */}
-          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs font-medium text-charcoal-mid">
+      <div className="container-x relative grid gap-10 pb-14 pt-24 sm:pb-20 sm:pt-32 lg:grid-cols-[1.05fr_1fr] lg:items-center lg:gap-12 lg:pb-24 lg:pt-40">
+        {/* Left column — copy + selector */}
+        <div className="relative z-10">
+          <p className="text-eyebrow font-semibold uppercase tracking-[0.24em] text-iris-deep">
+            Cleaner Air. Better Living.
+          </p>
+          <h1
+            id="hero-title"
+            className="mt-5 font-display text-[clamp(2.5rem,5.4vw,4.5rem)] font-bold uppercase leading-[0.98] tracking-[-0.02em] text-charcoal text-balance"
+          >
+            Premium Air
+            <br />
+            <span className="text-sky-600">Filters, Delivered.</span>
+          </h1>
+
+          <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs font-medium text-charcoal-mid">
             <span className="flex items-center gap-2 text-sky-700">
               <Truck size={14} strokeWidth={2} />
               Always free shipping
             </span>
-            <span aria-hidden="true" className="hidden h-1 w-1 rounded-full bg-charcoal/25 sm:inline-block" />
+            <span
+              aria-hidden="true"
+              className="hidden h-1 w-1 rounded-full bg-charcoal/25 sm:inline-block"
+            />
             <span className="flex items-center gap-1.5">
               <span className="flex items-center gap-0.5" aria-hidden="true">
                 {Array.from({ length: 5 }).map((_, i) => (
@@ -63,22 +83,13 @@ export function KaleroEverydayHero() {
             </span>
           </div>
 
-          <h1
-            id="hero-title"
-            className="mt-6 font-display text-[clamp(2.5rem,5.6vw,4.75rem)] font-bold uppercase leading-[0.98] tracking-[-0.02em] text-charcoal text-balance"
-          >
-            Premium Air
-            <br />
-            <span className="text-sky-600">Filters, Delivered.</span>
-          </h1>
-
-          <p className="mx-auto mt-6 max-w-lg text-base leading-relaxed text-charcoal-mid text-pretty sm:text-lg">
+          <p className="mt-6 max-w-lg text-base leading-relaxed text-charcoal-mid text-pretty sm:text-lg">
             Every standard HVAC size. MERV 8, 11, and 13. Delivered on your
             schedule with free shipping and 15% off subscriptions.
           </p>
 
-          {/* Inline size selector card */}
-          <div className="mx-auto mt-8 max-w-xl rounded-2xl bg-white p-5 text-left shadow-card ring-1 ring-sky-100 sm:p-6">
+          {/* Size selector — reactive */}
+          <div className="mt-8 max-w-xl rounded-2xl bg-white p-5 shadow-card ring-1 ring-sky-100 sm:p-6">
             <label
               htmlFor="hero-size"
               className="text-eyebrow font-semibold text-sky-700"
@@ -124,8 +135,134 @@ export function KaleroEverydayHero() {
               .
             </p>
           </div>
+
+          {/* Feature icon row */}
+          <ul className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
+            {featureChips.map(({ Icon, label }) => (
+              <li
+                key={label}
+                className="flex items-center gap-2.5 rounded-full bg-white/70 px-3 py-2 text-xs font-medium text-charcoal ring-1 ring-sky-100 backdrop-blur"
+              >
+                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-sky-100 text-sky-600">
+                  <Icon size={12} strokeWidth={2} />
+                </span>
+                <span className="truncate">{label}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Right column — reactive size hero graphic */}
+        <div className="relative z-10">
+          <SizeShowcase dimA={dimA} dimB={dimB} dimC={dimC} />
         </div>
       </div>
     </section>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+
+function IridescentWave({ className }: { className?: string }) {
+  return (
+    <div className={className} aria-hidden="true">
+      <svg
+        viewBox="0 0 1440 260"
+        preserveAspectRatio="none"
+        className="h-full w-full"
+      >
+        <defs>
+          <linearGradient id="wave-a" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stopColor="#3AA8E2" stopOpacity="0.55" />
+            <stop offset="45%" stopColor="#6DCFA7" stopOpacity="0.5" />
+            <stop offset="100%" stopColor="#8A6FD1" stopOpacity="0.55" />
+          </linearGradient>
+          <linearGradient id="wave-b" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stopColor="#8A6FD1" stopOpacity="0.4" />
+            <stop offset="55%" stopColor="#3AA8E2" stopOpacity="0.45" />
+            <stop offset="100%" stopColor="#6DCFA7" stopOpacity="0.4" />
+          </linearGradient>
+        </defs>
+        <path
+          d="M0,120 C240,60 480,180 720,120 C960,60 1200,180 1440,120 L1440,0 L0,0 Z"
+          fill="url(#wave-a)"
+        />
+        <path
+          d="M0,180 C240,120 480,220 720,170 C960,120 1200,220 1440,170 L1440,0 L0,0 Z"
+          fill="url(#wave-b)"
+          opacity="0.7"
+        />
+      </svg>
+    </div>
+  );
+}
+
+function SizeShowcase({
+  dimA,
+  dimB,
+  dimC,
+}: {
+  dimA: string;
+  dimB: string;
+  dimC: string;
+}) {
+  return (
+    <div className="relative mx-auto flex w-full max-w-lg flex-col items-center gap-6 lg:items-end">
+      {/* MERV shield */}
+      <MervShield />
+      {/* Giant reactive size numerals */}
+      <div
+        aria-hidden="true"
+        className="relative flex items-end justify-center gap-2 font-display font-bold leading-none text-transparent"
+        style={{
+          backgroundImage:
+            "linear-gradient(135deg, #3AA8E2 0%, #6DCFA7 50%, #8A6FD1 100%)",
+          WebkitBackgroundClip: "text",
+          backgroundClip: "text",
+        }}
+      >
+        <span className="text-[clamp(6rem,15vw,12rem)] tracking-tight">
+          {dimA}
+        </span>
+        <span className="pb-4 text-[clamp(2rem,4vw,3.5rem)] font-medium text-charcoal/40">
+          ×
+        </span>
+        <span className="text-[clamp(6rem,15vw,12rem)] tracking-tight">
+          {dimB}
+        </span>
+        <span className="pb-4 text-[clamp(2rem,4vw,3.5rem)] font-medium text-charcoal/40">
+          ×
+        </span>
+        <span className="text-[clamp(6rem,15vw,12rem)] tracking-tight">
+          {dimC}
+        </span>
+      </div>
+      <p className="text-xs font-semibold uppercase tracking-[0.24em] text-charcoal-mid">
+        Standard HVAC · Actual size varies slightly
+      </p>
+    </div>
+  );
+}
+
+function MervShield() {
+  return (
+    <div
+      aria-hidden="true"
+      className="relative flex h-24 w-20 flex-col items-center justify-center rounded-b-[999px] rounded-t-lg bg-sky-500 pt-2 text-white shadow-card sm:h-28 sm:w-24"
+      style={{
+        clipPath:
+          "polygon(0 0, 100% 0, 100% 70%, 50% 100%, 0 70%)",
+      }}
+    >
+      <span className="text-[9px] font-semibold uppercase tracking-[0.14em]">
+        MERV
+      </span>
+      <span className="font-display text-3xl font-bold leading-none sm:text-4xl">
+        8·11·13
+      </span>
+      <span className="mt-0.5 text-[8px] font-medium uppercase tracking-[0.14em]">
+        Standard
+      </span>
+    </div>
   );
 }
