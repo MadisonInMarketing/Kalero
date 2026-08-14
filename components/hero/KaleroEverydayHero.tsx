@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ArrowRight, Star, Truck } from "lucide-react";
@@ -42,10 +41,10 @@ export function KaleroEverydayHero() {
         className="pointer-events-none absolute -right-24 bottom-0 h-[380px] w-[380px] rounded-full bg-iris-soft/50 blur-3xl"
       />
 
-      <div className="container-x relative grid gap-10 pb-14 pt-10 sm:pb-20 sm:pt-14 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-16 lg:pb-24 lg:pt-16">
-        <div className="relative z-10">
+      <div className="container-x relative pb-14 pt-10 sm:pb-20 sm:pt-14 lg:pb-24 lg:pt-16">
+        <div className="relative z-10 mx-auto max-w-2xl text-center">
           {/* Free shipping + rating band */}
-          <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs font-medium text-charcoal-mid">
+          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs font-medium text-charcoal-mid">
             <span className="flex items-center gap-2 text-sky-700">
               <Truck size={14} strokeWidth={2} />
               Always free shipping
@@ -73,13 +72,13 @@ export function KaleroEverydayHero() {
             <span className="text-sky-600">Filters, Delivered.</span>
           </h1>
 
-          <p className="mt-6 max-w-lg text-base leading-relaxed text-charcoal-mid text-pretty sm:text-lg">
+          <p className="mx-auto mt-6 max-w-lg text-base leading-relaxed text-charcoal-mid text-pretty sm:text-lg">
             Every standard HVAC size. MERV 8, 11, and 13. Delivered on your
             schedule with free shipping and 15% off subscriptions.
           </p>
 
           {/* Inline size selector card */}
-          <div className="mt-8 max-w-xl rounded-2xl bg-white p-5 shadow-card ring-1 ring-sky-100 sm:p-6">
+          <div className="mx-auto mt-8 max-w-xl rounded-2xl bg-white p-5 text-left shadow-card ring-1 ring-sky-100 sm:p-6">
             <label
               htmlFor="hero-size"
               className="text-eyebrow font-semibold text-sky-700"
@@ -124,20 +123,6 @@ export function KaleroEverydayHero() {
               </Link>
               .
             </p>
-          </div>
-        </div>
-
-        {/* Product visual */}
-        <div className="relative">
-          <div className="relative mx-auto aspect-[4/5] w-full max-w-md lg:max-w-none">
-            <Image
-              src="/images/hero/animated/hero-01.png"
-              alt="Kalero premium air filters"
-              fill
-              sizes="(min-width: 1024px) 620px, 90vw"
-              className="object-contain drop-shadow-[0_30px_60px_rgba(11,90,148,0.25)]"
-              priority
-            />
           </div>
         </div>
       </div>
