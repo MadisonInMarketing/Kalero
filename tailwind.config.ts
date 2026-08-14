@@ -9,35 +9,46 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Brand core — sky blue
+        // Brand core — sky blue, tuned to the new packaging cyan
         sky: {
-          DEFAULT: "#1B8FD1",
-          soft: "#DCEEFA",
-          deep: "#0B5A94",
-          50: "#F0F9FF",
-          100: "#DCEEFA",
-          200: "#B8DFF5",
-          300: "#7DC5EE",
-          400: "#4AABE4",
-          500: "#1B8FD1",
-          600: "#0F72B3",
-          700: "#0B5A94",
-          800: "#094876",
-          900: "#062E4F",
+          DEFAULT: "#3AA8E2",
+          soft: "#DFF1FB",
+          deep: "#0F72B3",
+          50: "#F1F9FE",
+          100: "#DFF1FB",
+          200: "#BCE3F7",
+          300: "#87CCF0",
+          400: "#5CBBE9",
+          500: "#3AA8E2",
+          600: "#1F8AC7",
+          700: "#0F72B3",
+          800: "#0B5A94",
+          900: "#083E68",
         },
         // Legacy lavender alias → sky (keeps stragglers from breaking builds)
         lavender: {
-          DEFAULT: "#1B8FD1",
-          50: "#F0F9FF",
-          100: "#DCEEFA",
-          200: "#B8DFF5",
-          300: "#7DC5EE",
-          400: "#4AABE4",
-          500: "#1B8FD1",
-          600: "#0F72B3",
-          700: "#0B5A94",
-          800: "#094876",
-          900: "#062E4F",
+          DEFAULT: "#3AA8E2",
+          50: "#F1F9FE",
+          100: "#DFF1FB",
+          200: "#BCE3F7",
+          300: "#87CCF0",
+          400: "#5CBBE9",
+          500: "#3AA8E2",
+          600: "#1F8AC7",
+          700: "#0F72B3",
+          800: "#0B5A94",
+          900: "#083E68",
+        },
+        // Iridescent accent gradient companions (packaging wave palette)
+        mint: {
+          soft: "#D6F1E4",
+          DEFAULT: "#6DCFA7",
+          deep: "#2B8E63",
+        },
+        iris: {
+          soft: "#E4DBF7",
+          DEFAULT: "#8A6FD1",
+          deep: "#4B2FA0",
         },
         charcoal: {
           DEFAULT: "#17171B",
@@ -113,11 +124,14 @@ const config: Config = {
       },
       backgroundImage: {
         "sky-glow":
-          "radial-gradient(60% 60% at 50% 40%, rgba(27,143,209,0.26) 0%, rgba(220,238,250,0) 70%)",
+          "radial-gradient(60% 60% at 50% 40%, rgba(58,168,226,0.28) 0%, rgba(223,241,251,0) 70%)",
         "lavender-glow":
-          "radial-gradient(60% 60% at 50% 40%, rgba(27,143,209,0.26) 0%, rgba(220,238,250,0) 70%)",
+          "radial-gradient(60% 60% at 50% 40%, rgba(58,168,226,0.28) 0%, rgba(223,241,251,0) 70%)",
         "hero-wash":
-          "linear-gradient(180deg, #FAFAFC 0%, #DCEEFA 55%, #FAFAFC 100%)",
+          "linear-gradient(180deg, #FAFAFC 0%, #DFF1FB 55%, #FAFAFC 100%)",
+        // Iridescent packaging wave: sky → mint → iris (subtle)
+        "iris-wash":
+          "linear-gradient(105deg, rgba(58,168,226,0.18) 0%, rgba(109,207,167,0.15) 45%, rgba(138,111,209,0.18) 100%)",
       },
       keyframes: {
         drift: {

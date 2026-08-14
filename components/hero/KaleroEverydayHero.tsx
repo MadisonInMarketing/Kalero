@@ -24,13 +24,22 @@ export function KaleroEverydayHero() {
       aria-labelledby="hero-title"
       className="relative overflow-hidden bg-gradient-to-b from-sky-50 via-white to-white"
     >
+      {/* Iridescent packaging-inspired wash */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-iris-wash"
+      />
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -left-40 top-0 h-[420px] w-[420px] rounded-full bg-sky-200/40 blur-3xl"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-32 top-40 h-[480px] w-[480px] rounded-full bg-sky-100/70 blur-3xl"
+        className="pointer-events-none absolute -right-32 top-40 h-[480px] w-[480px] rounded-full bg-mint-soft/50 blur-3xl"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-24 bottom-0 h-[380px] w-[380px] rounded-full bg-iris-soft/50 blur-3xl"
       />
 
       <div className="container-x relative grid gap-10 pb-14 pt-10 sm:pb-20 sm:pt-14 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-16 lg:pb-24 lg:pt-16">
