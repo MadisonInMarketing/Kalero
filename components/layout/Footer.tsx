@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Facebook, Instagram, Send } from "lucide-react";
 import { Logo } from "@/components/ui/Logo";
 import { AirflowLines } from "@/components/ui/AirflowLines";
+import { IridescentWave } from "@/components/ui/IridescentWave";
 
 const primaryLinks = [
   { href: "/", label: "Home" },
@@ -23,6 +24,12 @@ const socials = [
 export function Footer() {
   return (
     <footer className="relative isolate mt-24 overflow-hidden bg-charcoal text-white">
+      {/* Iridescent wave divider at top edge */}
+      <IridescentWave
+        flip
+        intensity="subtle"
+        className="absolute inset-x-0 top-0 h-24 w-full"
+      />
       <div className="pointer-events-none absolute inset-0 opacity-40">
         <AirflowLines
           color="#4AABE4"
@@ -37,8 +44,11 @@ export function Footer() {
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr] lg:gap-16">
           <div className="max-w-md">
             <Logo variant="light" size="lg" />
-            <p className="mt-6 text-2xl font-display font-medium leading-snug text-white">
-              Better air, delivered.
+            <p className="mt-6 text-eyebrow font-semibold uppercase tracking-[0.28em] text-sky-300">
+              Cleaner Air. Better Living.
+            </p>
+            <p className="mt-3 text-2xl font-display font-medium leading-snug text-white">
+              Premium filters, delivered.
             </p>
             <form className="mt-6 flex items-center gap-2 rounded-pill bg-white/8 p-1.5 ring-1 ring-white/15 backdrop-blur">
               <input

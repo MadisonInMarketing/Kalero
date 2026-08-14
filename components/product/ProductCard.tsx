@@ -8,6 +8,7 @@ import type { Product } from "@/lib/products";
 import { ProductRender } from "@/components/product/ProductRender";
 import { Stars } from "@/components/ui/Stars";
 import { Chip } from "@/components/ui/Chip";
+import { MervShield } from "@/components/ui/MervShield";
 import { isScentCompatible } from "@/lib/scentStrips";
 
 type Props = {
@@ -31,7 +32,17 @@ export function ProductCard({ product, showSubscribeLabel = true, className = ""
         aria-hidden="true"
       />
       <div className="relative flex items-start justify-between gap-3">
-        <Chip className={product.color.chip}>{product.category === "seasonal" ? "Rotating drop" : product.merv}</Chip>
+        {product.merv === "Activated Carbon" || product.merv === "Rotating" ? (
+          <Chip className={product.color.chip}>
+            {product.merv === "Activated Carbon" ? "Carbon" : "Rotating drop"}
+          </Chip>
+        ) : (
+          <MervShield
+            rating={product.merv.replace("MERV ", "")}
+            label="Standard"
+            size="xs"
+          />
+        )}
         {showSubscribeLabel && (
           <span className="text-[11px] font-medium uppercase tracking-[0.14em] text-sky-600">
             Save {product.subscriptionSavings}% subscribing

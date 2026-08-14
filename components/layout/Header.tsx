@@ -3,9 +3,9 @@
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, Search, ShoppingBag, X } from "lucide-react";
+import { ChevronDown, Menu, Search, ShoppingBag, X } from "lucide-react";
 import { Logo } from "@/components/ui/Logo";
-import { products } from "@/lib/products";
+import { products, STANDARD_SIZES } from "@/lib/products";
 import { categories } from "@/lib/categories";
 
 const links = [
@@ -18,6 +18,7 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [sizeMenuOpen, setSizeMenuOpen] = useState(false);
   const [query, setQuery] = useState("");
   const searchInputRef = useRef<HTMLInputElement>(null);
 
@@ -125,15 +126,27 @@ export function Header() {
           </button>
         </div>
       </div>
-      {/* Secondary nav row — filterbuy-style */}
+      {/* Secondary nav row — filterbuy-style with megamenu */}
       <div className="hidden border-t border-sky-100/60 lg:block">
-        <div className="container-x flex h-11 items-center justify-center gap-8">
+        <div className="container-x relative flex h-11 items-center justify-center gap-8">
           <Link
             href="/"
             className="text-sm font-medium text-charcoal transition-colors hover:text-sky-700"
           >
             Home
           </Link>
+          <button
+            type="button"
+            onClick={() => setSizeMenuOpen((o) => !o)}
+            aria-expanded={sizeMenuOpen}
+            className="inline-flex items-center gap-1 text-sm font-medium text-charcoal transition-colors hover:text-sky-700"
+          >
+            Shop by Size
+            <ChevronDown
+              size={14}
+              className={`transition-transform ${sizeMenuOpen ? "rotate-180" : ""}`}
+            />
+          </button>
           {links.map((l) => (
             <Link
               key={l.href}
@@ -143,6 +156,51 @@ export function Header() {
               {l.label}
             </Link>
           ))}
+
+          <AnimatePresence>
+            {sizeMenuOpen && (
+              <motion.div
+                key="size-menu"
+                initial={{ opacity: 0, y: -8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.2 }}
+                className="absolute left-1/2 top-full z-30 mt-2 w-[600px] -translate-x-1/2 rounded-2xl bg-white p-5 shadow-card ring-1 ring-sky-100"
+              >
+                <p className="text-eyebrow font-semibold text-sky-700">
+                  Choose your filter size
+                </p>
+                <div className="mt-3 grid grid-cols-4 gap-2">
+                  {STANDARD_SIZES.map((s) => (
+                    <Link
+                      key={s}
+                      href={`/shop?size=${encodeURIComponent(s.replace(/\s×\s/g, "x"))}`}
+                      onClick={() => setSizeMenuOpen(false)}
+                      className="rounded-xl border border-sky-100 bg-sky-50/50 px-3 py-2.5 text-center text-sm font-semibold text-charcoal transition-colors hover:border-sky-400 hover:bg-white"
+                    >
+                      {s}
+                    </Link>
+                  ))}
+                </div>
+                <div className="mt-4 flex items-center justify-between border-t border-sky-100 pt-3 text-xs">
+                  <Link
+                    href="/shop"
+                    onClick={() => setSizeMenuOpen(false)}
+                    className="link-underline font-medium text-sky-700"
+                  >
+                    Shop all sizes →
+                  </Link>
+                  <Link
+                    href="/find-your-filter"
+                    onClick={() => setSizeMenuOpen(false)}
+                    className="text-charcoal-light hover:text-sky-700"
+                  >
+                    Custom size? Take the quiz →
+                  </Link>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
 

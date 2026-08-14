@@ -5,6 +5,8 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ArrowRight, Leaf, ShieldCheck, Sparkles, Star, Truck, Wind } from "lucide-react";
 import { STANDARD_SIZES } from "@/lib/products";
+import { IridescentWave } from "@/components/ui/IridescentWave";
+import { MervShield } from "@/components/ui/MervShield";
 
 const RATING_VALUE = 4.9;
 const RATING_COUNT = "12,000+";
@@ -163,40 +165,6 @@ export function KaleroEverydayHero() {
 
 /* ------------------------------------------------------------------ */
 
-function IridescentWave({ className }: { className?: string }) {
-  return (
-    <div className={className} aria-hidden="true">
-      <svg
-        viewBox="0 0 1440 260"
-        preserveAspectRatio="none"
-        className="h-full w-full"
-      >
-        <defs>
-          <linearGradient id="wave-a" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#3AA8E2" stopOpacity="0.55" />
-            <stop offset="45%" stopColor="#6DCFA7" stopOpacity="0.5" />
-            <stop offset="100%" stopColor="#8A6FD1" stopOpacity="0.55" />
-          </linearGradient>
-          <linearGradient id="wave-b" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#8A6FD1" stopOpacity="0.4" />
-            <stop offset="55%" stopColor="#3AA8E2" stopOpacity="0.45" />
-            <stop offset="100%" stopColor="#6DCFA7" stopOpacity="0.4" />
-          </linearGradient>
-        </defs>
-        <path
-          d="M0,120 C240,60 480,180 720,120 C960,60 1200,180 1440,120 L1440,0 L0,0 Z"
-          fill="url(#wave-a)"
-        />
-        <path
-          d="M0,180 C240,120 480,220 720,170 C960,120 1200,220 1440,170 L1440,0 L0,0 Z"
-          fill="url(#wave-b)"
-          opacity="0.7"
-        />
-      </svg>
-    </div>
-  );
-}
-
 function SizeShowcase({
   dimA,
   dimB,
@@ -209,7 +177,7 @@ function SizeShowcase({
   return (
     <div className="relative mx-auto flex w-full max-w-lg flex-col items-center gap-6 lg:items-end">
       {/* MERV shield */}
-      <MervShield />
+      <MervShield rating="8·11·13" label="Standard" size="md" />
       {/* Giant reactive size numerals */}
       <div
         aria-hidden="true"
@@ -244,25 +212,3 @@ function SizeShowcase({
   );
 }
 
-function MervShield() {
-  return (
-    <div
-      aria-hidden="true"
-      className="relative flex h-24 w-20 flex-col items-center justify-center rounded-b-[999px] rounded-t-lg bg-sky-500 pt-2 text-white shadow-card sm:h-28 sm:w-24"
-      style={{
-        clipPath:
-          "polygon(0 0, 100% 0, 100% 70%, 50% 100%, 0 70%)",
-      }}
-    >
-      <span className="text-[9px] font-semibold uppercase tracking-[0.14em]">
-        MERV
-      </span>
-      <span className="font-display text-3xl font-bold leading-none sm:text-4xl">
-        8·11·13
-      </span>
-      <span className="mt-0.5 text-[8px] font-medium uppercase tracking-[0.14em]">
-        Standard
-      </span>
-    </div>
-  );
-}
