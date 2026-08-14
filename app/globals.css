@@ -4,9 +4,9 @@
 
 @layer base {
   :root {
-    --lavender: #9164d2;
-    --lavender-100: #f1eafe;
-    --lavender-200: #e4d4fc;
+    --sky: #1b8fd1;
+    --sky-100: #dceefa;
+    --sky-200: #b8dff5;
     --charcoal: #17171b;
     --canvas: #fafafc;
   }
@@ -30,7 +30,7 @@
   }
 
   ::selection {
-    background: var(--lavender-100);
+    background: var(--sky-100);
     color: var(--charcoal);
   }
 }
@@ -41,7 +41,7 @@
   }
 
   .eyebrow {
-    @apply inline-flex items-center gap-2 text-eyebrow font-medium uppercase text-lavender-600;
+    @apply inline-flex items-center gap-2 text-eyebrow font-medium uppercase text-sky-600;
   }
 
   .display-serif {
@@ -50,7 +50,7 @@
   }
 
   .surface-card {
-    @apply rounded-card bg-white shadow-soft ring-1 ring-lavender-100/70;
+    @apply rounded-card bg-white shadow-soft ring-1 ring-sky-100/70;
   }
 
   .link-underline {
@@ -74,15 +74,15 @@
 
   .bg-grid-soft {
     background-image:
-      linear-gradient(rgba(145, 100, 210, 0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(145, 100, 210, 0.06) 1px, transparent 1px);
+      linear-gradient(rgba(27, 143, 209, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(27, 143, 209, 0.06) 1px, transparent 1px);
     background-size: 44px 44px;
   }
 }
 
 /* Focus styles, accessibility */
 :where(a, button, [role="button"], input, select, textarea):focus-visible {
-  outline: 2px solid var(--lavender);
+  outline: 2px solid var(--sky);
   outline-offset: 3px;
   border-radius: 6px;
 }

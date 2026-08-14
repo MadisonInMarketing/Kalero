@@ -41,12 +41,12 @@ export function SizeFinder() {
     <div className="relative overflow-hidden rounded-xl bg-white/85 p-6 shadow-card ring-1 ring-white/70 backdrop-blur sm:p-8">
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-16 -top-16 h-64 w-64 rounded-full bg-lavender-200/50 blur-3xl"
+        className="pointer-events-none absolute -right-16 -top-16 h-64 w-64 rounded-full bg-sky-200/50 blur-3xl"
       />
 
       <div className="relative grid gap-6 lg:grid-cols-[1.05fr_1fr] lg:items-center">
         <div>
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-lavender-100 px-3 py-1 text-eyebrow text-lavender-700">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-sky-100 px-3 py-1 text-eyebrow text-sky-700">
             <Ruler size={12} />
             Find your size
           </span>
@@ -79,7 +79,7 @@ export function SizeFinder() {
                 setPicked(null);
               }}
               placeholder="e.g. 20 × 25 × 1"
-              className="w-full rounded-full border border-lavender-200 bg-canvas py-3.5 pl-11 pr-32 text-sm text-charcoal shadow-inner transition-all placeholder:text-charcoal-light focus:border-lavender-500 focus:outline-none focus:ring-2 focus:ring-lavender-400/40"
+              className="w-full rounded-full border border-sky-200 bg-canvas py-3.5 pl-11 pr-32 text-sm text-charcoal shadow-inner transition-all placeholder:text-charcoal-light focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-400/40"
             />
             <button
               type="button"
@@ -105,8 +105,8 @@ export function SizeFinder() {
                   }}
                   className={`rounded-full border px-3 py-1.5 text-xs font-medium transition-all ${
                     isActive
-                      ? "border-lavender-500 bg-lavender-100 text-lavender-800 shadow-soft"
-                      : "border-lavender-200 bg-white text-charcoal-mid hover:border-lavender-300 hover:text-charcoal"
+                      ? "border-sky-500 bg-sky-100 text-sky-800 shadow-soft"
+                      : "border-sky-200 bg-white text-charcoal-mid hover:border-sky-300 hover:text-charcoal"
                   }`}
                 >
                   {s}
@@ -121,7 +121,7 @@ export function SizeFinder() {
         <div
           className={`relative mt-6 flex flex-col items-start gap-3 rounded-2xl p-4 sm:flex-row sm:items-center sm:justify-between ${
             isStandard
-              ? "bg-lavender-50 ring-1 ring-lavender-200"
+              ? "bg-sky-50 ring-1 ring-sky-200"
               : "bg-gold-soft/70 ring-1 ring-gold/40"
           }`}
         >
@@ -129,7 +129,7 @@ export function SizeFinder() {
             <span
               className={`mt-0.5 flex h-8 w-8 items-center justify-center rounded-full ${
                 isStandard
-                  ? "bg-lavender-500 text-white"
+                  ? "bg-sky-500 text-white"
                   : "bg-gold text-charcoal"
               }`}
             >
@@ -159,7 +159,7 @@ export function SizeFinder() {
           <button
             type="button"
             onClick={scrollToConcerns}
-            className="shrink-0 rounded-full bg-lavender-500 px-4 py-2 text-xs font-medium text-white transition-colors hover:bg-lavender-600"
+            className="shrink-0 rounded-full bg-sky-500 px-4 py-2 text-xs font-medium text-white transition-colors hover:bg-sky-600"
           >
             Choose a concern →
           </button>

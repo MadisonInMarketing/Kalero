@@ -12,8 +12,8 @@ export function FinalCTA() {
       className="relative isolate overflow-hidden py-24 sm:py-32"
       aria-labelledby="final-title"
     >
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white via-lavender-50 to-white" />
-      <div className="pointer-events-none absolute inset-0 bg-lavender-glow opacity-80" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white via-sky-50 to-white" />
+      <div className="pointer-events-none absolute inset-0 bg-sky-glow opacity-80" />
       <div className="pointer-events-none absolute inset-0 opacity-70">
         <AirflowLines className="h-full w-full" opacity={0.28} />
       </div>
@@ -38,7 +38,7 @@ export function FinalCTA() {
             className="mt-4 font-display text-display-2xl font-semibold text-charcoal text-balance"
           >
             Your home has specific air problems.{" "}
-            <span className="bg-gradient-to-r from-lavender-600 to-blush bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-sky-600 to-blush bg-clip-text text-transparent">
               Your filter should be specific too.
             </span>
           </motion.h2>

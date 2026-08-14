@@ -43,7 +43,7 @@ export function ScentAddOn({
     <section
       aria-labelledby="scent-add-on-title"
       className={[
-        "rounded-2xl border border-lavender-100/80 bg-white/70 p-5 backdrop-blur-sm",
+        "rounded-2xl border border-sky-100/80 bg-white/70 p-5 backdrop-blur-sm",
         className,
       ]
         .filter(Boolean)
@@ -61,7 +61,7 @@ export function ScentAddOn({
             Optional fragrance upgrade for your filter
           </p>
         </div>
-        <span className="rounded-full bg-lavender-100/60 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.14em] text-lavender-700">
+        <span className="rounded-full bg-sky-100/60 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.14em] text-sky-700">
           Optional
         </span>
       </div>
@@ -94,7 +94,7 @@ export function ScentAddOn({
       </div>
 
       {state.scentKey !== null && (
-        <div className="mt-4 flex items-center justify-between rounded-xl bg-lavender-100/40 px-4 py-2.5">
+        <div className="mt-4 flex items-center justify-between rounded-xl bg-sky-100/40 px-4 py-2.5">
           <span className="text-xs font-medium text-charcoal">
             Strips
           </span>
@@ -108,7 +108,7 @@ export function ScentAddOn({
                   quantity: Math.max(1, state.quantity - 1),
                 })
               }
-              className="flex h-7 w-7 items-center justify-center rounded-full text-charcoal-mid ring-1 ring-lavender-200/80 transition-colors hover:text-charcoal"
+              className="flex h-7 w-7 items-center justify-center rounded-full text-charcoal-mid ring-1 ring-sky-200/80 transition-colors hover:text-charcoal"
             >
               −
             </button>
@@ -124,7 +124,7 @@ export function ScentAddOn({
                   quantity: Math.min(6, state.quantity + 1),
                 })
               }
-              className="flex h-7 w-7 items-center justify-center rounded-full text-charcoal-mid ring-1 ring-lavender-200/80 transition-colors hover:text-charcoal"
+              className="flex h-7 w-7 items-center justify-center rounded-full text-charcoal-mid ring-1 ring-sky-200/80 transition-colors hover:text-charcoal"
             >
               +
             </button>
@@ -169,8 +169,8 @@ function ScentOption({
       className={[
         "group flex w-full items-center justify-between gap-4 rounded-xl px-4 py-3 text-left transition-all",
         selected
-          ? "bg-white ring-2 ring-lavender-500"
-          : "bg-white/60 ring-1 ring-lavender-100 hover:ring-lavender-300",
+          ? "bg-white ring-2 ring-sky-500"
+          : "bg-white/60 ring-1 ring-sky-100 hover:ring-sky-300",
         disabled ? "cursor-not-allowed opacity-60" : "cursor-pointer",
       ].join(" ")}
     >
@@ -184,14 +184,14 @@ function ScentOption({
         <span
           className={
             selected
-              ? "text-xs font-semibold text-lavender-700"
+              ? "text-xs font-semibold text-sky-700"
               : "text-xs font-medium text-charcoal-mid"
           }
         >
           {priceLabel}
         </span>
         {selected && (
-          <span className="flex h-5 w-5 items-center justify-center rounded-full bg-lavender-500 text-white">
+          <span className="flex h-5 w-5 items-center justify-center rounded-full bg-sky-500 text-white">
             <Check size={12} strokeWidth={3} />
           </span>
         )}

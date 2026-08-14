@@ -21,7 +21,7 @@ export function Subscription() {
 
   return (
     <section
-      className="relative isolate overflow-hidden bg-gradient-to-b from-canvas via-lavender-50/40 to-canvas py-24 sm:py-28"
+      className="relative isolate overflow-hidden bg-gradient-to-b from-canvas via-sky-50/40 to-canvas py-24 sm:py-28"
       aria-labelledby="subscription-title"
     >
       <div className="container-x">
@@ -49,7 +49,7 @@ export function Subscription() {
                 "Replacement reminders",
               ].map((b) => (
                 <li key={b} className="flex items-start gap-2.5">
-                  <span className="mt-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-lavender-100 text-lavender-700">
+                  <span className="mt-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-sky-100 text-sky-700">
                     <Check size={12} strokeWidth={2.5} />
                   </span>
                   <span>{b}</span>
@@ -70,7 +70,7 @@ export function Subscription() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.7 }}
-              className="rounded-xl bg-white p-6 ring-1 ring-lavender-100 shadow-card sm:p-8"
+              className="rounded-xl bg-white p-6 ring-1 ring-sky-100 shadow-card sm:p-8"
             >
               <div className="flex items-start justify-between gap-4">
                 <div>
@@ -93,7 +93,7 @@ export function Subscription() {
                 </div>
               </div>
 
-              <div className="mt-6 grid grid-cols-2 gap-2 rounded-full bg-canvas p-1 ring-1 ring-lavender-100">
+              <div className="mt-6 grid grid-cols-2 gap-2 rounded-full bg-canvas p-1 ring-1 ring-sky-100">
                 {(["onetime", "subscribe"] as const).map((m) => (
                   <button
                     key={m}
@@ -106,7 +106,7 @@ export function Subscription() {
                     {mode === m && (
                       <motion.span
                         layoutId="sub-toggle"
-                        className="absolute inset-0 rounded-full bg-white shadow-soft ring-1 ring-lavender-100"
+                        className="absolute inset-0 rounded-full bg-white shadow-soft ring-1 ring-sky-100"
                         transition={{ type: "spring", stiffness: 320, damping: 30 }}
                       />
                     )}
@@ -128,8 +128,8 @@ export function Subscription() {
                         onClick={() => setCadence(c)}
                         className={`rounded-2xl border px-3 py-3 text-center text-sm font-medium transition-all ${
                           cadence === c
-                            ? "border-lavender-500 bg-lavender-50 text-charcoal"
-                            : "border-lavender-100 bg-white text-charcoal-mid hover:border-lavender-300"
+                            ? "border-sky-500 bg-sky-50 text-charcoal"
+                            : "border-sky-100 bg-white text-charcoal-mid hover:border-sky-300"
                         }`}
                       >
                         <span className="block font-display text-lg font-semibold">
@@ -144,7 +144,7 @@ export function Subscription() {
                 </div>
               )}
 
-              <div className="mt-8 flex items-end justify-between border-t border-lavender-100 pt-6">
+              <div className="mt-8 flex items-end justify-between border-t border-sky-100 pt-6">
                 <div>
                   <p className="text-xs uppercase tracking-[0.16em] text-charcoal-light">
                     {mode === "subscribe" ? "Every filter" : "One-time"}
@@ -160,7 +160,7 @@ export function Subscription() {
                     )}
                   </p>
                   {mode === "subscribe" && (
-                    <p className="mt-1 inline-flex items-center gap-1 text-xs font-medium text-lavender-700">
+                    <p className="mt-1 inline-flex items-center gap-1 text-xs font-medium text-sky-700">
                       <Sparkles size={12} /> Save 15% + free shipping
                     </p>
                   )}
@@ -184,14 +184,14 @@ export function Subscription() {
             >
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-xs uppercase tracking-[0.16em] text-lavender-300">
+                  <p className="text-xs uppercase tracking-[0.16em] text-sky-300">
                     Reminder
                   </p>
                   <p className="mt-1 font-display text-sm font-medium">
                     Your next Allergy Defense ships in 4 weeks.
                   </p>
                 </div>
-                <span className="rounded-full bg-lavender-500 px-3 py-1 text-xs font-medium">
+                <span className="rounded-full bg-sky-500 px-3 py-1 text-xs font-medium">
                   Confirmed
                 </span>
               </div>

@@ -43,12 +43,12 @@ export function HvacCompatibility({ variant = "band", className = "" }: Props) {
     >
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-gradient-to-r from-lavender-50 via-white to-lavender-50"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-r from-sky-50 via-white to-sky-50"
       />
       <div className="container-x relative py-8 sm:py-10">
         <div className="flex flex-col items-center gap-4 sm:flex-row sm:items-center sm:justify-between sm:gap-8">
           <div className="flex items-center gap-3 shrink-0">
-            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-lavender-100 text-lavender-700">
+            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-sky-100 text-sky-700">
               <ShieldCheck size={16} strokeWidth={1.75} />
             </span>
             <p

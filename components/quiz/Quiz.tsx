@@ -238,17 +238,17 @@ export function Quiz() {
 
   return (
     <section className="relative isolate overflow-hidden py-10 sm:py-14">
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-lavender-100 via-lavender-50/70 to-canvas" />
-      <div className="pointer-events-none absolute -left-32 top-20 -z-10 h-96 w-96 rounded-full bg-lavender-300/50 blur-3xl" />
-      <div className="pointer-events-none absolute -right-32 top-40 -z-10 h-96 w-96 rounded-full bg-lavender-400/40 blur-3xl" />
-      <div className="pointer-events-none absolute bottom-0 left-1/2 -z-10 h-72 w-[80vw] -translate-x-1/2 rounded-full bg-lavender-200/40 blur-3xl" />
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-sky-100 via-sky-50/70 to-canvas" />
+      <div className="pointer-events-none absolute -left-32 top-20 -z-10 h-96 w-96 rounded-full bg-sky-300/50 blur-3xl" />
+      <div className="pointer-events-none absolute -right-32 top-40 -z-10 h-96 w-96 rounded-full bg-sky-400/40 blur-3xl" />
+      <div className="pointer-events-none absolute bottom-0 left-1/2 -z-10 h-72 w-[80vw] -translate-x-1/2 rounded-full bg-sky-200/40 blur-3xl" />
 
       <div className="container-x relative">
         {!done ? (
           <div className="mx-auto max-w-6xl">
             <div className="mb-8 flex flex-col items-start gap-3 sm:flex-row sm:items-end sm:justify-between">
               <div>
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-white/70 px-3 py-1 text-eyebrow text-lavender-700 ring-1 ring-white/70 backdrop-blur">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-white/70 px-3 py-1 text-eyebrow text-sky-700 ring-1 ring-white/70 backdrop-blur">
                   <Sparkles size={12} />
                   Find your filter
                 </span>
@@ -256,14 +256,14 @@ export function Quiz() {
                   Two minutes to a filter that fits your home.
                 </h1>
                 <p className="mt-3 flex items-center gap-2 text-sm text-charcoal-mid">
-                  <Timer size={14} className="text-lavender-600" />
+                  <Timer size={14} className="text-sky-600" />
                   Five short questions. Sizing help built in.
                 </p>
               </div>
               <button
                 type="button"
                 onClick={restart}
-                className="inline-flex items-center gap-1.5 rounded-full bg-white/80 px-3 py-1.5 text-xs font-medium text-charcoal-mid ring-1 ring-lavender-100 backdrop-blur transition-all hover:text-charcoal hover:ring-lavender-300"
+                className="inline-flex items-center gap-1.5 rounded-full bg-white/80 px-3 py-1.5 text-xs font-medium text-charcoal-mid ring-1 ring-sky-100 backdrop-blur transition-all hover:text-charcoal hover:ring-sky-300"
               >
                 <RefreshCw size={12} />
                 Start over
@@ -279,10 +279,10 @@ export function Quiz() {
                     <div
                       className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-semibold transition-all ${
                         isActive
-                          ? "bg-lavender-500 text-white shadow-soft ring-4 ring-lavender-200/60"
+                          ? "bg-sky-500 text-white shadow-soft ring-4 ring-sky-200/60"
                           : isDone
-                            ? "bg-lavender-500 text-white"
-                            : "bg-white text-charcoal-light ring-1 ring-lavender-200"
+                            ? "bg-sky-500 text-white"
+                            : "bg-white text-charcoal-light ring-1 ring-sky-200"
                       }`}
                     >
                       {isDone ? <Check size={14} strokeWidth={2.5} /> : i + 1}
@@ -290,7 +290,7 @@ export function Quiz() {
                     {i < steps.length - 1 && (
                       <div
                         className={`h-0.5 flex-1 rounded-full transition-all ${
-                          isDone ? "bg-lavender-500" : "bg-lavender-100"
+                          isDone ? "bg-sky-500" : "bg-sky-100"
                         }`}
                       />
                     )}
@@ -309,7 +309,7 @@ export function Quiz() {
                   transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                   className="relative flex min-h-[580px] flex-col overflow-hidden rounded-xl bg-white/95 p-6 shadow-card ring-1 ring-white/70 backdrop-blur sm:min-h-[680px] sm:p-10"
                 >
-                  <div className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-lavender-200/50 blur-3xl" />
+                  <div className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-sky-200/50 blur-3xl" />
 
                   <div className="relative flex-1">
                     <p className="eyebrow">
@@ -349,7 +349,7 @@ export function Quiz() {
                             className={`group relative flex items-start gap-3 rounded-2xl border p-4 text-left transition-shadow ${
                               isSelected
                                 ? "shadow-soft"
-                                : "border-lavender-100 bg-white hover:border-lavender-300 hover:bg-lavender-50/40"
+                                : "border-sky-100 bg-white hover:border-sky-300 hover:bg-sky-50/40"
                             }`}
                             style={
                               isSelected && cat
@@ -359,9 +359,9 @@ export function Quiz() {
                                   }
                                 : isSelected
                                   ? {
-                                      borderColor: "#9164D2",
+                                      borderColor: "#1B8FD1",
                                       background:
-                                        "linear-gradient(180deg, #F1EAFE 0%, #FFFFFF 100%)",
+                                        "linear-gradient(180deg, #DCEEFA 0%, #FFFFFF 100%)",
                                     }
                                   : undefined
                             }
@@ -397,7 +397,7 @@ export function Quiz() {
                               className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full border transition-all ${
                                 isSelected
                                   ? "text-white"
-                                  : "border-lavender-200 text-transparent group-hover:border-lavender-400"
+                                  : "border-sky-200 text-transparent group-hover:border-sky-400"
                               }`}
                               style={
                                 isSelected && cat
@@ -416,12 +416,12 @@ export function Quiz() {
                     </div>
                   </div>
 
-                  <div className="relative mt-8 flex items-center justify-between border-t border-lavender-100/70 pt-6">
+                  <div className="relative mt-8 flex items-center justify-between border-t border-sky-100/70 pt-6">
                     <button
                       type="button"
                       onClick={back}
                       disabled={current === 0}
-                      className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium text-charcoal-mid transition-colors hover:bg-lavender-50 hover:text-charcoal disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:bg-transparent"
+                      className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium text-charcoal-mid transition-colors hover:bg-sky-50 hover:text-charcoal disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:bg-transparent"
                     >
                       <ArrowLeft size={16} />
                       Back
@@ -454,7 +454,7 @@ export function Quiz() {
             className="mx-auto max-w-5xl"
           >
             <div className="text-center">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-white/70 px-3 py-1 text-eyebrow text-lavender-700 ring-1 ring-white/70 backdrop-blur">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-white/70 px-3 py-1 text-eyebrow text-sky-700 ring-1 ring-white/70 backdrop-blur">
                 <Sparkles size={12} />
                 Your KALERO match
               </span>
@@ -545,7 +545,7 @@ export function Quiz() {
 
               <div className="space-y-4">
                 {secondaryProduct && (
-                  <div className="rounded-card bg-white p-6 ring-1 ring-lavender-100 shadow-soft">
+                  <div className="rounded-card bg-white p-6 ring-1 ring-sky-100 shadow-soft">
                     <p className="eyebrow">Also consider</p>
                     <div className="mt-4 flex items-center gap-4">
                       <div
@@ -573,7 +573,7 @@ export function Quiz() {
                         </p>
                         <Link
                           href={`/products/${secondaryProduct.slug}`}
-                          className="mt-3 inline-flex text-xs font-medium text-lavender-700 hover:text-lavender-800"
+                          className="mt-3 inline-flex text-xs font-medium text-sky-700 hover:text-sky-800"
                         >
                           Learn more →
                         </Link>
@@ -581,8 +581,8 @@ export function Quiz() {
                     </div>
                   </div>
                 )}
-                <div className="rounded-card bg-gradient-to-br from-lavender-500 to-lavender-700 p-6 text-white shadow-card">
-                  <p className="text-eyebrow text-lavender-100">Save & sync</p>
+                <div className="rounded-card bg-gradient-to-br from-sky-500 to-sky-700 p-6 text-white shadow-card">
+                  <p className="text-eyebrow text-sky-100">Save & sync</p>
                   <p className="mt-2 font-display text-lg font-semibold text-balance">
                     Add these to a subscription and stop tracking filter dates.
                   </p>

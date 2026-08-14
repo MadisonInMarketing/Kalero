@@ -104,7 +104,7 @@ export default function SubscriptionsPage() {
   return (
     <>
       {/* HERO */}
-      <section className="relative isolate overflow-hidden bg-lavender-100">
+      <section className="relative isolate overflow-hidden bg-sky-100">
         <Image
           src="/images/New Subsriptions Hero Image.png"
           alt=""
@@ -125,12 +125,12 @@ export default function SubscriptionsPage() {
 
         <div className="container-x relative py-10 sm:py-14 lg:py-16">
           <div className="max-w-xl">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-white/85 px-3 py-1 text-eyebrow text-lavender-700 ring-1 ring-lavender-200 backdrop-blur">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-white/85 px-3 py-1 text-eyebrow text-sky-700 ring-1 ring-sky-200 backdrop-blur">
               KALERO subscriptions
             </span>
             <h1 className="mt-5 font-display text-[clamp(2.25rem,5vw,4rem)] font-extrabold uppercase leading-[0.95] tracking-[-0.02em] text-charcoal text-balance">
               Fresh filters, right when your{" "}
-              <span className="text-lavender-500">home needs them.</span>
+              <span className="text-sky-500">home needs them.</span>
             </h1>
             <p className="mt-5 max-w-lg text-base leading-relaxed text-charcoal-mid text-pretty sm:text-lg">
               Build one flexible plan for every filter in your home. Choose your
@@ -140,7 +140,7 @@ export default function SubscriptionsPage() {
             <div className="mt-7">
               <Link
                 href="#build"
-                className="inline-flex items-center gap-2 rounded-pill bg-lavender-500 px-6 py-3.5 text-sm font-semibold uppercase tracking-[0.06em] text-white shadow-soft transition-all hover:-translate-y-0.5 hover:bg-lavender-600 hover:shadow-card"
+                className="inline-flex items-center gap-2 rounded-pill bg-sky-500 px-6 py-3.5 text-sm font-semibold uppercase tracking-[0.06em] text-white shadow-soft transition-all hover:-translate-y-0.5 hover:bg-sky-600 hover:shadow-card"
               >
                 Build my filter plan
                 <ArrowRight size={16} strokeWidth={2.25} />
@@ -160,9 +160,9 @@ export default function SubscriptionsPage() {
             {benefits.map(({ Icon, title, body }) => (
               <div
                 key={title}
-                className="rounded-card bg-white p-6 ring-1 ring-lavender-100 shadow-soft"
+                className="rounded-card bg-white p-6 ring-1 ring-sky-100 shadow-soft"
               >
-                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-lavender-100 text-lavender-700">
+                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-sky-100 text-sky-700">
                   <Icon size={18} strokeWidth={1.75} />
                 </span>
                 <p className="mt-4 font-display text-base font-semibold text-charcoal">
@@ -201,7 +201,7 @@ export default function SubscriptionsPage() {
       </section>
 
       {/* HOW IT WORKS */}
-      <section aria-labelledby="how-title" className="border-t border-lavender-100/70 py-14 sm:py-16">
+      <section aria-labelledby="how-title" className="border-t border-sky-100/70 py-14 sm:py-16">
         <div className="container-x">
           <div className="mx-auto max-w-2xl text-center">
             <p className="eyebrow justify-center">How it works</p>
@@ -215,15 +215,15 @@ export default function SubscriptionsPage() {
 
           <div className="relative mt-10 grid gap-4 md:grid-cols-3">
             <div className="pointer-events-none absolute inset-x-10 top-8 hidden h-px md:block">
-              <div className="h-full w-full bg-gradient-to-r from-lavender-200/0 via-lavender-400/60 to-lavender-200/0" />
+              <div className="h-full w-full bg-gradient-to-r from-sky-200/0 via-sky-400/60 to-sky-200/0" />
             </div>
             {howItWorks.map((s) => (
               <div
                 key={s.step}
-                className="relative flex flex-col rounded-card bg-white p-6 ring-1 ring-lavender-100 shadow-soft"
+                className="relative flex flex-col rounded-card bg-white p-6 ring-1 ring-sky-100 shadow-soft"
               >
                 <div className="flex items-center gap-3">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-lavender-100 font-display text-lg font-semibold text-lavender-700">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-sky-100 font-display text-lg font-semibold text-sky-700">
                     {s.step}
                   </span>
                   <p className="font-display text-base font-semibold text-charcoal">
@@ -240,7 +240,7 @@ export default function SubscriptionsPage() {
       </section>
 
       {/* FAQ */}
-      <section aria-labelledby="faq-title" className="border-t border-lavender-100/70 py-14 sm:py-16">
+      <section aria-labelledby="faq-title" className="border-t border-sky-100/70 py-14 sm:py-16">
         <div className="container-x">
           <div className="mx-auto max-w-2xl text-center">
             <p className="eyebrow justify-center">FAQ</p>
@@ -256,14 +256,14 @@ export default function SubscriptionsPage() {
             <ul className="flex flex-col gap-3">
               {faqs.map((item) => (
                 <li key={item.q}>
-                  <details className="group rounded-2xl bg-white ring-1 ring-lavender-100 shadow-soft transition-shadow open:shadow-card">
+                  <details className="group rounded-2xl bg-white ring-1 ring-sky-100 shadow-soft transition-shadow open:shadow-card">
                     <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-5 text-left">
                       <span className="font-display text-base font-semibold text-charcoal sm:text-lg">
                         {item.q}
                       </span>
                       <ChevronDown
                         size={18}
-                        className="shrink-0 text-lavender-600 transition-transform duration-300 group-open:rotate-180"
+                        className="shrink-0 text-sky-600 transition-transform duration-300 group-open:rotate-180"
                         aria-hidden="true"
                       />
                     </summary>
@@ -281,7 +281,7 @@ export default function SubscriptionsPage() {
       {/* FINAL CTA */}
       <section aria-labelledby="final-cta" className="pb-16 pt-8 sm:pb-24 sm:pt-10">
         <div className="container-x">
-          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-lavender-500 via-lavender-600 to-lavender-700 p-10 text-center shadow-card sm:p-14">
+          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-sky-500 via-sky-600 to-sky-700 p-10 text-center shadow-card sm:p-14">
             <div
               aria-hidden="true"
               className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-white/15 blur-3xl"
@@ -309,7 +309,7 @@ export default function SubscriptionsPage() {
               <div className="mt-8 flex flex-wrap items-center justify-center gap-5">
                 <Link
                   href="#build"
-                  className="inline-flex items-center gap-2 rounded-pill bg-white px-6 py-3.5 text-sm font-semibold uppercase tracking-[0.06em] text-lavender-700 shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-card"
+                  className="inline-flex items-center gap-2 rounded-pill bg-white px-6 py-3.5 text-sm font-semibold uppercase tracking-[0.06em] text-sky-700 shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-card"
                 >
                   Build my filter plan
                   <ArrowRight size={16} strokeWidth={2.25} />

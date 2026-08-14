@@ -28,7 +28,7 @@ export function SeasonalCollection() {
           </div>
           <Link
             href="/shop/seasonal-air"
-            className="inline-flex items-center gap-2 rounded-pill bg-lavender-500 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-lavender-600"
+            className="inline-flex items-center gap-2 rounded-pill bg-sky-500 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-sky-600"
           >
             Discover seasonal drops
             <ArrowRight size={16} />
@@ -39,7 +39,7 @@ export function SeasonalCollection() {
           {seasonalDrops.map((d, i) => (
             <Reveal key={d.slug} delay={i * 0.05}>
               <article
-                className={`group relative flex h-full flex-col overflow-hidden rounded-card bg-gradient-to-br ${d.palette} p-6 ring-1 ring-lavender-100 shadow-soft transition-transform hover:-translate-y-1`}
+                className={`group relative flex h-full flex-col overflow-hidden rounded-card bg-gradient-to-br ${d.palette} p-6 ring-1 ring-sky-100 shadow-soft transition-transform hover:-translate-y-1`}
               >
                 <div className="relative aspect-[4/5] overflow-hidden rounded-2xl">
                   <Image
@@ -51,7 +51,7 @@ export function SeasonalCollection() {
                   />
                 </div>
                 <div className="mt-5">
-                  <p className="text-eyebrow text-lavender-700">Limited drop</p>
+                  <p className="text-eyebrow text-sky-700">Limited drop</p>
                   <h3 className="mt-1 font-display text-xl font-semibold text-charcoal">
                     {d.name}
                   </h3>
@@ -61,7 +61,7 @@ export function SeasonalCollection() {
                   <span className="text-sm font-medium text-charcoal">
                     From $34
                   </span>
-                  <span className="link-underline text-sm text-lavender-700">
+                  <span className="link-underline text-sm text-sky-700">
                     Shop the drop
                   </span>
                 </div>

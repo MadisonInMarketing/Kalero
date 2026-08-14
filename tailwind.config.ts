@@ -9,19 +9,35 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Brand core
+        // Brand core — sky blue
+        sky: {
+          DEFAULT: "#1B8FD1",
+          soft: "#DCEEFA",
+          deep: "#0B5A94",
+          50: "#F0F9FF",
+          100: "#DCEEFA",
+          200: "#B8DFF5",
+          300: "#7DC5EE",
+          400: "#4AABE4",
+          500: "#1B8FD1",
+          600: "#0F72B3",
+          700: "#0B5A94",
+          800: "#094876",
+          900: "#062E4F",
+        },
+        // Legacy lavender alias → sky (keeps stragglers from breaking builds)
         lavender: {
-          DEFAULT: "#9164D2",
-          50: "#FAF5FF",
-          100: "#F1EAFE",
-          200: "#E4D4FC",
-          300: "#CDB2F5",
-          400: "#B58EE8",
-          500: "#9164D2",
-          600: "#7A4EBC",
-          700: "#623D9E",
-          800: "#4A2E7A",
-          900: "#33215A",
+          DEFAULT: "#1B8FD1",
+          50: "#F0F9FF",
+          100: "#DCEEFA",
+          200: "#B8DFF5",
+          300: "#7DC5EE",
+          400: "#4AABE4",
+          500: "#1B8FD1",
+          600: "#0F72B3",
+          700: "#0B5A94",
+          800: "#094876",
+          900: "#062E4F",
         },
         charcoal: {
           DEFAULT: "#17171B",
@@ -32,14 +48,9 @@ const config: Config = {
         canvas: {
           DEFAULT: "#FAFAFC",
           warm: "#F7F6FA",
-          soft: "#F1EAFE",
+          soft: "#DCEEFA",
         },
         // Category identities
-        sky: {
-          DEFAULT: "#67B7F2",
-          soft: "#E5F2FD",
-          deep: "#3A8FC9",
-        },
         grass: {
           DEFAULT: "#96B83B",
           soft: "#EDF3D9",
@@ -96,15 +107,17 @@ const config: Config = {
         pill: "999px",
       },
       boxShadow: {
-        soft: "0 20px 60px -30px rgba(74, 46, 122, 0.25)",
-        card: "0 30px 80px -40px rgba(74, 46, 122, 0.35)",
-        glow: "0 0 120px rgba(145, 100, 210, 0.35)",
+        soft: "0 20px 60px -30px rgba(11, 90, 148, 0.22)",
+        card: "0 30px 80px -40px rgba(11, 90, 148, 0.32)",
+        glow: "0 0 120px rgba(27, 143, 209, 0.32)",
       },
       backgroundImage: {
+        "sky-glow":
+          "radial-gradient(60% 60% at 50% 40%, rgba(27,143,209,0.26) 0%, rgba(220,238,250,0) 70%)",
         "lavender-glow":
-          "radial-gradient(60% 60% at 50% 40%, rgba(145,100,210,0.28) 0%, rgba(241,234,254,0) 70%)",
+          "radial-gradient(60% 60% at 50% 40%, rgba(27,143,209,0.26) 0%, rgba(220,238,250,0) 70%)",
         "hero-wash":
-          "linear-gradient(180deg, #FAFAFC 0%, #F1EAFE 55%, #FAFAFC 100%)",
+          "linear-gradient(180deg, #FAFAFC 0%, #DCEEFA 55%, #FAFAFC 100%)",
       },
       keyframes: {
         drift: {

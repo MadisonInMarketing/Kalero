@@ -10,7 +10,7 @@ type Props = {
 };
 
 const accents: Record<NonNullable<Props["accent"]>, string> = {
-  lavender: "from-lavender-50 via-canvas to-canvas",
+  lavender: "from-sky-50 via-canvas to-canvas",
   gold: "from-gold-soft via-canvas to-canvas",
   blush: "from-blush-soft via-canvas to-canvas",
 };

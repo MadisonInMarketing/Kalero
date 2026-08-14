@@ -29,7 +29,7 @@ export function FAQ() {
             </p>
           </div>
 
-          <div className="divide-y divide-lavender-100 rounded-card bg-white ring-1 ring-lavender-100 shadow-soft">
+          <div className="divide-y divide-sky-100 rounded-card bg-white ring-1 ring-sky-100 shadow-soft">
             {faqs.map((f, i) => {
               const isOpen = open === i;
               return (
@@ -46,8 +46,8 @@ export function FAQ() {
                     <span
                       className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition-colors ${
                         isOpen
-                          ? "bg-lavender-500 text-white"
-                          : "bg-canvas text-charcoal-mid group-hover:bg-lavender-100 group-hover:text-lavender-700"
+                          ? "bg-sky-500 text-white"
+                          : "bg-canvas text-charcoal-mid group-hover:bg-sky-100 group-hover:text-sky-700"
                       }`}
                     >
                       {isOpen ? <Minus size={16} /> : <Plus size={16} />}

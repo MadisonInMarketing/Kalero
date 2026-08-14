@@ -27,14 +27,14 @@ export function Testimonials() {
             const c = productColors[t.category];
             return (
               <Reveal key={i} delay={i * 0.03}>
-                <blockquote className="relative rounded-card bg-white p-6 ring-1 ring-lavender-100 shadow-soft">
-                  <div className="pointer-events-none absolute right-6 top-6 font-display text-6xl leading-none text-lavender-100">
+                <blockquote className="relative rounded-card bg-white p-6 ring-1 ring-sky-100 shadow-soft">
+                  <div className="pointer-events-none absolute right-6 top-6 font-display text-6xl leading-none text-sky-100">
                     &ldquo;
                   </div>
                   <p className="relative font-display text-lg leading-snug text-charcoal text-pretty">
                     {t.quote}
                   </p>
-                  <footer className="mt-6 flex items-center gap-3 border-t border-lavender-50 pt-4 text-sm">
+                  <footer className="mt-6 flex items-center gap-3 border-t border-sky-50 pt-4 text-sm">
                     <span
                       className="flex h-9 w-9 items-center justify-center rounded-full font-display text-sm font-semibold text-white"
                       style={{ backgroundColor: c.deep }}

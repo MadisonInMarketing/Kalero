@@ -45,9 +45,9 @@ export function QuizPreview() {
         }}
         aria-hidden="true"
       />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-lavender-200/55 via-lavender-100/40 to-lavender-200/55" />
-      <div className="pointer-events-none absolute -left-24 top-1/3 h-96 w-96 rounded-full bg-lavender-300/50 blur-3xl" />
-      <div className="pointer-events-none absolute -right-24 bottom-1/4 h-96 w-96 rounded-full bg-lavender-400/40 blur-3xl" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-sky-200/55 via-sky-100/40 to-sky-200/55" />
+      <div className="pointer-events-none absolute -left-24 top-1/3 h-96 w-96 rounded-full bg-sky-300/50 blur-3xl" />
+      <div className="pointer-events-none absolute -right-24 bottom-1/4 h-96 w-96 rounded-full bg-sky-400/40 blur-3xl" />
 
       <div className="container-x relative">
         <div className="mx-auto max-w-3xl text-center">
@@ -93,7 +93,7 @@ export function QuizPreview() {
             </LinkButton>
             <Link
               href="/shop"
-              className="inline-flex items-center gap-1 rounded-pill bg-white px-5 py-3 text-sm font-medium text-charcoal ring-1 ring-lavender-200 transition-colors hover:ring-lavender-400"
+              className="inline-flex items-center gap-1 rounded-pill bg-white px-5 py-3 text-sm font-medium text-charcoal ring-1 ring-sky-200 transition-colors hover:ring-sky-400"
             >
               Browse all filters
               <ArrowRight size={14} />
@@ -109,7 +109,7 @@ export function QuizPreview() {
           >
             {checklist.map((line) => (
               <li key={line} className="flex items-center gap-2">
-                <span className="flex h-4 w-4 items-center justify-center rounded-full bg-lavender-100 text-lavender-700">
+                <span className="flex h-4 w-4 items-center justify-center rounded-full bg-sky-100 text-sky-700">
                   <Check size={10} strokeWidth={2.5} />
                 </span>
                 {line}
@@ -126,9 +126,9 @@ export function QuizPreview() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.55, delay: 0.1 + i * 0.08 }}
-              className="rounded-card bg-white p-6 ring-1 ring-lavender-100 shadow-soft"
+              className="rounded-card bg-white p-6 ring-1 ring-sky-100 shadow-soft"
             >
-              <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-lavender-100 text-lavender-700">
+              <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-sky-100 text-sky-700">
                 <Icon size={18} strokeWidth={1.75} />
               </span>
               <p className="mt-4 font-display text-base font-semibold text-charcoal">

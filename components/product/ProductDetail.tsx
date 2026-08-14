@@ -139,12 +139,12 @@ export function ProductDetail({ product }: Props) {
           <div className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:gap-16">
             <div className="relative flex flex-col gap-4">
               <div
-                className="relative flex aspect-square w-full items-center justify-center overflow-hidden rounded-card ring-1 ring-lavender-100 shadow-soft"
+                className="relative flex aspect-square w-full items-center justify-center overflow-hidden rounded-card ring-1 ring-sky-100 shadow-soft"
                 style={{
                   background: `linear-gradient(180deg, ${product.color.soft} 0%, #FFFFFF 65%, #FFFFFF 100%)`,
                 }}
               >
-                <div className="pointer-events-none absolute inset-x-4 top-4 h-1/2 bg-lavender-glow opacity-70" />
+                <div className="pointer-events-none absolute inset-x-4 top-4 h-1/2 bg-sky-glow opacity-70" />
                 {activeImage ? (
                   <AnimatePresence mode="wait">
                     <motion.div
@@ -204,8 +204,8 @@ export function ProductDetail({ product }: Props) {
                       onClick={() => setActiveThumb(i)}
                       className={`relative aspect-square w-[calc((100%-2.25rem)/4)] shrink-0 snap-start overflow-hidden rounded-2xl bg-white ring-1 transition-all ${
                         i === activeThumb
-                          ? "ring-2 ring-lavender-500 shadow-soft"
-                          : "ring-lavender-100 hover:ring-lavender-300 hover:-translate-y-0.5"
+                          ? "ring-2 ring-sky-500 shadow-soft"
+                          : "ring-sky-100 hover:ring-sky-300 hover:-translate-y-0.5"
                       }`}
                       style={
                         i === activeThumb
@@ -232,7 +232,7 @@ export function ProductDetail({ product }: Props) {
                     (_, i) => (
                       <div
                         key={`empty-${i}`}
-                        className="aspect-square overflow-hidden rounded-2xl ring-1 ring-lavender-100"
+                        className="aspect-square overflow-hidden rounded-2xl ring-1 ring-sky-100"
                       >
                         <Placeholder
                           label="Coming soon"
@@ -260,7 +260,7 @@ export function ProductDetail({ product }: Props) {
                   {category.title}
                 </span>
                 {mode === "subscribe" && (
-                  <Chip className="bg-lavender-100 text-lavender-700">
+                  <Chip className="bg-sky-100 text-sky-700">
                     Save {product.subscriptionSavings}% subscribing
                   </Chip>
                 )}
@@ -279,13 +279,13 @@ export function ProductDetail({ product }: Props) {
                 <span className="text-sm text-charcoal-light">|</span>
                 <Link
                   href="#reviews"
-                  className="text-sm text-lavender-700 hover:text-lavender-800"
+                  className="text-sm text-sky-700 hover:text-sky-800"
                 >
                   Read reviews
                 </Link>
               </div>
 
-              <div className="mt-8 rounded-card border border-lavender-100 bg-white p-5">
+              <div className="mt-8 rounded-card border border-sky-100 bg-white p-5">
                 <div className="flex items-baseline justify-between">
                   <div>
                     <p className="text-xs uppercase tracking-[0.16em] text-charcoal-light">
@@ -322,7 +322,7 @@ export function ProductDetail({ product }: Props) {
                         if (e.target.value === "__custom") return;
                         setSize(e.target.value);
                       }}
-                      className="w-full appearance-none rounded-xl border border-lavender-200 bg-white px-4 py-3 pr-10 text-sm font-medium text-charcoal shadow-soft transition-all hover:border-lavender-300 focus:border-lavender-500 focus:outline-none focus:ring-2 focus:ring-lavender-400/40"
+                      className="w-full appearance-none rounded-xl border border-sky-200 bg-white px-4 py-3 pr-10 text-sm font-medium text-charcoal shadow-soft transition-all hover:border-sky-300 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-400/40"
                     >
                       {STANDARD_SIZES.map((s) => (
                         <option key={s} value={s}>
@@ -343,7 +343,7 @@ export function ProductDetail({ product }: Props) {
                     />
                   </div>
                   <details className="mt-3 text-sm text-charcoal-mid">
-                    <summary className="cursor-pointer text-lavender-700 hover:text-lavender-800">
+                    <summary className="cursor-pointer text-sky-700 hover:text-sky-800">
                       Enter a custom size
                     </summary>
                     <div className="mt-2 flex gap-2">
@@ -352,12 +352,12 @@ export function ProductDetail({ product }: Props) {
                         placeholder="e.g. 12 × 24 × 1"
                         value={customSize}
                         onChange={(e) => setCustomSize(e.target.value)}
-                        className="flex-1 rounded-xl border border-lavender-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-lavender-400"
+                        className="flex-1 rounded-xl border border-sky-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sky-400"
                       />
                       <button
                         type="button"
                         onClick={() => customSize && setSize(customSize)}
-                        className="rounded-xl bg-lavender-500 px-3 py-2 text-xs font-medium text-white hover:bg-lavender-600"
+                        className="rounded-xl bg-sky-500 px-3 py-2 text-xs font-medium text-white hover:bg-sky-600"
                       >
                         Use
                       </button>
@@ -366,7 +366,7 @@ export function ProductDetail({ product }: Props) {
                 </div>
 
                 <div className="mt-5">
-                  <div className="grid grid-cols-2 gap-2 rounded-full bg-canvas p-1 ring-1 ring-lavender-100">
+                  <div className="grid grid-cols-2 gap-2 rounded-full bg-canvas p-1 ring-1 ring-sky-100">
                     {(["onetime", "subscribe"] as const).map((m) => (
                       <button
                         key={m}
@@ -379,7 +379,7 @@ export function ProductDetail({ product }: Props) {
                         {mode === m && (
                           <motion.span
                             layoutId={`toggle-${product.slug}`}
-                            className="absolute inset-0 rounded-full bg-white shadow-soft ring-1 ring-lavender-100"
+                            className="absolute inset-0 rounded-full bg-white shadow-soft ring-1 ring-sky-100"
                             transition={{ type: "spring", stiffness: 320, damping: 30 }}
                           />
                         )}
@@ -403,8 +403,8 @@ export function ProductDetail({ product }: Props) {
                             onClick={() => setCadence(c)}
                             className={`rounded-2xl border px-3 py-3 text-center text-sm transition-all ${
                               cadence === c
-                                ? "border-lavender-500 bg-lavender-50 text-charcoal"
-                                : "border-lavender-100 bg-white text-charcoal-mid hover:border-lavender-300"
+                                ? "border-sky-500 bg-sky-50 text-charcoal"
+                                : "border-sky-100 bg-white text-charcoal-mid hover:border-sky-300"
                             }`}
                           >
                             <span className="block font-display font-semibold">
@@ -427,7 +427,7 @@ export function ProductDetail({ product }: Props) {
                 )}
 
                 <div className="mt-5 flex items-center gap-4">
-                  <div className="flex items-center rounded-pill bg-canvas ring-1 ring-lavender-100">
+                  <div className="flex items-center rounded-pill bg-canvas ring-1 ring-sky-100">
                     <button
                       type="button"
                       onClick={() => setQuantity((q) => Math.max(1, q - 1))}
@@ -462,7 +462,7 @@ export function ProductDetail({ product }: Props) {
                   `Ships in 3-5 business days`,
                 ].map((b) => (
                   <li key={b} className="flex items-center gap-2">
-                    <Check size={14} className="text-lavender-600" />
+                    <Check size={14} className="text-sky-600" />
                     {b}
                   </li>
                 ))}
@@ -474,7 +474,7 @@ export function ProductDetail({ product }: Props) {
 
       <HvacCompatibility />
 
-      <section className="border-t border-lavender-100 py-16 sm:py-20">
+      <section className="border-t border-sky-100 py-16 sm:py-20">
         <div className="container-x">
           <div className="grid gap-10 lg:grid-cols-3">
             <div className="lg:col-span-2 space-y-8">
@@ -484,7 +484,7 @@ export function ProductDetail({ product }: Props) {
                   {product.designedFor.map((d) => (
                     <div
                       key={d}
-                      className="flex items-center gap-3 rounded-2xl bg-white p-4 ring-1 ring-lavender-100 shadow-soft"
+                      className="flex items-center gap-3 rounded-2xl bg-white p-4 ring-1 ring-sky-100 shadow-soft"
                     >
                       <span
                         className="flex h-9 w-9 items-center justify-center rounded-xl"
@@ -504,14 +504,14 @@ export function ProductDetail({ product }: Props) {
                   {product.helpsCapture.map((h) => (
                     <span
                       key={h}
-                      className="rounded-full bg-white px-4 py-2 text-sm text-charcoal ring-1 ring-lavender-100"
+                      className="rounded-full bg-white px-4 py-2 text-sm text-charcoal ring-1 ring-sky-100"
                     >
                       {h}
                     </span>
                   ))}
                 </div>
-                <p className="mt-4 flex items-start gap-2 rounded-2xl bg-canvas p-4 text-xs leading-relaxed text-charcoal-mid ring-1 ring-lavender-100">
-                  <Info size={14} className="mt-0.5 shrink-0 text-lavender-600" />
+                <p className="mt-4 flex items-start gap-2 rounded-2xl bg-canvas p-4 text-xs leading-relaxed text-charcoal-mid ring-1 ring-sky-100">
+                  <Info size={14} className="mt-0.5 shrink-0 text-sky-600" />
                   Performance depends on your HVAC compatibility, airflow, filter size, usage, and
                   replacement schedule. This is a product comparison, not a medical claim.
                 </p>
@@ -526,7 +526,7 @@ export function ProductDetail({ product }: Props) {
             </div>
 
             <aside className="space-y-6">
-              <div className="rounded-card bg-white p-6 ring-1 ring-lavender-100 shadow-soft">
+              <div className="rounded-card bg-white p-6 ring-1 ring-sky-100 shadow-soft">
                 <p className="eyebrow">Replacement guidance</p>
                 <p className="mt-3 font-display text-lg font-semibold text-charcoal">
                   {product.replacementCadence}
@@ -536,15 +536,15 @@ export function ProductDetail({ product }: Props) {
                   replacements.
                 </p>
               </div>
-              <div className="rounded-card bg-white p-6 ring-1 ring-lavender-100 shadow-soft">
+              <div className="rounded-card bg-white p-6 ring-1 ring-sky-100 shadow-soft">
                 <p className="eyebrow">Compatibility</p>
                 <p className="mt-3 text-sm text-charcoal-mid text-pretty">
                   Sized for standard residential HVAC returns. If your system is older or
                   smaller, we recommend MERV 8-11 filters, your technician can confirm.
                 </p>
               </div>
-              <div className="rounded-card bg-gradient-to-br from-lavender-500 to-lavender-700 p-6 text-white shadow-card">
-                <p className="text-eyebrow text-lavender-100">Compare</p>
+              <div className="rounded-card bg-gradient-to-br from-sky-500 to-sky-700 p-6 text-white shadow-card">
+                <p className="text-eyebrow text-sky-100">Compare</p>
                 <p className="mt-3 font-display text-lg font-semibold">
                   How does {product.name} fit next to the rest?
                 </p>
@@ -562,7 +562,7 @@ export function ProductDetail({ product }: Props) {
         </div>
       </section>
 
-      <section id="reviews" className="border-t border-lavender-100 py-16 sm:py-20">
+      <section id="reviews" className="border-t border-sky-100 py-16 sm:py-20">
         <div className="container-x">
           <div className="grid gap-10 lg:grid-cols-[1fr_2fr]">
             <div>
@@ -594,10 +594,10 @@ export function ProductDetail({ product }: Props) {
                   text: `Simple to understand, easy to reorder, and it looks nice in the utility closet.`,
                 },
               ].map((r) => (
-                <div key={r.author} className="rounded-card bg-white p-5 ring-1 ring-lavender-100 shadow-soft">
-                  <div className="flex items-center gap-1.5 text-lavender-500">
+                <div key={r.author} className="rounded-card bg-white p-5 ring-1 ring-sky-100 shadow-soft">
+                  <div className="flex items-center gap-1.5 text-sky-500">
                     {[0, 1, 2, 3, 4].map((i) => (
-                      <Star key={i} size={12} className="fill-lavender-500 text-lavender-500" />
+                      <Star key={i} size={12} className="fill-sky-500 text-sky-500" />
                     ))}
                   </div>
                   <p className="mt-3 text-sm leading-relaxed text-charcoal-mid text-pretty">{r.text}</p>
@@ -609,7 +609,7 @@ export function ProductDetail({ product }: Props) {
         </div>
       </section>
 
-      <section className="border-t border-lavender-100 py-16 sm:py-20">
+      <section className="border-t border-sky-100 py-16 sm:py-20">
         <div className="container-x">
           <div className="flex items-end justify-between">
             <div>
@@ -620,7 +620,7 @@ export function ProductDetail({ product }: Props) {
             </div>
             <Link
               href="/shop"
-              className="link-underline text-sm font-medium text-lavender-700"
+              className="link-underline text-sm font-medium text-sky-700"
             >
               Shop all →
             </Link>
@@ -629,7 +629,7 @@ export function ProductDetail({ product }: Props) {
             {others.map((p) => (
               <div key={p.slug} className="[&>*]:h-full">
                 <Link href={`/products/${p.slug}`}>
-                  <div className="flex items-center gap-4 rounded-card bg-white p-5 ring-1 ring-lavender-100 shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-card">
+                  <div className="flex items-center gap-4 rounded-card bg-white p-5 ring-1 ring-sky-100 shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-card">
                     <div
                       className="pointer-events-none relative aspect-[4/5] w-20 shrink-0 overflow-hidden rounded-xl"
                       style={{
@@ -660,7 +660,7 @@ export function ProductDetail({ product }: Props) {
                         {p.name}
                       </p>
                       <p className="mt-1 line-clamp-2 text-xs text-charcoal-mid text-pretty">{p.concern}</p>
-                      <p className="mt-2 text-xs font-medium text-lavender-700">
+                      <p className="mt-2 text-xs font-medium text-sky-700">
                         From ${p.priceFrom}
                       </p>
                     </div>
@@ -672,7 +672,7 @@ export function ProductDetail({ product }: Props) {
         </div>
       </section>
 
-      <div className="fixed inset-x-0 bottom-0 z-30 border-t border-lavender-100 bg-white/95 p-3 shadow-card backdrop-blur lg:hidden">
+      <div className="fixed inset-x-0 bottom-0 z-30 border-t border-sky-100 bg-white/95 p-3 shadow-card backdrop-blur lg:hidden">
         <div className="container-x flex items-center justify-between gap-3">
           <div>
             <p className="font-display text-sm font-semibold text-charcoal">{product.name}</p>

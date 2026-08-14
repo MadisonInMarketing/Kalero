@@ -23,7 +23,7 @@ export function CartScentUpsell({
     <section
       aria-labelledby="cart-scent-upsell-title"
       className={[
-        "rounded-2xl border border-lavender-100/80 bg-white p-6 shadow-soft",
+        "rounded-2xl border border-sky-100/80 bg-white p-6 shadow-soft",
         compact ? "sm:p-6" : "sm:p-7",
         className,
       ]
@@ -32,7 +32,7 @@ export function CartScentUpsell({
     >
       <div className="flex items-start justify-between gap-4">
         <div>
-          <p className="text-eyebrow font-medium uppercase tracking-[0.18em] text-lavender-600">
+          <p className="text-eyebrow font-medium uppercase tracking-[0.18em] text-sky-600">
             Complete your setup
           </p>
           <p
@@ -47,7 +47,7 @@ export function CartScentUpsell({
         </div>
         <Link
           href="/scent-strips"
-          className="link-underline hidden shrink-0 items-center gap-1 text-xs font-medium text-lavender-700 sm:inline-flex"
+          className="link-underline hidden shrink-0 items-center gap-1 text-xs font-medium text-sky-700 sm:inline-flex"
         >
           See all scents
           <ArrowRight size={12} />
@@ -58,7 +58,7 @@ export function CartScentUpsell({
         {available.map((scent) => (
           <li
             key={scent.key}
-            className="flex h-full flex-col justify-between gap-3 rounded-xl bg-lavender-50/60 p-4 ring-1 ring-lavender-100"
+            className="flex h-full flex-col justify-between gap-3 rounded-xl bg-sky-50/60 p-4 ring-1 ring-sky-100"
           >
             <div>
               <p className="text-sm font-semibold text-charcoal">
@@ -69,12 +69,12 @@ export function CartScentUpsell({
               </p>
             </div>
             <div className="flex items-center justify-between">
-              <span className="text-sm font-semibold text-lavender-700">
+              <span className="text-sm font-semibold text-sky-700">
                 +${scentStripPrice.toFixed(2)}
               </span>
               <button
                 type="button"
-                className="inline-flex items-center gap-1 rounded-pill bg-white px-3 py-1.5 text-xs font-medium text-charcoal ring-1 ring-lavender-200 transition-colors hover:bg-lavender-100"
+                className="inline-flex items-center gap-1 rounded-pill bg-white px-3 py-1.5 text-xs font-medium text-charcoal ring-1 ring-sky-200 transition-colors hover:bg-sky-100"
               >
                 <Plus size={12} strokeWidth={2.25} />
                 Add

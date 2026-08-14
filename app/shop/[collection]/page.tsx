@@ -87,7 +87,7 @@ export default async function CollectionPage({
           </span>
           <Link
             href="/shop"
-            className="text-sm font-medium text-lavender-700 hover:text-lavender-800"
+            className="text-sm font-medium text-sky-700 hover:text-sky-800"
           >
             ← All filters
           </Link>
@@ -194,7 +194,7 @@ export default async function CollectionPage({
         <section className="py-14">
           <div className="container-x">
             <div className="grid gap-8 lg:grid-cols-[1fr_1fr] lg:gap-14">
-              <div className="rounded-card bg-white p-8 ring-1 ring-lavender-100 shadow-soft">
+              <div className="rounded-card bg-white p-8 ring-1 ring-sky-100 shadow-soft">
                 <p className="eyebrow">What it helps capture</p>
                 <p className="mt-3 font-display text-lg font-semibold text-charcoal text-balance">
                   Designed around real particles you actually notice.
@@ -212,7 +212,7 @@ export default async function CollectionPage({
                 </ul>
               </div>
 
-              <div className="rounded-card bg-white p-8 ring-1 ring-lavender-100 shadow-soft">
+              <div className="rounded-card bg-white p-8 ring-1 ring-sky-100 shadow-soft">
                 <p className="eyebrow">Best for</p>
                 <p className="mt-3 font-display text-lg font-semibold text-charcoal text-balance">
                   Made for homes and homeowners like this.
@@ -231,7 +231,7 @@ export default async function CollectionPage({
                     </span>
                   ))}
                 </div>
-                <div className="mt-6 rounded-2xl bg-canvas p-4 ring-1 ring-lavender-100">
+                <div className="mt-6 rounded-2xl bg-canvas p-4 ring-1 ring-sky-100">
                   <p className="text-xs uppercase tracking-[0.14em] text-charcoal-light">
                     Replacement cadence
                   </p>
@@ -257,7 +257,7 @@ export default async function CollectionPage({
               </div>
               <Link
                 href={`/products/${featured.slug}`}
-                className="link-underline text-sm font-medium text-lavender-700"
+                className="link-underline text-sm font-medium text-sky-700"
               >
                 View full details →
               </Link>
@@ -308,7 +308,7 @@ export default async function CollectionPage({
         </section>
       )}
 
-      <section className="border-t border-lavender-100/70 py-16">
+      <section className="border-t border-sky-100/70 py-16">
         <div className="container-x">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
@@ -319,7 +319,7 @@ export default async function CollectionPage({
             </div>
             <Link
               href="/shop"
-              className="link-underline hidden items-center gap-2 text-sm font-medium text-lavender-700 sm:inline-flex"
+              className="link-underline hidden items-center gap-2 text-sm font-medium text-sky-700 sm:inline-flex"
             >
               View all
               <ArrowRight size={14} />
@@ -330,7 +330,7 @@ export default async function CollectionPage({
               <Link
                 key={c.slug}
                 href={`/shop/${c.slug}`}
-                className="group relative flex items-center gap-3 overflow-hidden rounded-2xl bg-white p-4 ring-1 ring-lavender-100 shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-card"
+                className="group relative flex items-center gap-3 overflow-hidden rounded-2xl bg-white p-4 ring-1 ring-sky-100 shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-card"
               >
                 <span
                   className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl"
@@ -348,13 +348,13 @@ export default async function CollectionPage({
                 </div>
                 <ArrowRight
                   size={14}
-                  className="text-lavender-500 transition-transform group-hover:translate-x-0.5"
+                  className="text-sky-500 transition-transform group-hover:translate-x-0.5"
                 />
               </Link>
             ))}
           </div>
 
-          <div className="mt-12 flex flex-col items-start gap-3 rounded-card bg-white p-6 ring-1 ring-lavender-100 shadow-soft sm:flex-row sm:items-center sm:justify-between">
+          <div className="mt-12 flex flex-col items-start gap-3 rounded-card bg-white p-6 ring-1 ring-sky-100 shadow-soft sm:flex-row sm:items-center sm:justify-between">
             <div>
               <p className="font-display text-lg font-semibold text-charcoal">
                 Two-minute quiz. One filter, chosen for you.

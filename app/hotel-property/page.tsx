@@ -227,7 +227,7 @@ export default function HotelPropertyPage() {
                 ].map((l) => (
                   <li
                     key={l}
-                    className="flex items-center gap-2 rounded-full bg-canvas px-4 py-2 text-sm text-charcoal ring-1 ring-lavender-100"
+                    className="flex items-center gap-2 rounded-full bg-canvas px-4 py-2 text-sm text-charcoal ring-1 ring-sky-100"
                   >
                     <span className="h-1.5 w-1.5 rounded-full bg-gold" />
                     {l}
@@ -267,7 +267,7 @@ export default function HotelPropertyPage() {
             {services.map(({ Icon, title, body }) => (
               <div
                 key={title}
-                className="flex h-full items-start gap-4 rounded-card bg-white p-5 ring-1 ring-lavender-100 shadow-soft sm:p-6"
+                className="flex h-full items-start gap-4 rounded-card bg-white p-5 ring-1 ring-sky-100 shadow-soft sm:p-6"
               >
                 <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gold-soft text-gold-deep">
                   <Icon size={18} strokeWidth={1.75} />
@@ -307,7 +307,7 @@ export default function HotelPropertyPage() {
                 {processSteps.map((s) => (
                   <li
                     key={s.step}
-                    className="rounded-2xl bg-canvas p-4 ring-1 ring-lavender-100"
+                    className="rounded-2xl bg-canvas p-4 ring-1 ring-sky-100"
                   >
                     <div className="flex items-center gap-2.5">
                       <span className="flex h-7 w-7 items-center justify-center rounded-full bg-gold text-xs font-semibold text-charcoal">
@@ -333,7 +333,7 @@ export default function HotelPropertyPage() {
       {/* COMMERCIAL FAQ */}
       <section
         aria-labelledby="hotel-faq-title"
-        className="border-t border-lavender-100/70 py-14 sm:py-16"
+        className="border-t border-sky-100/70 py-14 sm:py-16"
       >
         <div className="container-x">
           <div className="mx-auto max-w-2xl text-center">
@@ -352,7 +352,7 @@ export default function HotelPropertyPage() {
             <ul className="flex flex-col gap-3">
               {faqs.map((item) => (
                 <li key={item.q}>
-                  <details className="group rounded-2xl bg-white ring-1 ring-lavender-100 shadow-soft transition-shadow open:shadow-card">
+                  <details className="group rounded-2xl bg-white ring-1 ring-sky-100 shadow-soft transition-shadow open:shadow-card">
                     <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-5 text-left">
                       <span className="font-display text-base font-semibold uppercase text-charcoal sm:text-lg">
                         {item.q}

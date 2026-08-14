@@ -23,7 +23,7 @@ export default function NotFound() {
           </LinkButton>
           <Link
             href="/shop"
-            className="text-sm font-medium text-lavender-700 hover:text-lavender-800"
+            className="text-sm font-medium text-sky-700 hover:text-sky-800"
           >
             Shop filters →
           </Link>

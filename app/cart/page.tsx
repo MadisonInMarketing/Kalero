@@ -27,15 +27,15 @@ export default function CartPage() {
     <>
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[520px] bg-gradient-to-b from-lavender-200 via-lavender-100/70 to-canvas"
+        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[520px] bg-gradient-to-b from-sky-200 via-sky-100/70 to-canvas"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -left-24 top-0 -z-10 h-96 w-96 rounded-full bg-lavender-300/40 blur-3xl"
+        className="pointer-events-none absolute -left-24 top-0 -z-10 h-96 w-96 rounded-full bg-sky-300/40 blur-3xl"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-24 top-24 -z-10 h-96 w-96 rounded-full bg-lavender-400/30 blur-3xl"
+        className="pointer-events-none absolute -right-24 top-24 -z-10 h-96 w-96 rounded-full bg-sky-400/30 blur-3xl"
       />
 
       <section className="relative pt-14 pb-8 sm:pt-20">
@@ -65,18 +65,18 @@ export default function CartPage() {
       <section className="relative pb-16">
         <div className="container-x">
           <div className="grid gap-6 lg:grid-cols-[1.35fr_1fr]">
-            <div className="relative overflow-hidden rounded-xl bg-white p-8 shadow-card ring-1 ring-lavender-100 sm:p-10">
+            <div className="relative overflow-hidden rounded-xl bg-white p-8 shadow-card ring-1 ring-sky-100 sm:p-10">
               <div
                 aria-hidden="true"
-                className="pointer-events-none absolute -right-16 -top-16 h-64 w-64 rounded-full bg-lavender-200/50 blur-3xl"
+                className="pointer-events-none absolute -right-16 -top-16 h-64 w-64 rounded-full bg-sky-200/50 blur-3xl"
               />
               <div
                 aria-hidden="true"
-                className="pointer-events-none absolute -bottom-20 -left-16 h-56 w-56 rounded-full bg-lavender-100/70 blur-3xl"
+                className="pointer-events-none absolute -bottom-20 -left-16 h-56 w-56 rounded-full bg-sky-100/70 blur-3xl"
               />
 
               <div className="relative flex flex-col items-start gap-6 sm:flex-row sm:items-center">
-                <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-lavender-100 text-lavender-700 ring-1 ring-lavender-200">
+                <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-sky-100 text-sky-700 ring-1 ring-sky-200">
                   <ShoppingBag size={26} strokeWidth={1.75} />
                 </span>
                 <div>
@@ -99,14 +99,14 @@ export default function CartPage() {
                 </LinkButton>
               </div>
 
-              <div className="relative mt-8 border-t border-lavender-100 pt-6">
+              <div className="relative mt-8 border-t border-sky-100 pt-6">
                 <p className="text-eyebrow text-charcoal-light">Start with a concern</p>
                 <div className="mt-4 grid gap-3 sm:grid-cols-2">
                   {suggestedConcerns.map((c) => (
                     <Link
                       key={c.slug}
                       href={`/shop/${c.slug}`}
-                      className="group flex items-center gap-3 rounded-2xl bg-canvas p-3.5 text-sm ring-1 ring-lavender-100 transition-all hover:-translate-y-0.5 hover:bg-white hover:shadow-soft"
+                      className="group flex items-center gap-3 rounded-2xl bg-canvas p-3.5 text-sm ring-1 ring-sky-100 transition-all hover:-translate-y-0.5 hover:bg-white hover:shadow-soft"
                     >
                       <span
                         className="flex h-10 w-10 items-center justify-center rounded-xl"
@@ -130,7 +130,7 @@ export default function CartPage() {
             </div>
 
             <aside className="flex flex-col gap-6">
-              <div className="rounded-xl bg-white p-6 shadow-card ring-1 ring-lavender-100 sm:p-7">
+              <div className="rounded-xl bg-white p-6 shadow-card ring-1 ring-sky-100 sm:p-7">
                 <p className="text-eyebrow text-charcoal-light">Order summary</p>
                 <dl className="mt-4 space-y-3 text-sm">
                   <div className="flex items-center justify-between text-charcoal-mid">
@@ -139,9 +139,9 @@ export default function CartPage() {
                   </div>
                   <div className="flex items-center justify-between text-charcoal-mid">
                     <dt>Shipping</dt>
-                    <dd className="text-lavender-700">Free with subscription</dd>
+                    <dd className="text-sky-700">Free with subscription</dd>
                   </div>
-                  <div className="flex items-center justify-between border-t border-lavender-100 pt-3 text-charcoal">
+                  <div className="flex items-center justify-between border-t border-sky-100 pt-3 text-charcoal">
                     <dt className="font-medium">Estimated total</dt>
                     <dd className="font-display text-base font-semibold">$0.00</dd>
                   </div>
@@ -158,12 +158,12 @@ export default function CartPage() {
                 </p>
               </div>
 
-              <div className="rounded-xl bg-lavender-50 p-6 ring-1 ring-lavender-100 sm:p-7">
-                <p className="text-eyebrow text-lavender-700">The KALERO promise</p>
+              <div className="rounded-xl bg-sky-50 p-6 ring-1 ring-sky-100 sm:p-7">
+                <p className="text-eyebrow text-sky-700">The KALERO promise</p>
                 <ul className="mt-4 flex flex-col gap-3 text-sm text-charcoal">
                   {trustPoints.map(({ Icon, label }) => (
                     <li key={label} className="flex items-center gap-3">
-                      <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-white text-lavender-700 ring-1 ring-lavender-200">
+                      <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-white text-sky-700 ring-1 ring-sky-200">
                         <Icon size={16} strokeWidth={1.75} />
                       </span>
                       {label}
@@ -173,7 +173,7 @@ export default function CartPage() {
               </div>
 
               <div className="rounded-xl bg-gradient-to-br from-charcoal to-charcoal-soft p-6 text-white shadow-card sm:p-7">
-                <p className="text-eyebrow text-lavender-300">Multi-vent household?</p>
+                <p className="text-eyebrow text-sky-300">Multi-vent household?</p>
                 <p className="mt-3 font-display text-lg font-semibold text-balance">
                   Build one subscription across every room.
                 </p>
@@ -182,7 +182,7 @@ export default function CartPage() {
                 </p>
                 <Link
                   href="/subscriptions"
-                  className="mt-5 inline-flex items-center gap-1.5 rounded-pill bg-white px-4 py-2 text-sm font-medium text-charcoal transition-colors hover:bg-lavender-100"
+                  className="mt-5 inline-flex items-center gap-1.5 rounded-pill bg-white px-4 py-2 text-sm font-medium text-charcoal transition-colors hover:bg-sky-100"
                 >
                   Build a plan
                   <ArrowRight size={14} />

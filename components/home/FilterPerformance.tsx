@@ -124,7 +124,7 @@ export function FilterPerformance() {
                 className={`rounded-pill px-5 py-2.5 text-sm font-medium transition-all ${
                   isActive
                     ? "text-white shadow-soft scale-[1.03]"
-                    : "bg-white text-charcoal-mid ring-1 ring-lavender-100 hover:ring-lavender-300 hover:-translate-y-0.5"
+                    : "bg-white text-charcoal-mid ring-1 ring-sky-100 hover:ring-sky-300 hover:-translate-y-0.5"
                 }`}
                 style={isActive ? { backgroundColor: c.deep } : undefined}
               >
@@ -292,7 +292,7 @@ export function FilterPerformance() {
             </p>
           </motion.div>
 
-          <div className="rounded-card bg-white p-6 ring-1 ring-lavender-100 shadow-soft sm:p-8">
+          <div className="rounded-card bg-white p-6 ring-1 ring-sky-100 shadow-soft sm:p-8">
             <div className="flex items-center justify-between">
               <p className="eyebrow">Coverage breakdown</p>
               <span
@@ -320,7 +320,7 @@ export function FilterPerformance() {
                         {strengthLabel[strength]}
                       </span>
                     </div>
-                    <div className="mt-2 relative h-2 overflow-hidden rounded-full bg-canvas ring-1 ring-lavender-100">
+                    <div className="mt-2 relative h-2 overflow-hidden rounded-full bg-canvas ring-1 ring-sky-100">
                       <AnimatePresence mode="wait">
                         <motion.div
                           key={`${active}-${p.key}`}
@@ -345,8 +345,8 @@ export function FilterPerformance() {
               })}
             </ul>
 
-            <p className="mt-6 flex items-start gap-2 rounded-2xl bg-canvas p-4 text-xs leading-relaxed text-charcoal-mid ring-1 ring-lavender-100">
-              <Info size={14} className="mt-0.5 shrink-0 text-lavender-600" />
+            <p className="mt-6 flex items-start gap-2 rounded-2xl bg-canvas p-4 text-xs leading-relaxed text-charcoal-mid ring-1 ring-sky-100">
+              <Info size={14} className="mt-0.5 shrink-0 text-sky-600" />
               Real-world performance depends on your HVAC compatibility, airflow, filter
               size, usage, and replacement schedule. This chart is a product-comparison
               tool, not a medical claim.

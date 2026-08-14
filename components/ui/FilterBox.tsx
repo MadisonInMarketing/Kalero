@@ -18,13 +18,13 @@ const palette: Record<
   CategoryKey,
   { base: string; deep: string; soft: string; accent: string; label: string }
 > = {
-  everyday: { base: "#67B7F2", deep: "#3A8FC9", soft: "#E5F2FD", accent: "#9164D2", label: "Everyday" },
-  pet: { base: "#96B83B", deep: "#6E8B27", soft: "#EDF3D9", accent: "#9164D2", label: "Pet" },
-  allergy: { base: "#1E3A6B", deep: "#0F1F42", soft: "#DCE3F0", accent: "#9164D2", label: "Allergy" },
-  smoke: { base: "#7566A5", deep: "#4E4278", soft: "#E6E2EF", accent: "#F1EAFE", label: "Smoke" },
-  carbon: { base: "#4A4A55", deep: "#2B2B33", soft: "#E7E5EB", accent: "#9164D2", label: "Carbon" },
-  hotel: { base: "#E9B95C", deep: "#B78A2E", soft: "#FBEFD3", accent: "#9164D2", label: "Hotel" },
-  seasonal: { base: "#9164D2", deep: "#623D9E", soft: "#F1EAFE", accent: "#E9B95C", label: "Seasonal" },
+  everyday: { base: "#67B7F2", deep: "#3A8FC9", soft: "#E5F2FD", accent: "#1B8FD1", label: "Everyday" },
+  pet: { base: "#96B83B", deep: "#6E8B27", soft: "#EDF3D9", accent: "#1B8FD1", label: "Pet" },
+  allergy: { base: "#1E3A6B", deep: "#0F1F42", soft: "#DCE3F0", accent: "#1B8FD1", label: "Allergy" },
+  smoke: { base: "#7566A5", deep: "#4E4278", soft: "#E6E2EF", accent: "#DCEEFA", label: "Smoke" },
+  carbon: { base: "#4A4A55", deep: "#2B2B33", soft: "#E7E5EB", accent: "#1B8FD1", label: "Carbon" },
+  hotel: { base: "#E9B95C", deep: "#B78A2E", soft: "#FBEFD3", accent: "#1B8FD1", label: "Hotel" },
+  seasonal: { base: "#1B8FD1", deep: "#0B5A94", soft: "#DCEEFA", accent: "#E9B95C", label: "Seasonal" },
 };
 
 const sizeClasses: Record<NonNullable<Props["size"]>, string> = {

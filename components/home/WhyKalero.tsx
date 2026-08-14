@@ -62,7 +62,7 @@ export function WhyKalero() {
             </div>
           </Reveal>
           <Reveal delay={0.1}>
-            <div className="flex h-full flex-col rounded-card bg-gradient-to-br from-lavender-500 to-lavender-700 p-8 text-white shadow-card">
+            <div className="flex h-full flex-col rounded-card bg-gradient-to-br from-sky-500 to-sky-700 p-8 text-white shadow-card">
               <div className="flex items-center gap-3">
                 <span className="rounded-pill bg-white/15 px-3 py-1 text-xs font-medium uppercase tracking-[0.16em] text-white">
                   The KALERO way

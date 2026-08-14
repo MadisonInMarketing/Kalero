@@ -77,7 +77,7 @@ export function Header() {
     <header
       className={`sticky top-0 z-40 w-full transition-all duration-300 ${
         scrolled
-          ? "bg-canvas/80 backdrop-blur-lg ring-1 ring-lavender-100/60"
+          ? "bg-canvas/80 backdrop-blur-lg ring-1 ring-sky-100/60"
           : "bg-transparent"
       }`}
     >
@@ -91,7 +91,7 @@ export function Header() {
             <Link
               key={l.href}
               href={l.href}
-              className="text-sm font-medium text-charcoal transition-colors hover:text-lavender-700"
+              className="text-sm font-medium text-charcoal transition-colors hover:text-sky-700"
             >
               {l.label}
             </Link>
@@ -103,7 +103,7 @@ export function Header() {
             aria-label="Search"
             aria-expanded={searchOpen}
             onClick={() => setSearchOpen((s) => !s)}
-            className="flex h-10 w-10 items-center justify-center rounded-full text-charcoal-soft transition-colors hover:bg-white hover:text-lavender-700"
+            className="flex h-10 w-10 items-center justify-center rounded-full text-charcoal-soft transition-colors hover:bg-white hover:text-sky-700"
           >
             <Search size={18} strokeWidth={1.75} />
           </button>
@@ -114,7 +114,7 @@ export function Header() {
           >
             <ShoppingBag size={16} strokeWidth={1.75} />
             <span className="hidden sm:inline">Cart</span>
-            <span className="inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-lavender-500 px-1.5 text-[11px] font-semibold">
+            <span className="inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-sky-500 px-1.5 text-[11px] font-semibold">
               0
             </span>
           </Link>
@@ -123,7 +123,7 @@ export function Header() {
             aria-label="Open menu"
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen(true)}
-            className="flex h-10 w-10 items-center justify-center rounded-full text-charcoal-soft transition-colors hover:bg-white hover:text-lavender-700 lg:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded-full text-charcoal-soft transition-colors hover:bg-white hover:text-sky-700 lg:hidden"
           >
             <Menu size={20} strokeWidth={1.75} />
           </button>
@@ -176,7 +176,7 @@ export function Header() {
               </div>
 
               {query.trim() && (
-                <div className="border-t border-lavender-100 bg-canvas/40">
+                <div className="border-t border-sky-100 bg-canvas/40">
                   <div className="container-x max-h-[60vh] overflow-y-auto py-4">
                     {results.products.length === 0 &&
                     results.categories.length === 0 ? (
@@ -188,7 +188,7 @@ export function Header() {
                       <div className="grid gap-6 sm:grid-cols-2">
                         {results.products.length > 0 && (
                           <div>
-                            <p className="text-eyebrow px-1 text-lavender-700">
+                            <p className="text-eyebrow px-1 text-sky-700">
                               Filters
                             </p>
                             <ul className="mt-2 flex flex-col gap-1">
@@ -213,7 +213,7 @@ export function Header() {
                         )}
                         {results.categories.length > 0 && (
                           <div>
-                            <p className="text-eyebrow px-1 text-lavender-700">
+                            <p className="text-eyebrow px-1 text-sky-700">
                               Concerns
                             </p>
                             <ul className="mt-2 flex flex-col gap-1">
@@ -264,7 +264,7 @@ export function Header() {
               exit={{ x: "100%" }}
               transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
             >
-              <div className="flex items-center justify-between border-b border-lavender-100 px-6 py-5">
+              <div className="flex items-center justify-between border-b border-sky-100 px-6 py-5">
                 <Logo size="sm" />
                 <button
                   type="button"
@@ -287,20 +287,20 @@ export function Header() {
                   </Link>
                 ))}
               </nav>
-              <div className="border-t border-lavender-100 p-6">
-                <p className="text-eyebrow text-lavender-700">Extras</p>
+              <div className="border-t border-sky-100 p-6">
+                <p className="text-eyebrow text-sky-700">Extras</p>
                 <div className="mt-3 flex flex-col gap-2">
                   <Link
                     href="/account"
                     onClick={() => setMenuOpen(false)}
-                    className="text-sm text-charcoal-mid hover:text-lavender-700"
+                    className="text-sm text-charcoal-mid hover:text-sky-700"
                   >
                     Your account
                   </Link>
                   <Link
                     href="/cart"
                     onClick={() => setMenuOpen(false)}
-                    className="text-sm text-charcoal-mid hover:text-lavender-700"
+                    className="text-sm text-charcoal-mid hover:text-sky-700"
                   >
                     Cart
                   </Link>

@@ -18,7 +18,7 @@ export function HowScentStripsWork({
     <section
       aria-labelledby="scent-how-it-works-title"
       className={[
-        "rounded-2xl border border-lavender-100/70 bg-white/60 backdrop-blur-sm",
+        "rounded-2xl border border-sky-100/70 bg-white/60 backdrop-blur-sm",
         compact ? "p-5" : "p-6 sm:p-8",
         className,
       ]
@@ -32,7 +32,7 @@ export function HowScentStripsWork({
             : "max-w-md"
         }
       >
-        <p className="text-eyebrow font-medium uppercase tracking-[0.18em] text-lavender-600">
+        <p className="text-eyebrow font-medium uppercase tracking-[0.18em] text-sky-600">
           {scentCopy.eyebrow}
         </p>
         {!compact && (
@@ -70,16 +70,16 @@ export function HowScentStripsWork({
           return (
             <li
               key={step.key}
-              className="flex items-start gap-3 rounded-xl bg-lavender-100/40 p-4"
+              className="flex items-start gap-3 rounded-xl bg-sky-100/40 p-4"
             >
               <span
                 aria-hidden="true"
-                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white text-lavender-700 ring-1 ring-lavender-200/70"
+                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white text-sky-700 ring-1 ring-sky-200/70"
               >
                 <Icon size={16} strokeWidth={1.75} />
               </span>
               <div>
-                <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-lavender-600">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-sky-600">
                   {String(i + 1).padStart(2, "0")}
                 </p>
                 <p className="mt-0.5 text-sm font-semibold text-charcoal">

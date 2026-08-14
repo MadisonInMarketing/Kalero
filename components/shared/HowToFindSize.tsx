@@ -26,15 +26,15 @@ type Props = {
 export function HowToFindSize({ className = "", compact = false }: Props) {
   return (
     <div
-      className={`relative overflow-hidden rounded-card bg-white p-5 ring-1 ring-lavender-100 shadow-soft sm:p-6 ${className}`}
+      className={`relative overflow-hidden rounded-card bg-white p-5 ring-1 ring-sky-100 shadow-soft sm:p-6 ${className}`}
     >
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-lavender-100/70 blur-3xl"
+        className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-sky-100/70 blur-3xl"
       />
 
       <div className="relative flex items-center gap-2">
-        <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-lavender-100 text-lavender-700">
+        <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-sky-100 text-sky-700">
           <HelpCircle size={16} strokeWidth={1.75} />
         </span>
         <p className="text-eyebrow text-charcoal-light">Not sure of your size?</p>
@@ -51,9 +51,9 @@ export function HowToFindSize({ className = "", compact = false }: Props) {
         {steps.map((s) => (
           <li
             key={s.n}
-            className="flex flex-col gap-2 rounded-2xl bg-canvas p-4 ring-1 ring-lavender-100"
+            className="flex flex-col gap-2 rounded-2xl bg-canvas p-4 ring-1 ring-sky-100"
           >
-            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-lavender-500 text-xs font-semibold text-white">
+            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-sky-500 text-xs font-semibold text-white">
               {s.n}
             </span>
             <p className="font-display text-sm font-semibold text-charcoal">

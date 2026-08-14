@@ -44,7 +44,7 @@ export function HotelSupply() {
                   showBadge={false}
                 />
               </div>
-              <div className="absolute -bottom-6 left-4 hidden max-w-xs rounded-2xl bg-white/95 p-4 shadow-card ring-1 ring-lavender-100 backdrop-blur sm:block">
+              <div className="absolute -bottom-6 left-4 hidden max-w-xs rounded-2xl bg-white/95 p-4 shadow-card ring-1 ring-sky-100 backdrop-blur sm:block">
                 <p className="text-eyebrow text-gold-deep">Hotel Collection</p>
                 <p className="mt-2 font-display text-sm font-semibold text-charcoal">
                   Serving 34 properties across 8 states
@@ -71,7 +71,7 @@ export function HotelSupply() {
               {points.map(({ Icon, text }) => (
                 <li
                   key={text}
-                  className="flex items-center gap-3 rounded-2xl bg-white p-3.5 text-sm text-charcoal-mid ring-1 ring-lavender-100 shadow-soft"
+                  className="flex items-center gap-3 rounded-2xl bg-white p-3.5 text-sm text-charcoal-mid ring-1 ring-sky-100 shadow-soft"
                 >
                   <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gold-soft text-gold-deep">
                     <Icon size={16} strokeWidth={1.75} />

@@ -53,15 +53,15 @@ export default function ShopPage() {
     <>
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[520px] bg-gradient-to-b from-lavender-200 via-lavender-100/70 to-canvas"
+        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[520px] bg-gradient-to-b from-sky-200 via-sky-100/70 to-canvas"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -left-24 top-0 -z-10 h-96 w-96 rounded-full bg-lavender-300/40 blur-3xl"
+        className="pointer-events-none absolute -left-24 top-0 -z-10 h-96 w-96 rounded-full bg-sky-300/40 blur-3xl"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-24 top-24 -z-10 h-96 w-96 rounded-full bg-lavender-400/30 blur-3xl"
+        className="pointer-events-none absolute -right-24 top-24 -z-10 h-96 w-96 rounded-full bg-sky-400/30 blur-3xl"
       />
 
       <section aria-labelledby="shop-cats" className="pt-10 pb-12 sm:pt-14 sm:pb-16">
@@ -79,7 +79,7 @@ export default function ShopPage() {
             </p>
             <Link
               href="/find-your-filter"
-              className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-lavender-700 hover:text-lavender-800"
+              className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-sky-700 hover:text-sky-800"
             >
               Not sure? Take the two-minute quiz
               <ArrowRight size={14} />
@@ -162,7 +162,7 @@ export default function ShopPage() {
         </div>
       </section>
 
-      <section aria-labelledby="shop-products" className="border-t border-lavender-100/70 py-12 sm:py-14">
+      <section aria-labelledby="shop-products" className="border-t border-sky-100/70 py-12 sm:py-14">
         <div className="container-x">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
@@ -176,7 +176,7 @@ export default function ShopPage() {
             </div>
             <Link
               href="/subscriptions"
-              className="link-underline text-sm font-medium text-lavender-700"
+              className="link-underline text-sm font-medium text-sky-700"
             >
               Build a household plan →
             </Link>

@@ -45,13 +45,13 @@ export function Logo({
     variant === "light"
       ? "text-white"
       : variant === "brand"
-        ? "text-lavender-600"
+        ? "text-sky-600"
         : "text-charcoal";
   const taglineColor =
     variant === "light"
       ? "text-white/70"
       : variant === "brand"
-        ? "text-lavender-500/80"
+        ? "text-sky-500/80"
         : "text-charcoal-mid";
 
   const mark = withMark && !stacked && (
@@ -63,8 +63,8 @@ export function Logo({
     >
       <defs>
         <linearGradient id="logoMark" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#9164D2" />
-          <stop offset="100%" stopColor="#623D9E" />
+          <stop offset="0%" stopColor="#1B8FD1" />
+          <stop offset="100%" stopColor="#0B5A94" />
         </linearGradient>
       </defs>
       <circle cx="16" cy="16" r="15" fill="url(#logoMark)" />

@@ -12,7 +12,7 @@ export function ProductCollection() {
     >
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-24 h-96 bg-lavender-glow"
+        className="pointer-events-none absolute inset-x-0 top-24 h-96 bg-sky-glow"
       />
       <div className="container-x">
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
@@ -31,7 +31,7 @@ export function ProductCollection() {
           </div>
           <Link
             href="/shop"
-            className="link-underline inline-flex items-center gap-2 text-sm font-medium text-lavender-700"
+            className="link-underline inline-flex items-center gap-2 text-sm font-medium text-sky-700"
           >
             View all filters
             <ArrowRight size={16} />
@@ -46,7 +46,7 @@ export function ProductCollection() {
           ))}
         </div>
 
-        <div className="mt-12 flex flex-col items-start gap-3 rounded-card bg-white p-6 ring-1 ring-lavender-100 shadow-soft sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-12 flex flex-col items-start gap-3 rounded-card bg-white p-6 ring-1 ring-sky-100 shadow-soft sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="font-display text-lg font-semibold text-charcoal">
               For hotels, property groups, and multi-building supply

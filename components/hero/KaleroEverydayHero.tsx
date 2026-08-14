@@ -111,10 +111,10 @@ export function KaleroEverydayHero() {
       {/* Content */}
       <div className="container-x relative z-10 pb-16 pt-32 sm:pb-24 sm:pt-40">
         <div className="flex flex-col gap-8 lg:max-w-3xl">
-        <p className="flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-lavender-200/90">
+        <p className="flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-sky-200/90">
           <span
             aria-hidden="true"
-            className="h-px w-8 bg-lavender-300/70"
+            className="h-px w-8 bg-sky-300/70"
           />
           Introducing Kalero
         </p>
@@ -125,7 +125,7 @@ export function KaleroEverydayHero() {
         >
           <span className="block">Air, engineered</span>
           <span className="block">
-            for how you <em className="not-italic bg-gradient-to-r from-lavender-300 via-lavender-400 to-sky-soft bg-clip-text text-transparent">actually live</em>.
+            for how you <em className="not-italic bg-gradient-to-r from-sky-300 via-sky-400 to-sky-soft bg-clip-text text-transparent">actually live</em>.
           </span>
         </h1>
 
@@ -133,7 +133,7 @@ export function KaleroEverydayHero() {
           Premium filtration built for how your home actually breathes, from everyday dust and allergens to pet dander, smoke, and hospitality-grade air.
         </p>
 
-        <p className="mt-1 text-xs font-medium uppercase tracking-[0.22em] text-lavender-200/90 [text-shadow:0_1px_8px_rgba(0,0,0,0.6)]">
+        <p className="mt-1 text-xs font-medium uppercase tracking-[0.22em] text-sky-200/90 [text-shadow:0_1px_8px_rgba(0,0,0,0.6)]">
           Cleaner air. A fresher home.
         </p>
 
@@ -142,7 +142,7 @@ export function KaleroEverydayHero() {
             href="/find-your-filter"
             size="lg"
             arrow
-            className="!bg-white !text-charcoal hover:!bg-lavender-50"
+            className="!bg-white !text-charcoal hover:!bg-sky-50"
           >
             Find your filter
           </LinkButton>
@@ -159,7 +159,7 @@ export function KaleroEverydayHero() {
 
         <Link
           href="/scent-strips"
-          className="mt-1 inline-flex items-center gap-1.5 text-xs font-medium text-lavender-200/90 underline-offset-4 hover:text-white hover:underline"
+          className="mt-1 inline-flex items-center gap-1.5 text-xs font-medium text-sky-200/90 underline-offset-4 hover:text-white hover:underline"
         >
           Explore the scent upgrade →
         </Link>

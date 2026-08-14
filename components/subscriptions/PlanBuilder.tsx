@@ -133,20 +133,20 @@ export function PlanBuilder() {
   };
 
   return (
-    <div className="relative overflow-hidden rounded-2xl bg-white p-6 shadow-card ring-1 ring-lavender-100 sm:p-10">
+    <div className="relative overflow-hidden rounded-2xl bg-white p-6 shadow-card ring-1 ring-sky-100 sm:p-10">
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-lavender-200/60 blur-3xl"
+        className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-sky-200/60 blur-3xl"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -bottom-32 -left-16 h-72 w-72 rounded-full bg-lavender-100/70 blur-3xl"
+        className="pointer-events-none absolute -bottom-32 -left-16 h-72 w-72 rounded-full bg-sky-100/70 blur-3xl"
       />
 
       <div className="relative grid gap-8 lg:grid-cols-[1.4fr_1fr] lg:gap-12">
         <div>
           <div className="flex items-center gap-2">
-            <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-lavender-500 text-[11px] font-semibold text-white">
+            <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-sky-500 text-[11px] font-semibold text-white">
               1
             </span>
             <p className="text-eyebrow text-charcoal-light">Pick your filters</p>
@@ -165,8 +165,8 @@ export function PlanBuilder() {
                   layout
                   className={`relative flex items-center gap-3 rounded-2xl p-3 pr-4 ring-1 transition-all ${
                     isSelected
-                      ? "bg-white ring-lavender-400 shadow-soft"
-                      : "bg-canvas ring-lavender-100 hover:ring-lavender-300"
+                      ? "bg-white ring-sky-400 shadow-soft"
+                      : "bg-canvas ring-sky-100 hover:ring-sky-300"
                   }`}
                   style={
                     isSelected
@@ -208,11 +208,11 @@ export function PlanBuilder() {
                     </p>
                   </div>
                   {isSelected ? (
-                    <div className="flex items-center gap-1.5 rounded-full bg-white px-1.5 py-1 ring-1 ring-lavender-200">
+                    <div className="flex items-center gap-1.5 rounded-full bg-white px-1.5 py-1 ring-1 ring-sky-200">
                       <button
                         type="button"
                         onClick={() => update(f.slug, -1)}
-                        className="flex h-6 w-6 items-center justify-center rounded-full bg-canvas text-charcoal-mid hover:bg-lavender-100"
+                        className="flex h-6 w-6 items-center justify-center rounded-full bg-canvas text-charcoal-mid hover:bg-sky-100"
                         aria-label={`Decrease ${f.name}`}
                       >
                         <Minus size={12} />
@@ -223,7 +223,7 @@ export function PlanBuilder() {
                       <button
                         type="button"
                         onClick={() => update(f.slug, 1)}
-                        className="flex h-6 w-6 items-center justify-center rounded-full bg-lavender-500 text-white hover:bg-lavender-600"
+                        className="flex h-6 w-6 items-center justify-center rounded-full bg-sky-500 text-white hover:bg-sky-600"
                         aria-label={`Increase ${f.name}`}
                       >
                         <Plus size={12} />
@@ -245,7 +245,7 @@ export function PlanBuilder() {
           </div>
 
           <div className="mt-8 flex items-center gap-2">
-            <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-lavender-500 text-[11px] font-semibold text-white">
+            <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-sky-500 text-[11px] font-semibold text-white">
               2
             </span>
             <p className="text-eyebrow text-charcoal-light">Pick your cadence</p>
@@ -260,8 +260,8 @@ export function PlanBuilder() {
                   onClick={() => setCadence(c.value)}
                   className={`rounded-2xl p-4 text-left ring-1 transition-all ${
                     isActive
-                      ? "bg-lavender-500 text-white ring-lavender-500 shadow-soft"
-                      : "bg-canvas text-charcoal ring-lavender-100 hover:ring-lavender-300"
+                      ? "bg-sky-500 text-white ring-sky-500 shadow-soft"
+                      : "bg-canvas text-charcoal ring-sky-100 hover:ring-sky-300"
                   }`}
                 >
                   <p className="font-display text-sm font-semibold">{c.label}</p>
@@ -281,11 +281,11 @@ export function PlanBuilder() {
         <aside className="relative flex h-full flex-col rounded-xl bg-charcoal p-6 text-white shadow-card sm:p-7 lg:sticky lg:top-28 lg:self-start">
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-lavender-500/30 blur-3xl"
+            className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-sky-500/30 blur-3xl"
           />
 
           <div className="relative">
-            <p className="text-eyebrow text-lavender-300">Your plan</p>
+            <p className="text-eyebrow text-sky-300">Your plan</p>
             <p className="mt-3 font-display text-4xl font-bold sm:text-5xl">
               ${totals.discounted.toFixed(2)}
               <span className="ml-2 align-middle text-sm font-medium text-white/70">
@@ -293,7 +293,7 @@ export function PlanBuilder() {
               </span>
             </p>
             {totals.saved > 0 && (
-              <p className="mt-2 text-sm text-lavender-200">
+              <p className="mt-2 text-sm text-sky-200">
                 Saving ${totals.saved.toFixed(2)} vs one-time
               </p>
             )}
@@ -340,17 +340,17 @@ export function PlanBuilder() {
             </div>
           </div>
 
-          <div className="relative mt-4 rounded-2xl bg-lavender-500/15 p-4 ring-1 ring-lavender-400/30">
+          <div className="relative mt-4 rounded-2xl bg-sky-500/15 p-4 ring-1 ring-sky-400/30">
             <div className="flex items-center justify-between">
-              <p className="text-eyebrow text-lavender-200">Delivery preview</p>
-              <span className="text-[11px] font-medium text-lavender-200">
+              <p className="text-eyebrow text-sky-200">Delivery preview</p>
+              <span className="text-[11px] font-medium text-sky-200">
                 {totals.perYear} / year
               </span>
             </div>
             <p className="mt-2 text-xs leading-relaxed text-white/90">
               {deliveryMonths(cadence).join(" · ")}
             </p>
-            <p className="mt-2 text-[11px] text-lavender-200/90">
+            <p className="mt-2 text-[11px] text-sky-200/90">
               Free shipping on every delivery
             </p>
           </div>
@@ -361,7 +361,7 @@ export function PlanBuilder() {
               <span className="text-white">${totals.perYear.toFixed(2)}</span>
             </div>
             {totals.savedYear > 0 && (
-              <div className="flex items-center justify-between font-medium text-lavender-200">
+              <div className="flex items-center justify-between font-medium text-sky-200">
                 <span className="inline-flex items-center gap-1.5">
                   <Check size={14} /> You save
                 </span>
@@ -374,7 +374,7 @@ export function PlanBuilder() {
             href="/cart"
             className={`relative mt-6 inline-flex items-center justify-center gap-2 rounded-pill px-6 py-3.5 text-sm font-semibold transition-all ${
               totals.count > 0
-                ? "bg-lavender-500 text-white hover:bg-lavender-400"
+                ? "bg-sky-500 text-white hover:bg-sky-400"
                 : "cursor-not-allowed bg-white/10 text-white/50"
             }`}
             aria-disabled={totals.count === 0}

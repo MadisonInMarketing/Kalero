@@ -56,7 +56,7 @@ export function HotelRequestForm() {
     return (
       <div
         id="contact"
-        className="rounded-card bg-white p-8 ring-1 ring-lavender-100 shadow-card sm:p-10"
+        className="rounded-card bg-white p-8 ring-1 ring-sky-100 shadow-card sm:p-10"
       >
         <div className="flex flex-col items-center text-center">
           <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gold-soft text-gold-deep">
@@ -82,7 +82,7 @@ export function HotelRequestForm() {
               });
               setStatus("idle");
             }}
-            className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-lavender-700 hover:text-lavender-800"
+            className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-sky-700 hover:text-sky-800"
           >
             Submit another request →
           </button>
@@ -92,12 +92,12 @@ export function HotelRequestForm() {
   }
 
   const inputCls =
-    "mt-1 w-full rounded-xl border border-lavender-200 bg-white px-3 py-2.5 text-sm text-charcoal placeholder:text-charcoal-light focus:border-lavender-500 focus:outline-none focus:ring-2 focus:ring-lavender-400/40";
+    "mt-1 w-full rounded-xl border border-sky-200 bg-white px-3 py-2.5 text-sm text-charcoal placeholder:text-charcoal-light focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-400/40";
 
   return (
     <div
       id="contact"
-      className="rounded-card bg-white p-6 ring-1 ring-lavender-100 shadow-card sm:p-8"
+      className="rounded-card bg-white p-6 ring-1 ring-sky-100 shadow-card sm:p-8"
     >
       <p className="text-eyebrow text-gold-deep">Request a plan</p>
       <h3 className="mt-3 font-display text-2xl font-semibold uppercase text-charcoal">
@@ -111,7 +111,7 @@ export function HotelRequestForm() {
         <div className="grid gap-4 sm:grid-cols-2">
           <label className="text-sm">
             <span className="text-charcoal-mid">
-              Contact name <span className="text-lavender-600">*</span>
+              Contact name <span className="text-sky-600">*</span>
             </span>
             <input
               type="text"
@@ -124,7 +124,7 @@ export function HotelRequestForm() {
           </label>
           <label className="text-sm">
             <span className="text-charcoal-mid">
-              Company <span className="text-lavender-600">*</span>
+              Company <span className="text-sky-600">*</span>
             </span>
             <input
               type="text"
@@ -139,7 +139,7 @@ export function HotelRequestForm() {
         <div className="grid gap-4 sm:grid-cols-2">
           <label className="text-sm">
             <span className="text-charcoal-mid">
-              Work email <span className="text-lavender-600">*</span>
+              Work email <span className="text-sky-600">*</span>
             </span>
             <input
               type="email"

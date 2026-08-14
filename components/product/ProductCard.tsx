@@ -21,7 +21,7 @@ export function ProductCard({ product, showSubscribeLabel = true, className = ""
     <motion.article
       whileHover={{ y: -4 }}
       transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-      className={`group relative flex h-full flex-col overflow-hidden rounded-card bg-white p-6 ring-1 ring-lavender-100/80 shadow-soft transition-shadow hover:shadow-card ${className}`}
+      className={`group relative flex h-full flex-col overflow-hidden rounded-card bg-white p-6 ring-1 ring-sky-100/80 shadow-soft transition-shadow hover:shadow-card ${className}`}
     >
       <div
         className="pointer-events-none absolute inset-x-0 top-0 h-48 opacity-70 transition-opacity group-hover:opacity-100"
@@ -33,7 +33,7 @@ export function ProductCard({ product, showSubscribeLabel = true, className = ""
       <div className="relative flex items-start justify-between gap-3">
         <Chip className={product.color.chip}>{product.category === "seasonal" ? "Rotating drop" : product.merv}</Chip>
         {showSubscribeLabel && (
-          <span className="text-[11px] font-medium uppercase tracking-[0.14em] text-lavender-600">
+          <span className="text-[11px] font-medium uppercase tracking-[0.14em] text-sky-600">
             Save {product.subscriptionSavings}% subscribing
           </span>
         )}
@@ -79,7 +79,7 @@ export function ProductCard({ product, showSubscribeLabel = true, className = ""
           {product.concern}
         </p>
         {isScentCompatible(product) && (
-          <p className="mt-2 text-[11px] font-medium text-lavender-700">
+          <p className="mt-2 text-[11px] font-medium text-sky-700">
             Optional scent upgrade available
           </p>
         )}
@@ -102,7 +102,7 @@ export function ProductCard({ product, showSubscribeLabel = true, className = ""
             </span>
             <span>one-time</span>
             <span className="text-charcoal-light">·</span>
-            <span className="font-medium text-lavender-700">
+            <span className="font-medium text-sky-700">
               ${(product.priceFrom * 4).toFixed(0)} four-pack
             </span>
           </div>
@@ -123,7 +123,7 @@ export function ProductCard({ product, showSubscribeLabel = true, className = ""
         </Link>
         <Link
           href={`/products/${product.slug}`}
-          className="inline-flex items-center gap-1 text-sm font-medium text-lavender-700 hover:text-lavender-800"
+          className="inline-flex items-center gap-1 text-sm font-medium text-sky-700 hover:text-sky-800"
         >
           Learn more <ArrowUpRight size={14} />
         </Link>

@@ -32,15 +32,15 @@ export function DeliverySchedule() {
   const info = cadences.find((c) => c.value === cadence)!;
 
   return (
-    <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-lavender-100 via-lavender-50 to-canvas p-6 shadow-soft ring-1 ring-lavender-100 sm:p-10">
+    <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-sky-100 via-sky-50 to-canvas p-6 shadow-soft ring-1 ring-sky-100 sm:p-10">
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-16 right-0 h-64 w-64 rounded-full bg-lavender-300/40 blur-3xl"
+        className="pointer-events-none absolute -top-16 right-0 h-64 w-64 rounded-full bg-sky-300/40 blur-3xl"
       />
 
       <div className="relative flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
         <div className="max-w-xl">
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-white/70 px-3 py-1 text-eyebrow text-lavender-700 ring-1 ring-lavender-200 backdrop-blur">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-white/70 px-3 py-1 text-eyebrow text-sky-700 ring-1 ring-sky-200 backdrop-blur">
             <CalendarDays size={12} />
             A year at a glance
           </span>
@@ -64,7 +64,7 @@ export function DeliverySchedule() {
                 className={`rounded-full px-4 py-2 text-sm font-medium transition-all ${
                   isActive
                     ? "bg-charcoal text-white shadow-soft"
-                    : "bg-white text-charcoal-mid ring-1 ring-lavender-200 hover:ring-lavender-400 hover:text-charcoal"
+                    : "bg-white text-charcoal-mid ring-1 ring-sky-200 hover:ring-sky-400 hover:text-charcoal"
                 }`}
               >
                 {c.label}
@@ -84,7 +84,7 @@ export function DeliverySchedule() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -4 }}
               transition={{ duration: 0.25 }}
-              className="inline-flex items-center gap-1.5 rounded-full bg-lavender-100 px-3 py-1 text-eyebrow text-lavender-700"
+              className="inline-flex items-center gap-1.5 rounded-full bg-sky-100 px-3 py-1 text-eyebrow text-sky-700"
             >
               <PackageOpen size={12} />
               {info.every}
@@ -93,7 +93,7 @@ export function DeliverySchedule() {
         </div>
 
         <div className="relative mt-6">
-          <div className="pointer-events-none absolute left-0 right-0 top-[22px] h-0.5 rounded-full bg-lavender-100" />
+          <div className="pointer-events-none absolute left-0 right-0 top-[22px] h-0.5 rounded-full bg-sky-100" />
           <div className="grid grid-cols-12 gap-1.5">
             {months.map((m, i) => {
               const isDrop = active.includes(i);
@@ -115,7 +115,7 @@ export function DeliverySchedule() {
                           ease: [0.22, 1, 0.36, 1],
                           delay: i * 0.02,
                         }}
-                        className="relative z-10 flex h-11 w-11 items-center justify-center rounded-full bg-lavender-500 text-white shadow-[0_10px_20px_-8px_rgba(145,100,210,0.7)] ring-4 ring-white"
+                        className="relative z-10 flex h-11 w-11 items-center justify-center rounded-full bg-sky-500 text-white shadow-[0_10px_20px_-8px_rgba(145,100,210,0.7)] ring-4 ring-white"
                       >
                         <PackageOpen size={16} strokeWidth={2} />
                       </motion.div>
@@ -126,7 +126,7 @@ export function DeliverySchedule() {
                         animate={{ scale: 1, opacity: 1 }}
                         exit={{ scale: 0.6, opacity: 0 }}
                         transition={{ duration: 0.2 }}
-                        className="relative z-10 mt-3.5 h-4 w-4 rounded-full bg-lavender-100 ring-2 ring-white"
+                        className="relative z-10 mt-3.5 h-4 w-4 rounded-full bg-sky-100 ring-2 ring-white"
                         aria-hidden="true"
                       />
                     )}
@@ -155,7 +155,7 @@ export function DeliverySchedule() {
           ].map((s) => (
             <div
               key={s.label}
-              className="rounded-2xl bg-canvas p-4 text-center ring-1 ring-lavender-100"
+              className="rounded-2xl bg-canvas p-4 text-center ring-1 ring-sky-100"
             >
               <p className="font-display text-2xl font-bold text-charcoal">
                 {s.stat}

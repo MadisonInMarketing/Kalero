@@ -5,7 +5,7 @@ import { AirflowLines } from "@/components/ui/AirflowLines";
 export function HowItWorks() {
   return (
     <section
-      className="relative isolate overflow-hidden bg-gradient-to-b from-canvas via-lavender-50/60 to-canvas py-24 sm:py-28"
+      className="relative isolate overflow-hidden bg-gradient-to-b from-canvas via-sky-50/60 to-canvas py-24 sm:py-28"
       aria-labelledby="how-title"
     >
       <div className="pointer-events-none absolute inset-x-0 top-0 h-full opacity-70">
@@ -28,14 +28,14 @@ export function HowItWorks() {
 
         <div className="relative mt-16 grid gap-6 md:grid-cols-3">
           <div className="pointer-events-none absolute inset-x-8 top-14 hidden h-px md:block">
-            <div className="h-full w-full bg-gradient-to-r from-lavender-200/0 via-lavender-400/60 to-lavender-200/0" />
+            <div className="h-full w-full bg-gradient-to-r from-sky-200/0 via-sky-400/60 to-sky-200/0" />
           </div>
 
           {howItWorks.map((s, i) => (
             <Reveal key={s.step} delay={i * 0.08}>
-              <div className="relative flex h-full flex-col rounded-card bg-white p-8 ring-1 ring-lavender-100 shadow-soft">
+              <div className="relative flex h-full flex-col rounded-card bg-white p-8 ring-1 ring-sky-100 shadow-soft">
                 <div className="flex items-center gap-4">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-lavender-100 font-display text-2xl font-semibold text-lavender-700">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-sky-100 font-display text-2xl font-semibold text-sky-700">
                     {s.step}
                   </div>
                   <div className="flex-1">
@@ -54,7 +54,7 @@ export function HowItWorks() {
                     {["Pets", "Allergies", "Smoke", "Odors"].map((t) => (
                       <span
                         key={t}
-                        className="rounded-full bg-canvas px-3 py-1 text-xs text-charcoal-mid ring-1 ring-lavender-100"
+                        className="rounded-full bg-canvas px-3 py-1 text-xs text-charcoal-mid ring-1 ring-sky-100"
                       >
                         {t}
                       </span>
@@ -62,8 +62,8 @@ export function HowItWorks() {
                   </div>
                 )}
                 {i === 1 && (
-                  <div className="mt-6 flex items-center gap-3 rounded-2xl bg-canvas p-4 ring-1 ring-lavender-100">
-                    <div className="h-10 w-10 rounded-xl bg-lavender-100" />
+                  <div className="mt-6 flex items-center gap-3 rounded-2xl bg-canvas p-4 ring-1 ring-sky-100">
+                    <div className="h-10 w-10 rounded-xl bg-sky-100" />
                     <div>
                       <div className="text-sm font-medium text-charcoal">Pet Defense</div>
                       <div className="text-xs text-charcoal-light">MERV 11 · 20 × 25 × 1</div>
@@ -71,14 +71,14 @@ export function HowItWorks() {
                   </div>
                 )}
                 {i === 2 && (
-                  <div className="mt-6 flex items-center justify-between rounded-2xl bg-canvas p-4 ring-1 ring-lavender-100">
+                  <div className="mt-6 flex items-center justify-between rounded-2xl bg-canvas p-4 ring-1 ring-sky-100">
                     <div>
                       <div className="text-xs uppercase tracking-[0.16em] text-charcoal-light">
                         Next delivery
                       </div>
                       <div className="mt-1 text-sm font-medium text-charcoal">Sep 12</div>
                     </div>
-                    <div className="rounded-full bg-lavender-500 px-3 py-1 text-xs font-medium text-white">
+                    <div className="rounded-full bg-sky-500 px-3 py-1 text-xs font-medium text-white">
                       On its way
                     </div>
                   </div>

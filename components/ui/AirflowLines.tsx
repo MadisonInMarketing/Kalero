@@ -12,7 +12,7 @@ type Props = {
 
 export function AirflowLines({
   className = "",
-  color = "#9164D2",
+  color = "#1B8FD1",
   opacity = 0.35,
   strokeWidth = 1,
   animate = true,

@@ -34,15 +34,15 @@ export function StatStrip({ className = "" }: Props) {
       className={`relative isolate py-10 sm:py-12 ${className}`}
     >
       <div className="container-x">
-        <div className="grid gap-3 rounded-card bg-white p-4 ring-1 ring-lavender-100 shadow-soft sm:grid-cols-2 sm:gap-0 sm:p-6 lg:grid-cols-4">
+        <div className="grid gap-3 rounded-card bg-white p-4 ring-1 ring-sky-100 shadow-soft sm:grid-cols-2 sm:gap-0 sm:p-6 lg:grid-cols-4">
           {stats.map(({ Icon, title, body }, i) => (
             <div
               key={title}
               className={`flex items-start gap-3 px-2 py-2 sm:px-4 ${
-                i > 0 ? "lg:border-l lg:border-lavender-100" : ""
+                i > 0 ? "lg:border-l lg:border-sky-100" : ""
               }`}
             >
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-lavender-100 text-lavender-700">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-sky-100 text-sky-700">
                 <Icon size={16} strokeWidth={1.75} />
               </span>
               <div className="min-w-0">

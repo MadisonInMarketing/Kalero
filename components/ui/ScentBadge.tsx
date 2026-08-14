@@ -22,8 +22,8 @@ export function ScentBadge({
     "inline-flex items-center gap-1.5 whitespace-nowrap rounded-full font-medium tracking-[0.02em]";
   const variantClass =
     variant === "outline"
-      ? "bg-white/70 text-lavender-700 ring-1 ring-lavender-200/80 backdrop-blur-sm"
-      : "bg-lavender-100/70 text-lavender-700 ring-1 ring-lavender-200/70";
+      ? "bg-white/70 text-sky-700 ring-1 ring-sky-200/80 backdrop-blur-sm"
+      : "bg-sky-100/70 text-sky-700 ring-1 ring-sky-200/70";
   const sizeClass =
     size === "xs"
       ? "px-2 py-0.5 text-[10px]"

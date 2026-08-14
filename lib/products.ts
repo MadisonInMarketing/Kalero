@@ -68,7 +68,7 @@ export const productColors: Record<CategoryKey, ProductColor> = {
     glowTo: "rgba(103,183,242,0)",
     ring: "ring-sky/30",
     text: "text-sky-deep",
-    chip: "bg-lavender-100 text-lavender-700",
+    chip: "bg-sky-100 text-sky-700",
   },
   pet: {
     base: "#96B83B",
@@ -80,7 +80,7 @@ export const productColors: Record<CategoryKey, ProductColor> = {
     glowTo: "rgba(150,184,59,0)",
     ring: "ring-grass/30",
     text: "text-grass-deep",
-    chip: "bg-lavender-100 text-lavender-700",
+    chip: "bg-sky-100 text-sky-700",
   },
   allergy: {
     base: "#1E3A6B",
@@ -92,7 +92,7 @@ export const productColors: Record<CategoryKey, ProductColor> = {
     glowTo: "rgba(30,58,107,0)",
     ring: "ring-blush/30",
     text: "text-blush-deep",
-    chip: "bg-lavender-100 text-lavender-700",
+    chip: "bg-sky-100 text-sky-700",
   },
   smoke: {
     base: "#7566A5",
@@ -104,7 +104,7 @@ export const productColors: Record<CategoryKey, ProductColor> = {
     glowTo: "rgba(117,102,165,0)",
     ring: "ring-smoke/30",
     text: "text-smoke-deep",
-    chip: "bg-lavender-100 text-lavender-700",
+    chip: "bg-sky-100 text-sky-700",
   },
   carbon: {
     base: "#4A4A55",
@@ -116,7 +116,7 @@ export const productColors: Record<CategoryKey, ProductColor> = {
     glowTo: "rgba(74,74,85,0)",
     ring: "ring-graphite/30",
     text: "text-graphite-deep",
-    chip: "bg-lavender-100 text-lavender-700",
+    chip: "bg-sky-100 text-sky-700",
   },
   hotel: {
     base: "#E9B95C",
@@ -128,19 +128,19 @@ export const productColors: Record<CategoryKey, ProductColor> = {
     glowTo: "rgba(233,185,92,0)",
     ring: "ring-gold/30",
     text: "text-gold-deep",
-    chip: "bg-lavender-100 text-lavender-700",
+    chip: "bg-sky-100 text-sky-700",
   },
   seasonal: {
-    base: "#9164D2",
-    soft: "#F1EAFE",
-    deep: "#623D9E",
-    gradientFrom: "from-lavender-100",
+    base: "#1B8FD1",
+    soft: "#DCEEFA",
+    deep: "#0B5A94",
+    gradientFrom: "from-sky-100",
     gradientTo: "to-white",
     glowFrom: "rgba(145,100,210,0.35)",
     glowTo: "rgba(145,100,210,0)",
-    ring: "ring-lavender-300/30",
-    text: "text-lavender-700",
-    chip: "bg-lavender-100 text-lavender-700",
+    ring: "ring-sky-300/30",
+    text: "text-sky-700",
+    chip: "bg-sky-100 text-sky-700",
   },
 };
 

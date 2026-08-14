@@ -102,7 +102,7 @@ export function ShopByAir() {
             id="find-your-filter-title"
             className="font-display text-display-xl font-semibold text-charcoal text-balance"
           >
-            Find Your <span className="text-lavender-500">Filter</span>
+            Find Your <span className="text-sky-500">Filter</span>
           </h2>
           <p className="mt-3 text-lg leading-relaxed text-charcoal-mid text-pretty">
             Choose the filter designed for the way you live.
@@ -124,7 +124,7 @@ export function ShopByAir() {
                 >
                   <div
                     aria-hidden="true"
-                    className="h-1 w-full bg-lavender-500"
+                    className="h-1 w-full bg-sky-500"
                   />
 
                   <div className="relative aspect-[4/5] w-full overflow-hidden">
@@ -167,10 +167,10 @@ export function ShopByAir() {
                   <div className="relative mt-auto border-t border-charcoal/8 bg-white p-5">
                     <div className="flex items-center gap-3">
                       <span
-                        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-lavender-100 text-lavender-700"
+                        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-sky-100 text-sky-700"
                         aria-hidden="true"
                       >
-                        <CategoryIcon icon={f.icon} size={18} color="#7A4EBC" />
+                        <CategoryIcon icon={f.icon} size={18} color="#0F72B3" />
                       </span>
                       <div className="min-w-0 flex-1">
                         <p className="font-display text-lg font-bold leading-tight text-charcoal sm:text-xl">
@@ -200,7 +200,7 @@ export function ShopByAir() {
         <div className="mt-10 flex justify-center">
           <Link
             href="/shop"
-            className="inline-flex items-center gap-2 rounded-pill bg-white px-6 py-3.5 text-sm font-medium text-charcoal shadow-soft ring-1 ring-lavender-100 transition-all hover:-translate-y-0.5 hover:shadow-card"
+            className="inline-flex items-center gap-2 rounded-pill bg-white px-6 py-3.5 text-sm font-medium text-charcoal shadow-soft ring-1 ring-sky-100 transition-all hover:-translate-y-0.5 hover:shadow-card"
           >
             Shop by Collection
             <ArrowRight size={16} />

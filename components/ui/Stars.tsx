@@ -23,8 +23,8 @@ export function Stars({ value, count, size = 14, compact, className = "" }: Prop
               strokeWidth={1.5}
               className={
                 filled
-                  ? "fill-lavender-500 text-lavender-500"
-                  : "fill-lavender-100 text-lavender-200"
+                  ? "fill-sky-500 text-sky-500"
+                  : "fill-sky-100 text-sky-200"
               }
             />
           );

@@ -25,13 +25,13 @@ export function Footer() {
     <footer className="relative isolate mt-24 overflow-hidden bg-charcoal text-white">
       <div className="pointer-events-none absolute inset-0 opacity-40">
         <AirflowLines
-          color="#B58EE8"
+          color="#4AABE4"
           opacity={0.18}
           animate={false}
           className="absolute inset-0 h-full w-full"
         />
       </div>
-      <div className="pointer-events-none absolute -top-24 left-1/2 h-72 w-[70vw] -translate-x-1/2 rounded-full bg-lavender-500/20 blur-3xl" />
+      <div className="pointer-events-none absolute -top-24 left-1/2 h-72 w-[70vw] -translate-x-1/2 rounded-full bg-sky-500/20 blur-3xl" />
 
       <div className="container-x relative pb-12 pt-16">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr] lg:gap-16">
@@ -50,7 +50,7 @@ export function Footer() {
               />
               <button
                 type="submit"
-                className="inline-flex items-center gap-1.5 rounded-pill bg-lavender-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-lavender-400"
+                className="inline-flex items-center gap-1.5 rounded-pill bg-sky-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-sky-400"
               >
                 Subscribe <Send size={14} />
               </button>
@@ -71,7 +71,7 @@ export function Footer() {
 
           <div className="grid gap-10 sm:grid-cols-2 lg:justify-end">
             <div>
-              <p className="text-eyebrow text-lavender-300">Shop</p>
+              <p className="text-eyebrow text-sky-300">Shop</p>
               <ul className="mt-4 flex flex-col gap-3">
                 {primaryLinks.map((l) => (
                   <li key={l.href}>
@@ -86,7 +86,7 @@ export function Footer() {
               </ul>
             </div>
             <div>
-              <p className="text-eyebrow text-lavender-300">Help</p>
+              <p className="text-eyebrow text-sky-300">Help</p>
               <ul className="mt-4 flex flex-col gap-3">
                 {supportLinks.map((l) => (
                   <li key={l.href}>
