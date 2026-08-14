@@ -1,187 +1,136 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { LinkButton } from "@/components/ui/Button";
+import { useRouter } from "next/navigation";
+import { ArrowRight, Star, Truck } from "lucide-react";
+import { STANDARD_SIZES } from "@/lib/products";
 
-type Frame = {
-  src: string;
-  alt: string;
-  focal?: string;
-};
-
-// Hero-sized product renders in /public/images/hero/animated/.
-const heroFrameIds = [1, 2, 3, 5, 6, 7, 9, 10, 11, 12, 14, 15];
-const heroFrames: Frame[] = heroFrameIds.map((id) => {
-  const n = String(id).padStart(2, "0");
-  return {
-    src: `/images/hero/animated/hero-${n}.png`,
-    alt: `Kalero premium air filter — scene ${id}`,
-    focal: "center",
-  };
-});
-
-const AUTO_ADVANCE_MS = 4500;
+const RATING_VALUE = 4.9;
+const RATING_COUNT = "12,000+";
 
 export function KaleroEverydayHero() {
-  const [activeIdx, setActiveIdx] = useState(0);
-  const [paused, setPaused] = useState(false);
+  const router = useRouter();
+  const [size, setSize] = useState<string>(STANDARD_SIZES[4]); // 20 × 25 × 1 default
 
-  useEffect(() => {
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (mq.matches) setPaused(true);
-    const onChange = () => setPaused(mq.matches);
-    mq.addEventListener("change", onChange);
-    return () => mq.removeEventListener("change", onChange);
-  }, []);
-
-  useEffect(() => {
-    if (paused) return;
-    const id = window.setTimeout(() => {
-      setActiveIdx((i) => (i + 1) % heroFrames.length);
-    }, AUTO_ADVANCE_MS);
-    return () => window.clearTimeout(id);
-  }, [paused, activeIdx]);
+  const handleShop = () => {
+    const slug = size.replace(/\s×\s/g, "x");
+    router.push(`/shop?size=${encodeURIComponent(slug)}`);
+  };
 
   return (
     <section
       aria-labelledby="hero-title"
-      className="relative isolate flex min-h-[calc(100dvh-6.5rem)] w-full flex-col justify-end overflow-hidden bg-charcoal sm:min-h-[calc(100dvh-8rem)]"
+      className="relative overflow-hidden bg-gradient-to-b from-sky-50 via-white to-white"
     >
-      {/* Image stack */}
-      <div className="absolute inset-0">
-        {heroFrames.map((frame, i) => {
-          const isActive = i === activeIdx;
-          return (
-            <div
-              key={frame.src}
-              className="absolute inset-0 transition-all duration-[1600ms] ease-out"
-              style={{
-                opacity: isActive ? 1 : 0,
-                transform: isActive
-                  ? "translate3d(0,0,0) scale(1)"
-                  : "translate3d(0,0,0) scale(1.02)",
-                willChange: "opacity, transform",
-              }}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -left-40 top-0 h-[420px] w-[420px] rounded-full bg-sky-200/40 blur-3xl"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-32 top-40 h-[480px] w-[480px] rounded-full bg-sky-100/70 blur-3xl"
+      />
+
+      <div className="container-x relative grid gap-10 pb-14 pt-10 sm:pb-20 sm:pt-14 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-16 lg:pb-24 lg:pt-16">
+        <div className="relative z-10">
+          {/* Free shipping + rating band */}
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs font-medium text-charcoal-mid">
+            <span className="flex items-center gap-2 text-sky-700">
+              <Truck size={14} strokeWidth={2} />
+              Always free shipping
+            </span>
+            <span aria-hidden="true" className="hidden h-1 w-1 rounded-full bg-charcoal/25 sm:inline-block" />
+            <span className="flex items-center gap-1.5">
+              <span className="flex items-center gap-0.5" aria-hidden="true">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star key={i} size={12} fill="#F5B301" stroke="#F5B301" />
+                ))}
+              </span>
+              <span className="text-charcoal">
+                <span className="font-semibold">{RATING_VALUE}</span> · {RATING_COUNT}{" "}
+                homes filtered
+              </span>
+            </span>
+          </div>
+
+          <h1
+            id="hero-title"
+            className="mt-6 font-display text-[clamp(2.5rem,5.6vw,4.75rem)] font-bold uppercase leading-[0.98] tracking-[-0.02em] text-charcoal text-balance"
+          >
+            Premium Air
+            <br />
+            <span className="text-sky-600">Filters, Delivered.</span>
+          </h1>
+
+          <p className="mt-6 max-w-lg text-base leading-relaxed text-charcoal-mid text-pretty sm:text-lg">
+            Every standard HVAC size. MERV 8, 11, and 13. Delivered on your
+            schedule with free shipping and 15% off subscriptions.
+          </p>
+
+          {/* Inline size selector card */}
+          <div className="mt-8 max-w-xl rounded-2xl bg-white p-5 shadow-card ring-1 ring-sky-100 sm:p-6">
+            <label
+              htmlFor="hero-size"
+              className="text-eyebrow font-semibold text-sky-700"
             >
-              <Image
-                src={frame.src}
-                alt={frame.alt}
-                fill
-                sizes="100vw"
-                className="object-cover"
-                style={frame.focal ? { objectPosition: frame.focal } : undefined}
-                priority={i === 0}
-                loading={i === 0 ? undefined : i === 1 ? "eager" : "lazy"}
-              />
+              Choose your filter size
+            </label>
+            <div className="mt-3 flex flex-col gap-3 sm:flex-row sm:items-stretch">
+              <div className="relative flex-1">
+                <select
+                  id="hero-size"
+                  value={size}
+                  onChange={(e) => setSize(e.target.value)}
+                  className="h-12 w-full appearance-none rounded-full border border-sky-200 bg-white px-5 pr-11 text-base font-medium text-charcoal shadow-inner focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-200"
+                >
+                  {STANDARD_SIZES.map((s) => (
+                    <option key={s} value={s}>
+                      {s}
+                    </option>
+                  ))}
+                  <option value="custom">Custom size…</option>
+                </select>
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-sky-600"
+                >
+                  ▾
+                </span>
+              </div>
+              <button
+                type="button"
+                onClick={handleShop}
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-sky-500 px-6 text-sm font-semibold text-white transition-colors hover:bg-sky-600 focus-visible:outline-2 focus-visible:outline-sky-700 sm:px-7"
+              >
+                Shop this size
+                <ArrowRight size={16} strokeWidth={2.25} />
+              </button>
             </div>
-          );
-        })}
-      </div>
-
-      {/* Directional shading for contrast + drama */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(180deg, rgba(15,15,20,0.6) 0%, rgba(15,15,20,0.15) 30%, rgba(15,15,20,0.5) 65%, rgba(15,15,20,0.92) 100%)",
-        }}
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-y-0 left-0 w-full lg:w-3/4"
-        style={{
-          background:
-            "linear-gradient(90deg, rgba(10,10,15,0.92) 0%, rgba(10,10,15,0.78) 30%, rgba(10,10,15,0.5) 55%, rgba(10,10,15,0.15) 80%, rgba(10,10,15,0) 100%)",
-        }}
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -top-24 right-0 h-[520px] w-[520px] rounded-full opacity-45 blur-[160px]"
-        style={{ background: "radial-gradient(closest-side, rgba(145,100,210,0.55), transparent 70%)" }}
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -bottom-32 left-0 h-[480px] w-[480px] rounded-full opacity-35 blur-[160px]"
-        style={{ background: "radial-gradient(closest-side, rgba(103,183,242,0.4), transparent 70%)" }}
-      />
-
-      {/* Content */}
-      <div className="container-x relative z-10 pb-16 pt-32 sm:pb-24 sm:pt-40">
-        <div className="flex flex-col gap-8 lg:max-w-3xl">
-        <p className="flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-sky-200/90">
-          <span
-            aria-hidden="true"
-            className="h-px w-8 bg-sky-300/70"
-          />
-          Introducing Kalero
-        </p>
-
-        <h1
-          id="hero-title"
-          className="font-display text-[clamp(3rem,7vw,6rem)] font-semibold leading-[0.98] tracking-[-0.03em] text-white text-balance [text-shadow:0_2px_24px_rgba(0,0,0,0.35)]"
-        >
-          <span className="block">Air, engineered</span>
-          <span className="block">
-            for how you <em className="not-italic bg-gradient-to-r from-sky-300 via-sky-400 to-sky-soft bg-clip-text text-transparent">actually live</em>.
-          </span>
-        </h1>
-
-        <p className="max-w-xl text-base leading-relaxed text-white/85 text-pretty [text-shadow:0_1px_10px_rgba(0,0,0,0.6)] sm:text-lg">
-          Premium filtration built for how your home actually breathes, from everyday dust and allergens to pet dander, smoke, and hospitality-grade air.
-        </p>
-
-        <p className="mt-1 text-xs font-medium uppercase tracking-[0.22em] text-sky-200/90 [text-shadow:0_1px_8px_rgba(0,0,0,0.6)]">
-          Cleaner air. A fresher home.
-        </p>
-
-        <div className="mt-2 flex flex-wrap items-center gap-3">
-          <LinkButton
-            href="/find-your-filter"
-            size="lg"
-            arrow
-            className="!bg-white !text-charcoal hover:!bg-sky-50"
-          >
-            Find your filter
-          </LinkButton>
-          <LinkButton
-            href="/shop"
-            size="lg"
-            variant="ghost"
-            arrow
-            className="!text-white/85 hover:!bg-white/10 hover:!text-white"
-          >
-            Shop the collection
-          </LinkButton>
+            <p className="mt-3 text-xs text-charcoal-light">
+              Don&apos;t know your size?{" "}
+              <Link href="/find-your-filter" className="link-underline text-sky-700">
+                Take the two-minute quiz
+              </Link>
+              .
+            </p>
+          </div>
         </div>
 
-        <Link
-          href="/scent-strips"
-          className="mt-1 inline-flex items-center gap-1.5 text-xs font-medium text-sky-200/90 underline-offset-4 hover:text-white hover:underline"
-        >
-          Explore the scent upgrade →
-        </Link>
-
+        {/* Product visual */}
+        <div className="relative">
+          <div className="relative mx-auto aspect-[4/5] w-full max-w-md lg:max-w-none">
+            <Image
+              src="/images/hero/animated/hero-01.png"
+              alt="Kalero premium air filters"
+              fill
+              sizes="(min-width: 1024px) 620px, 90vw"
+              className="object-contain drop-shadow-[0_30px_60px_rgba(11,90,148,0.25)]"
+              priority
+            />
+          </div>
         </div>
-      </div>
-
-      {/* Subtle frame progress rail, no NN/10, no chapters */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 bottom-0 z-10 flex justify-center gap-1.5 pb-6 sm:pb-8"
-      >
-        {heroFrames.map((_, i) => (
-          <span
-            key={i}
-            className="h-[2px] rounded-full bg-white/25 transition-all duration-500 ease-out"
-            style={{
-              width: i === activeIdx ? "36px" : "8px",
-              backgroundColor: i === activeIdx ? "rgba(255,255,255,0.85)" : undefined,
-            }}
-          />
-        ))}
       </div>
     </section>
   );
