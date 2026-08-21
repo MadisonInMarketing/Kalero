@@ -1,5 +1,4 @@
 import { KaleroEverydayHero } from "@/components/hero/KaleroEverydayHero";
-import { FilterFinder } from "@/components/filter-finder/FilterFinder";
 import { PopularSizes } from "@/components/home/PopularSizes";
 import { ShopByAir } from "@/components/home/ShopByAir";
 import { TierComparison } from "@/components/home/TierComparison";
@@ -18,10 +17,7 @@ export default function Home() {
       {/* 1 — Hero */}
       <KaleroEverydayHero />
 
-      {/* 2 — Filter Finder (three big selects → PDP) */}
-      <FilterFinder />
-
-      {/* 3 — Popular Filter Sizes */}
+      {/* 2 — Popular Filter Sizes */}
       <PopularSizes />
 
       {/* 4 — Shop by what's in your air (tier cards + concern chips) */}
