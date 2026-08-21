@@ -4,9 +4,9 @@
 
 @layer base {
   :root {
-    --sky: #1b8fd1;
-    --sky-100: #dceefa;
-    --sky-200: #b8dff5;
+    --sky: #37b2e6;
+    --sky-100: #ddf1fb;
+    --sky-200: #b7e2f6;
     --charcoal: #17171b;
     --canvas: #fafafc;
   }

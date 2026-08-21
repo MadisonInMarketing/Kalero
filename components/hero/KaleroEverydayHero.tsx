@@ -7,6 +7,7 @@ import { ArrowRight, Leaf, ShieldCheck, Sparkles, Star, Truck, Wind } from "luci
 import { STANDARD_SIZES } from "@/lib/products";
 import { IridescentWave } from "@/components/ui/IridescentWave";
 import { MervShield } from "@/components/ui/MervShield";
+import { businessConfig } from "@/lib/business";
 
 const RATING_VALUE = 4.9;
 const RATING_COUNT = "12,000+";
@@ -58,20 +59,26 @@ export function KaleroEverydayHero() {
             id="hero-title"
             className="mt-5 font-display text-[clamp(2.5rem,5.4vw,4.5rem)] font-bold uppercase leading-[0.98] tracking-[-0.02em] text-charcoal text-balance"
           >
-            Premium Air
+            The right filter.
             <br />
-            <span className="text-sky-600">Filters, Delivered.</span>
+            The right fit.
+            <br />
+            <span className="text-sky-600">Cleaner air.</span>
           </h1>
 
           <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs font-medium text-charcoal-mid">
-            <span className="flex items-center gap-2 text-sky-700">
-              <Truck size={14} strokeWidth={2} />
-              Always free shipping
-            </span>
-            <span
-              aria-hidden="true"
-              className="hidden h-1 w-1 rounded-full bg-charcoal/25 sm:inline-block"
-            />
+            {businessConfig.shippingMessage && (
+              <>
+                <span className="flex items-center gap-2 text-sky-700">
+                  <Truck size={14} strokeWidth={2} />
+                  {businessConfig.shippingMessage}
+                </span>
+                <span
+                  aria-hidden="true"
+                  className="hidden h-1 w-1 rounded-full bg-charcoal/25 sm:inline-block"
+                />
+              </>
+            )}
             <span className="flex items-center gap-1.5">
               <span className="flex items-center gap-0.5" aria-hidden="true">
                 {Array.from({ length: 5 }).map((_, i) => (
@@ -86,8 +93,9 @@ export function KaleroEverydayHero() {
           </div>
 
           <p className="mt-6 max-w-lg text-base leading-relaxed text-charcoal-mid text-pretty sm:text-lg">
-            Every standard HVAC size. MERV 8, 11, and 13. Delivered on your
-            schedule with free shipping and 15% off subscriptions.
+            Premium replacement air filters made simple. Find your size, choose
+            your filtration level, and get fresh filters delivered when you
+            need them.
           </p>
 
           {/* Size selector — reactive */}

@@ -4,16 +4,34 @@ import { Logo } from "@/components/ui/Logo";
 import { AirflowLines } from "@/components/ui/AirflowLines";
 import { IridescentWave } from "@/components/ui/IridescentWave";
 
-const primaryLinks = [
-  { href: "/", label: "Home" },
-  { href: "/shop", label: "Shop" },
-  { href: "/find-your-filter", label: "Find Your Filter" },
-  { href: "/cart", label: "Cart" },
+const shopLinks = [
+  { href: "/air-filters", label: "Shop All" },
+  { href: "/merv-8", label: "Standard · MERV 8" },
+  { href: "/merv-11", label: "Pro · MERV 11" },
+  { href: "/merv-13", label: "Max · MERV 13" },
+  { href: "/air-filters", label: "Shop by Size" },
+  { href: "/custom-filters", label: "Custom Filters" },
 ];
 
-const supportLinks = [
+const helpLinks = [
   { href: "/contact", label: "Contact" },
-  { href: "/shipping-returns", label: "Shipping & Returns" },
+  { href: "/faq", label: "FAQ" },
+  { href: "/shipping", label: "Shipping" },
+  { href: "/returns", label: "Returns" },
+  { href: "/learn/filter-size-guide", label: "Size Guide" },
+  { href: "/learn/merv-guide", label: "MERV Guide" },
+];
+
+const brandLinks = [
+  { href: "/why-kalero", label: "Our Story" },
+  { href: "/why-kalero", label: "Why KALERO" },
+  { href: "/learn/air-quality-guide", label: "Air Guides" },
+];
+
+const accountLinks = [
+  { href: "/account", label: "Sign In" },
+  { href: "/account/orders", label: "Order History" },
+  { href: "/account/subscriptions", label: "Manage Auto Delivery" },
 ];
 
 const socials = [
@@ -79,37 +97,11 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="grid gap-10 sm:grid-cols-2 lg:justify-end">
-            <div>
-              <p className="text-eyebrow text-sky-300">Shop</p>
-              <ul className="mt-4 flex flex-col gap-3">
-                {primaryLinks.map((l) => (
-                  <li key={l.href}>
-                    <Link
-                      href={l.href}
-                      className="text-sm text-white/75 transition-colors hover:text-white"
-                    >
-                      {l.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <p className="text-eyebrow text-sky-300">Help</p>
-              <ul className="mt-4 flex flex-col gap-3">
-                {supportLinks.map((l) => (
-                  <li key={l.href}>
-                    <Link
-                      href={l.href}
-                      className="text-sm text-white/75 transition-colors hover:text-white"
-                    >
-                      {l.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+            <FooterColumn title="Shop" links={shopLinks} />
+            <FooterColumn title="Help" links={helpLinks} />
+            <FooterColumn title="KALERO" links={brandLinks} />
+            <FooterColumn title="Account" links={accountLinks} />
           </div>
         </div>
 
@@ -126,5 +118,31 @@ export function Footer() {
         </div>
       </div>
     </footer>
+  );
+}
+
+function FooterColumn({
+  title,
+  links,
+}: {
+  title: string;
+  links: { href: string; label: string }[];
+}) {
+  return (
+    <div>
+      <p className="text-eyebrow text-sky-300">{title}</p>
+      <ul className="mt-4 flex flex-col gap-3">
+        {links.map((l) => (
+          <li key={`${title}-${l.label}`}>
+            <Link
+              href={l.href}
+              className="text-sm text-white/75 transition-colors hover:text-white"
+            >
+              {l.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }

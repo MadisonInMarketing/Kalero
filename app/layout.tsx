@@ -4,6 +4,8 @@ import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
+import { CartProvider } from "@/lib/cart";
+import { CartDrawer } from "@/components/commerce/CartDrawer";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -116,16 +118,19 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${manrope.variable} ${inter.variable}`}>
       <body className="min-h-screen bg-canvas text-charcoal">
-        <a
-          href="#main"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-charcoal focus:px-4 focus:py-2 focus:text-sm focus:text-white"
-        >
-          Skip to content
-        </a>
-        <AnnouncementBar />
-        <Header />
-        <main id="main">{children}</main>
-        <Footer />
+        <CartProvider>
+          <a
+            href="#main"
+            className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-charcoal focus:px-4 focus:py-2 focus:text-sm focus:text-white"
+          >
+            Skip to content
+          </a>
+          <AnnouncementBar />
+          <Header />
+          <main id="main">{children}</main>
+          <Footer />
+          <CartDrawer />
+        </CartProvider>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

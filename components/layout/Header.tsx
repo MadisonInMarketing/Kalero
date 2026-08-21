@@ -3,24 +3,40 @@
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, Menu, Search, ShoppingBag, X } from "lucide-react";
+import { ChevronDown, Menu, Search, ShoppingBag, User, X } from "lucide-react";
 import { Logo } from "@/components/ui/Logo";
-import { products, STANDARD_SIZES } from "@/lib/products";
+import { products } from "@/lib/products";
 import { categories } from "@/lib/categories";
+import { sizes, formatSize } from "@/lib/sizes";
+import { tiers } from "@/lib/tiers";
+import { useCart } from "@/lib/cart";
 
-const links = [
-  { href: "/shop", label: "Shop by Concern" },
-  { href: "/subscriptions", label: "Subscribe" },
-  { href: "/find-your-filter", label: "Find Your Filter" },
+const shopFiltersMenu = [
+  { href: "/air-filters", label: "Shop All Filters", eyebrow: "Everything" },
+  { href: "/merv-8", label: "Standard · MERV 8", eyebrow: "Everyday" },
+  { href: "/merv-11", label: "Pro · MERV 11", eyebrow: "Pets + Allergies" },
+  { href: "/merv-13", label: "Max · MERV 13", eyebrow: "Maximum Filtration" },
+  { href: "/custom-filters", label: "Custom Sizes", eyebrow: "Not standard?" },
 ];
+
+const learnMenu = [
+  { href: "/learn/merv-guide", label: "MERV Guide" },
+  { href: "/learn/filter-size-guide", label: "Filter Size Guide" },
+  { href: "/learn/replacement-guide", label: "How Often to Replace" },
+  { href: "/learn/air-quality-guide", label: "Air Quality Guide" },
+  { href: "/faq", label: "FAQ" },
+];
+
+type ActiveMenu = null | "shop" | "learn";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
-  const [sizeMenuOpen, setSizeMenuOpen] = useState(false);
+  const [activeMenu, setActiveMenu] = useState<ActiveMenu>(null);
   const [query, setQuery] = useState("");
   const searchInputRef = useRef<HTMLInputElement>(null);
+  const { itemCount, openDrawer } = useCart();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -105,16 +121,28 @@ export function Header() {
             <Search size={18} strokeWidth={1.75} />
           </button>
           <Link
-            href="/cart"
-            aria-label="Cart"
+            href="/account"
+            aria-label="Account"
+            className="hidden h-10 w-10 items-center justify-center rounded-full text-charcoal-soft transition-colors hover:bg-white hover:text-sky-700 lg:flex"
+          >
+            <User size={18} strokeWidth={1.75} />
+          </Link>
+          <button
+            type="button"
+            aria-label={`Cart (${itemCount} item${itemCount === 1 ? "" : "s"})`}
+            onClick={openDrawer}
             className="relative flex h-10 items-center gap-2 rounded-full bg-charcoal px-4 text-sm font-medium text-white transition-colors hover:bg-charcoal-soft"
           >
             <ShoppingBag size={16} strokeWidth={1.75} />
             <span className="hidden sm:inline">Cart</span>
-            <span className="inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-sky-500 px-1.5 text-[11px] font-semibold">
-              0
+            <span
+              className={`inline-flex h-5 min-w-5 items-center justify-center rounded-full px-1.5 text-[11px] font-semibold ${
+                itemCount > 0 ? "bg-sky-500" : "bg-white/20"
+              }`}
+            >
+              {itemCount}
             </span>
-          </Link>
+          </button>
           <button
             type="button"
             aria-label="Open menu"
@@ -126,77 +154,164 @@ export function Header() {
           </button>
         </div>
       </div>
-      {/* Secondary nav row — filterbuy-style with megamenu */}
+      {/* Secondary nav row — Shop Filters + Learn megamenus */}
       <div className="hidden border-t border-sky-100/60 lg:block">
-        <div className="container-x relative flex h-11 items-center justify-center gap-8">
+        <div
+          className="container-x relative flex h-11 items-center justify-center gap-8"
+          onMouseLeave={() => setActiveMenu(null)}
+        >
+          <button
+            type="button"
+            onClick={() => setActiveMenu(activeMenu === "shop" ? null : "shop")}
+            onMouseEnter={() => setActiveMenu("shop")}
+            aria-expanded={activeMenu === "shop"}
+            className="inline-flex items-center gap-1 text-sm font-medium text-charcoal transition-colors hover:text-sky-700"
+          >
+            Shop Filters
+            <ChevronDown
+              size={14}
+              className={`transition-transform ${activeMenu === "shop" ? "rotate-180" : ""}`}
+            />
+          </button>
           <Link
-            href="/"
+            href="/find-your-filter"
+            onMouseEnter={() => setActiveMenu(null)}
             className="text-sm font-medium text-charcoal transition-colors hover:text-sky-700"
           >
-            Home
+            Find Your Filter
+          </Link>
+          <Link
+            href="/air-filters"
+            onMouseEnter={() => setActiveMenu(null)}
+            className="text-sm font-medium text-charcoal transition-colors hover:text-sky-700"
+          >
+            Shop by Size
+          </Link>
+          <Link
+            href="/why-kalero"
+            onMouseEnter={() => setActiveMenu(null)}
+            className="text-sm font-medium text-charcoal transition-colors hover:text-sky-700"
+          >
+            Why KALERO
           </Link>
           <button
             type="button"
-            onClick={() => setSizeMenuOpen((o) => !o)}
-            aria-expanded={sizeMenuOpen}
+            onClick={() => setActiveMenu(activeMenu === "learn" ? null : "learn")}
+            onMouseEnter={() => setActiveMenu("learn")}
+            aria-expanded={activeMenu === "learn"}
             className="inline-flex items-center gap-1 text-sm font-medium text-charcoal transition-colors hover:text-sky-700"
           >
-            Shop by Size
+            Learn
             <ChevronDown
               size={14}
-              className={`transition-transform ${sizeMenuOpen ? "rotate-180" : ""}`}
+              className={`transition-transform ${activeMenu === "learn" ? "rotate-180" : ""}`}
             />
           </button>
-          {links.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              className="text-sm font-medium text-charcoal transition-colors hover:text-sky-700"
-            >
-              {l.label}
-            </Link>
-          ))}
 
           <AnimatePresence>
-            {sizeMenuOpen && (
+            {activeMenu === "shop" && (
               <motion.div
-                key="size-menu"
+                key="shop-menu"
                 initial={{ opacity: 0, y: -8 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.2 }}
-                className="absolute left-1/2 top-full z-30 mt-2 w-[600px] -translate-x-1/2 rounded-2xl bg-white p-5 shadow-card ring-1 ring-sky-100"
+                className="absolute left-1/2 top-full z-30 mt-2 grid w-[860px] -translate-x-1/2 grid-cols-[1.1fr_1fr] gap-6 rounded-2xl bg-white p-6 shadow-card ring-1 ring-sky-100"
+              >
+                <div>
+                  <p className="text-eyebrow font-semibold text-sky-700">
+                    Shop Filters
+                  </p>
+                  <ul className="mt-3 grid gap-1">
+                    {shopFiltersMenu.map((l) => (
+                      <li key={l.href}>
+                        <Link
+                          href={l.href}
+                          onClick={() => setActiveMenu(null)}
+                          className="flex items-baseline justify-between rounded-xl px-3 py-2.5 text-sm text-charcoal transition-colors hover:bg-sky-50"
+                        >
+                          <span className="font-medium">{l.label}</span>
+                          <span className="text-[11px] uppercase tracking-[0.14em] text-charcoal-light">
+                            {l.eyebrow}
+                          </span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <p className="text-eyebrow font-semibold text-sky-700">
+                    Popular sizes
+                  </p>
+                  <div className="mt-3 grid grid-cols-3 gap-2">
+                    {sizes
+                      .filter((s) => s.popular)
+                      .map((s) => (
+                        <Link
+                          key={s.slug}
+                          href={`/air-filters/${s.slug}`}
+                          onClick={() => setActiveMenu(null)}
+                          className="rounded-xl border border-sky-100 bg-sky-50/50 px-3 py-2.5 text-center text-sm font-semibold text-charcoal transition-colors hover:border-sky-400 hover:bg-white"
+                        >
+                          {formatSize(s)}
+                        </Link>
+                      ))}
+                  </div>
+                  <div className="mt-4 flex items-center justify-between border-t border-sky-100 pt-3 text-xs">
+                    <Link
+                      href="/air-filters"
+                      onClick={() => setActiveMenu(null)}
+                      className="link-underline font-medium text-sky-700"
+                    >
+                      Shop all sizes →
+                    </Link>
+                    <Link
+                      href="/find-your-filter"
+                      onClick={() => setActiveMenu(null)}
+                      className="text-charcoal-light hover:text-sky-700"
+                    >
+                      Not sure? Take the quiz →
+                    </Link>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+            {activeMenu === "learn" && (
+              <motion.div
+                key="learn-menu"
+                initial={{ opacity: 0, y: -8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.2 }}
+                className="absolute left-1/2 top-full z-30 mt-2 w-[420px] -translate-x-1/2 rounded-2xl bg-white p-5 shadow-card ring-1 ring-sky-100"
               >
                 <p className="text-eyebrow font-semibold text-sky-700">
-                  Choose your filter size
+                  Learn
                 </p>
-                <div className="mt-3 grid grid-cols-4 gap-2">
-                  {STANDARD_SIZES.map((s) => (
+                <ul className="mt-3 grid gap-1">
+                  {learnMenu.map((l) => (
+                    <li key={l.href}>
+                      <Link
+                        href={l.href}
+                        onClick={() => setActiveMenu(null)}
+                        className="block rounded-xl px-3 py-2.5 text-sm font-medium text-charcoal transition-colors hover:bg-sky-50"
+                      >
+                        {l.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-3 grid grid-cols-3 gap-2 border-t border-sky-100 pt-3">
+                  {tiers.map((t) => (
                     <Link
-                      key={s}
-                      href={`/shop?size=${encodeURIComponent(s.replace(/\s×\s/g, "x"))}`}
-                      onClick={() => setSizeMenuOpen(false)}
-                      className="rounded-xl border border-sky-100 bg-sky-50/50 px-3 py-2.5 text-center text-sm font-semibold text-charcoal transition-colors hover:border-sky-400 hover:bg-white"
+                      key={t.id}
+                      href={`/merv-${t.merv}`}
+                      onClick={() => setActiveMenu(null)}
+                      className="rounded-xl border border-sky-100 px-3 py-2 text-center text-[11px] font-semibold text-charcoal transition-colors hover:bg-sky-50"
                     >
-                      {s}
+                      MERV {t.merv} · {t.name}
                     </Link>
                   ))}
-                </div>
-                <div className="mt-4 flex items-center justify-between border-t border-sky-100 pt-3 text-xs">
-                  <Link
-                    href="/shop"
-                    onClick={() => setSizeMenuOpen(false)}
-                    className="link-underline font-medium text-sky-700"
-                  >
-                    Shop all sizes →
-                  </Link>
-                  <Link
-                    href="/find-your-filter"
-                    onClick={() => setSizeMenuOpen(false)}
-                    className="text-charcoal-light hover:text-sky-700"
-                  >
-                    Custom size? Take the quiz →
-                  </Link>
                 </div>
               </motion.div>
             )}
@@ -349,13 +464,44 @@ export function Header() {
                   <X size={20} strokeWidth={1.75} />
                 </button>
               </div>
-              <nav className="flex flex-1 flex-col gap-1 px-4 py-6" aria-label="Mobile">
-                {links.map((l) => (
+              <nav className="flex flex-1 flex-col gap-1 overflow-y-auto px-4 py-6" aria-label="Mobile">
+                <p className="px-4 pt-2 text-eyebrow text-sky-700">Shop</p>
+                {shopFiltersMenu.map((l) => (
                   <Link
                     key={l.href}
                     href={l.href}
                     onClick={() => setMenuOpen(false)}
-                    className="rounded-2xl px-4 py-3.5 text-base font-medium text-charcoal transition-colors hover:bg-canvas"
+                    className="rounded-2xl px-4 py-3 text-sm font-medium text-charcoal transition-colors hover:bg-canvas"
+                  >
+                    {l.label}
+                  </Link>
+                ))}
+                <p className="mt-4 px-4 pt-2 text-eyebrow text-sky-700">
+                  Discover
+                </p>
+                <Link
+                  href="/find-your-filter"
+                  onClick={() => setMenuOpen(false)}
+                  className="rounded-2xl px-4 py-3 text-sm font-medium text-charcoal transition-colors hover:bg-canvas"
+                >
+                  Find Your Filter
+                </Link>
+                <Link
+                  href="/why-kalero"
+                  onClick={() => setMenuOpen(false)}
+                  className="rounded-2xl px-4 py-3 text-sm font-medium text-charcoal transition-colors hover:bg-canvas"
+                >
+                  Why KALERO
+                </Link>
+                <p className="mt-4 px-4 pt-2 text-eyebrow text-sky-700">
+                  Learn
+                </p>
+                {learnMenu.map((l) => (
+                  <Link
+                    key={l.href}
+                    href={l.href}
+                    onClick={() => setMenuOpen(false)}
+                    className="rounded-2xl px-4 py-3 text-sm font-medium text-charcoal transition-colors hover:bg-canvas"
                   >
                     {l.label}
                   </Link>
