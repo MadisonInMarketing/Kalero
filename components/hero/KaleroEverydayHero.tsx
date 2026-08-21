@@ -1,81 +1,135 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { ArrowRight, Leaf, ShieldCheck, Sparkles, Star, Truck, Wind } from "lucide-react";
-import { STANDARD_SIZES } from "@/lib/products";
-import { IridescentWave } from "@/components/ui/IridescentWave";
-import { MervShield } from "@/components/ui/MervShield";
+import { ArrowRight, Truck, Star } from "lucide-react";
 import { businessConfig } from "@/lib/business";
+
+/**
+ * Full-bleed auto-cycling gallery hero.
+ * Frames cross-fade every ~4s; copy + CTAs sit on a bottom-left overlay.
+ */
 
 const RATING_VALUE = 4.9;
 const RATING_COUNT = "12,000+";
 
-const featureChips = [
-  { Icon: Wind, label: "Captures Dust" },
-  { Icon: Leaf, label: "Reduces Pollen" },
-  { Icon: Sparkles, label: "Traps Lint & Fibers" },
-  { Icon: ShieldCheck, label: "Better Airflow" },
-];
+const heroFrameIds = [1, 2, 3, 5, 6, 7, 9, 10, 11, 12, 14, 15];
+const heroFrames = heroFrameIds.map((id) => {
+  const n = String(id).padStart(2, "0");
+  return {
+    src: `/images/hero/animated/hero-${n}.png`,
+    alt: `Kalero premium air filter — scene ${id}`,
+  };
+});
+
+const AUTO_ADVANCE_MS = 4500;
 
 export function KaleroEverydayHero() {
-  const router = useRouter();
-  const [size, setSize] = useState<string>(STANDARD_SIZES[4]); // 20 × 25 × 1 default
+  const [activeIdx, setActiveIdx] = useState(0);
+  const [reducedMotion, setReducedMotion] = useState(false);
 
-  const [dimA, dimB, dimC] = useMemo(() => {
-    const parts = size.split("×").map((s) => s.trim());
-    return [parts[0] ?? "20", parts[1] ?? "25", parts[2] ?? "1"];
-  }, [size]);
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReducedMotion(mq.matches);
+    const onChange = () => setReducedMotion(mq.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
 
-  const handleShop = () => {
-    const slug = size.replace(/\s×\s/g, "x");
-    router.push(`/shop?size=${encodeURIComponent(slug)}`);
-  };
+  useEffect(() => {
+    if (reducedMotion) return;
+    const id = window.setTimeout(() => {
+      setActiveIdx((i) => (i + 1) % heroFrames.length);
+    }, AUTO_ADVANCE_MS);
+    return () => window.clearTimeout(id);
+  }, [activeIdx, reducedMotion]);
 
   return (
     <section
       aria-labelledby="hero-title"
-      className="relative overflow-hidden bg-white"
+      className="relative isolate h-[calc(100dvh-4rem)] min-h-[560px] w-full overflow-hidden bg-charcoal sm:h-[calc(100dvh-6rem)] lg:h-[calc(100dvh-8rem)]"
     >
-      {/* Iridescent packaging wave band at top */}
-      <IridescentWave className="absolute inset-x-0 top-0 h-40 w-full sm:h-56" />
+      {/* Frame stack — full bleed, absolute, cross-fade on activeIdx */}
+      {heroFrames.map((frame, i) => (
+        <div
+          key={frame.src}
+          className="absolute inset-0 transition-opacity duration-[1200ms] ease-out"
+          style={{ opacity: i === activeIdx ? 1 : 0 }}
+          aria-hidden={i !== activeIdx}
+        >
+          <Image
+            src={frame.src}
+            alt={frame.alt}
+            fill
+            sizes="100vw"
+            className="object-cover"
+            priority={i === 0}
+            loading={i === 0 ? undefined : i === 1 ? "eager" : "lazy"}
+          />
+        </div>
+      ))}
+
+      {/* Bottom gradient wash for legibility */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -left-32 top-24 h-[420px] w-[420px] rounded-full bg-sky-100/60 blur-3xl"
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-[55%] bg-gradient-to-t from-charcoal/85 via-charcoal/50 to-transparent"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-32 top-96 h-[420px] w-[420px] rounded-full bg-iris-soft/40 blur-3xl"
+        className="pointer-events-none absolute inset-y-0 left-0 w-[55%] bg-gradient-to-r from-charcoal/70 via-charcoal/25 to-transparent"
       />
 
-      <div className="container-x relative grid gap-10 pb-14 pt-24 sm:pb-20 sm:pt-32 lg:grid-cols-[1.05fr_1fr] lg:items-center lg:gap-12 lg:pb-24 lg:pt-40">
-        {/* Left column — copy + selector */}
-        <div className="relative z-10">
-          <p className="text-eyebrow font-semibold uppercase tracking-[0.24em] text-iris-deep">
+      {/* Copy overlay — bottom-left */}
+      <div className="container-x relative z-10 flex h-full flex-col justify-end pb-14 sm:pb-16 lg:pb-20">
+        <div className="max-w-2xl text-white">
+          <p className="text-eyebrow font-semibold uppercase tracking-[0.28em] text-sky-300">
             Cleaner Air. Better Living.
           </p>
           <h1
             id="hero-title"
-            className="mt-5 font-display text-[clamp(2.5rem,5.4vw,4.5rem)] font-bold uppercase leading-[0.98] tracking-[-0.02em] text-charcoal text-balance"
+            className="mt-5 font-display text-[clamp(2.5rem,5.6vw,4.75rem)] font-bold uppercase leading-[0.98] tracking-[-0.02em] text-white text-balance"
           >
             The right filter.
             <br />
             The right fit.
             <br />
-            <span className="text-sky-600">Cleaner air.</span>
+            <span className="text-sky-300">Cleaner air.</span>
           </h1>
+          <p className="mt-6 max-w-lg text-base leading-relaxed text-white/85 text-pretty sm:text-lg">
+            Premium replacement air filters made simple. Find your size, choose
+            your filtration level, and get fresh filters delivered when you
+            need them.
+          </p>
 
-          <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs font-medium text-charcoal-mid">
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            <Link
+              href="/find-your-filter"
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-white px-7 text-sm font-semibold text-charcoal transition-colors hover:bg-white/90"
+            >
+              Find My Filter
+              <ArrowRight size={16} strokeWidth={2.25} />
+            </Link>
+            <Link
+              href="/air-filters"
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-full border border-white/40 bg-white/10 px-6 text-sm font-medium text-white backdrop-blur transition-colors hover:bg-white/20"
+            >
+              Shop All Filters
+              <ArrowRight size={16} strokeWidth={2.25} />
+            </Link>
+          </div>
+
+          {/* Trust band */}
+          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs font-medium text-white/85">
             {businessConfig.shippingMessage && (
               <>
-                <span className="flex items-center gap-2 text-sky-700">
-                  <Truck size={14} strokeWidth={2} />
+                <span className="flex items-center gap-2">
+                  <Truck size={14} strokeWidth={2} className="text-sky-300" />
                   {businessConfig.shippingMessage}
                 </span>
                 <span
                   aria-hidden="true"
-                  className="hidden h-1 w-1 rounded-full bg-charcoal/25 sm:inline-block"
+                  className="hidden h-1 w-1 rounded-full bg-white/40 sm:inline-block"
                 />
               </>
             )}
@@ -85,138 +139,29 @@ export function KaleroEverydayHero() {
                   <Star key={i} size={12} fill="#F5B301" stroke="#F5B301" />
                 ))}
               </span>
-              <span className="text-charcoal">
-                <span className="font-semibold">{RATING_VALUE}</span> · {RATING_COUNT}{" "}
-                homes filtered
+              <span className="text-white">
+                <span className="font-semibold">{RATING_VALUE}</span> ·{" "}
+                {RATING_COUNT} homes filtered
               </span>
             </span>
           </div>
-
-          <p className="mt-6 max-w-lg text-base leading-relaxed text-charcoal-mid text-pretty sm:text-lg">
-            Premium replacement air filters made simple. Find your size, choose
-            your filtration level, and get fresh filters delivered when you
-            need them.
-          </p>
-
-          {/* Size selector — reactive */}
-          <div className="mt-8 max-w-xl rounded-2xl bg-white p-5 shadow-card ring-1 ring-sky-100 sm:p-6">
-            <label
-              htmlFor="hero-size"
-              className="text-eyebrow font-semibold text-sky-700"
-            >
-              Choose your filter size
-            </label>
-            <div className="mt-3 flex flex-col gap-3 sm:flex-row sm:items-stretch">
-              <div className="relative flex-1">
-                <select
-                  id="hero-size"
-                  value={size}
-                  onChange={(e) => setSize(e.target.value)}
-                  className="h-12 w-full appearance-none rounded-full border border-sky-200 bg-white px-5 pr-11 text-base font-medium text-charcoal shadow-inner focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-200"
-                >
-                  {STANDARD_SIZES.map((s) => (
-                    <option key={s} value={s}>
-                      {s}
-                    </option>
-                  ))}
-                  <option value="custom">Custom size…</option>
-                </select>
-                <span
-                  aria-hidden="true"
-                  className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-sky-600"
-                >
-                  ▾
-                </span>
-              </div>
-              <button
-                type="button"
-                onClick={handleShop}
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-sky-500 px-6 text-sm font-semibold text-white transition-colors hover:bg-sky-600 focus-visible:outline-2 focus-visible:outline-sky-700 sm:px-7"
-              >
-                Shop this size
-                <ArrowRight size={16} strokeWidth={2.25} />
-              </button>
-            </div>
-            <p className="mt-3 text-xs text-charcoal-light">
-              Don&apos;t know your size?{" "}
-              <Link href="/find-your-filter" className="link-underline text-sky-700">
-                Take the two-minute quiz
-              </Link>
-              .
-            </p>
-          </div>
-
-          {/* Feature icon row */}
-          <ul className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
-            {featureChips.map(({ Icon, label }) => (
-              <li
-                key={label}
-                className="flex items-center gap-2.5 rounded-full bg-white/70 px-3 py-2 text-xs font-medium text-charcoal ring-1 ring-sky-100 backdrop-blur"
-              >
-                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-sky-100 text-sky-600">
-                  <Icon size={12} strokeWidth={2} />
-                </span>
-                <span className="truncate">{label}</span>
-              </li>
-            ))}
-          </ul>
         </div>
 
-        {/* Right column — reactive size hero graphic */}
-        <div className="relative z-10">
-          <SizeShowcase dimA={dimA} dimB={dimB} dimC={dimC} />
+        {/* Progress dots */}
+        <div className="absolute bottom-6 right-6 z-10 hidden gap-1.5 sm:flex">
+          {heroFrames.map((f, i) => (
+            <button
+              key={f.src}
+              type="button"
+              aria-label={`Show frame ${i + 1}`}
+              onClick={() => setActiveIdx(i)}
+              className={`h-1.5 rounded-full transition-all ${
+                i === activeIdx ? "w-6 bg-white" : "w-1.5 bg-white/40 hover:bg-white/60"
+              }`}
+            />
+          ))}
         </div>
       </div>
     </section>
   );
 }
-
-/* ------------------------------------------------------------------ */
-
-function SizeShowcase({
-  dimA,
-  dimB,
-  dimC,
-}: {
-  dimA: string;
-  dimB: string;
-  dimC: string;
-}) {
-  return (
-    <div className="relative mx-auto flex w-full max-w-lg flex-col items-center gap-6 lg:items-end">
-      {/* MERV shield */}
-      <MervShield rating="8·11·13" label="Standard" size="md" />
-      {/* Giant reactive size numerals */}
-      <div
-        aria-hidden="true"
-        className="relative flex items-end justify-center gap-2 font-display font-bold leading-none text-transparent"
-        style={{
-          backgroundImage:
-            "linear-gradient(135deg, #3AA8E2 0%, #6DCFA7 50%, #8A6FD1 100%)",
-          WebkitBackgroundClip: "text",
-          backgroundClip: "text",
-        }}
-      >
-        <span className="text-[clamp(6rem,15vw,12rem)] tracking-tight">
-          {dimA}
-        </span>
-        <span className="pb-4 text-[clamp(2rem,4vw,3.5rem)] font-medium text-charcoal/40">
-          ×
-        </span>
-        <span className="text-[clamp(6rem,15vw,12rem)] tracking-tight">
-          {dimB}
-        </span>
-        <span className="pb-4 text-[clamp(2rem,4vw,3.5rem)] font-medium text-charcoal/40">
-          ×
-        </span>
-        <span className="text-[clamp(6rem,15vw,12rem)] tracking-tight">
-          {dimC}
-        </span>
-      </div>
-      <p className="text-xs font-semibold uppercase tracking-[0.24em] text-charcoal-mid">
-        Standard HVAC · Actual size varies slightly
-      </p>
-    </div>
-  );
-}
-
